@@ -1,11 +1,12 @@
-@media (max-width: 1100px){
-    .navbar-center, .navbar-center > *{
+@media (min-width: 0px) and (max-width: 750px){
+    .navbar-center,.navbar-center>* {
         flex-direction: column;
     }
-    .navbar-center{
+    
+    .navbar-center {
         padding-top: 1.5em;
         background-color: white;
-        width: 35%;
+        width: 80%;
         height: 100vh;
         left: 0;
         top: 0;
@@ -17,40 +18,55 @@
         z-index: 2;
         box-sizing: border-box;
     }
-
-    .navbar button{
+    
+    .navbar button {
         position: static;
         display: block;
     }
-
-    .navbar section{
+    
+    .navbar section {
         width: 100%;
     }
-
-    .navbar-links{
+    
+    .navbar-links {
         width: 70%;
         padding-bottom: 1em;
         text-align: center;
         border-bottom: 1px solid #bfbfbf;
     }
-
-    .profile-icon div{
+    
+    .profile-icon div {
         border: none;
     }
-
-    .profile-icon{
+    
+    .profile-icon {
         position: absolute;
         top: 2.5em;
         border-bottom: none;
     }
 
-    .closeMenu {
-        display: block;
+        /*site intro */
+    .site-intro{
+        padding: 5em 2em;
+    }
+    .site-intro-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    /*site intro*/
-    .site-intro {
-        padding: 13em 5em;
+    .site-intro h1{
+        text-align: center;
     }
-  
+    
+    .intro-link-buttons-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 2em;
+    }
+    
+    .intro-link-buttons {
+        width: 100%;
+    }
 }

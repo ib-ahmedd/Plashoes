@@ -1,6 +1,6 @@
 const Links = ({ text }) => {
   return (
-    <div>
+    <div className="navbar-links">
       <a href="/">{text}</a>
     </div>
   );
