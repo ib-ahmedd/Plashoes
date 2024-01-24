@@ -1,6 +1,6 @@
-import CartIcon from "./sub-components/navbar/CartIcon";
-import Links from "./sub-components/navbar/Links";
-import Logo from "./sub-components/navbar/Logo";
+import CartIcon from "./sub-components/CartIcon";
+import Links from "./sub-components/Links";
+import Logo from "./sub-components/Logo";
 import React, { useState } from "react";
 const NavBar = () => {
   const [isMenuOpen, setMenuOpen] = useState({});
@@ -37,13 +37,13 @@ const NavBar = () => {
           setCloseMenu({});
         }}
       ></div>
-      <Logo />
+      <Logo source={"./images/navbar/site-logo.svg"} detail={"exshoes logo"} />
       <div className="navbar-center widthh" style={isMenuOpen}>
         <section className="navbar-left">
           <Links text={"MEN"} />
           <Links text={"WOMEN"} />
-          <Links text={"KIDS"} />
           <Links text={"COLLECTION"} />
+          <Links text={"LOOKBOOK"} />
           <Links text={"SALE"} />
         </section>
         <section className="navbar-right">

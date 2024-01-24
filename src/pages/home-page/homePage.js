@@ -1,3 +1,4 @@
+import HomePageFirstBody from "./components/HomePageFirstBody";
 import NavBar from "./components/NavBar";
 import SiteIntro from "./components/SiteIntro";
 const HomePage = () => {
@@ -5,6 +6,7 @@ const HomePage = () => {
     <div className="home-page">
       <NavBar />
       <SiteIntro />
+      <HomePageFirstBody />
     </div>
   );
 };

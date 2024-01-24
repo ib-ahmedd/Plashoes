@@ -1,4 +1,4 @@
-import Intro from "./sub-components/siteIntro/Intro";
+import Intro from "./sub-components/Intro";
 
 const SiteIntro = () => {
   return (

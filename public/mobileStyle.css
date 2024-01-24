@@ -1,4 +1,7 @@
 @media (min-width: 0px) and (max-width: 750px){
+    body{
+        margin: 0;
+    }
     .navbar-center,.navbar-center>* {
         flex-direction: column;
     }
@@ -10,7 +13,7 @@
         height: 100vh;
         left: 0;
         top: 0;
-        position: absolute;
+        position: fixed;
         justify-content: space-around;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         transform: translateX(-150%);
@@ -68,5 +71,27 @@
     
     .intro-link-buttons {
         width: 100%;
+    }
+
+    /* home page first body */
+    .firstbody-logos-container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .firstbody-logos-container span{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .firstbody-logos-container .logo{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .firstbody-logos-container img{
+        width: 60%;
     }
 }

@@ -1,8 +1,13 @@
 body{
     margin: 0 3em;
-    font-family: "Ubuntu", sans-serif;
-    padding: 0;
+    font-family: "Roboto", sans-serif;
     box-sizing: border-box;
+}
+
+.home-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 button{
@@ -33,7 +38,7 @@ button{
 }
 
 .navbar a{
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
     text-decoration: none;
     color: #ababab;
@@ -43,8 +48,8 @@ button{
     color: #555;
 }
 
-.navbar-logo img{
-    width: 10em ;
+.navbar > div > img{
+    width: 9em ;
 }
 
 .navbar button{
@@ -64,23 +69,23 @@ button{
     padding: 13em 10em;
     box-sizing: border-box;
     position: relative;
-    background-image: url("./images/site intro/Large shoe.jpg");
+    background-image: url("./images/site intro/recycled-shoe-store-hero-image-bg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .site-intro-right{
-    width: 30em;
+    width: 50%;
 }
 
-.site-intro h1, p{  
+.site-intro h1, .site-intro p{  
     color: white;
 }
 
 .site-intro h1{
-    font-size: 4em;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    font-size: 5em;
+    margin: 0.5em 0;
 }
 .site-intro p{
     font-size: 1.2em;
@@ -102,9 +107,90 @@ button{
     color: #555;
     background-color: white;
     border-radius: 2px;
+    font-weight: bold;
 }
 
 .intro-link-buttons:hover{
     background-color: #555;
     color: white;
+}
+
+/* home page first body */
+
+.homepage-firstbody{
+    width: 80%;
+}
+
+.firstbody-logos-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 0;
+    border-bottom: 1px solid #bababa;
+}
+
+.firstbody-logos-container h3{
+    width: 13%;
+    font-size: 1em;
+    flex-shrink: 0;
+}
+
+.firstbody-logos-container span {
+    display: flex;
+}
+
+.firstbody-logos-container .logo{
+    width: 15%;
+}
+
+.firstbody-logos-container img{
+    width: 100%;
+}
+
+.homepage-brief-about{
+    padding: 7em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.homepage-brief-about .image{
+    width: 50%;
+}
+
+.homepage-brief-about > div{
+    width: 50%;
+    box-sizing: border-box;
+    padding: 2em;
+}
+
+.homepage-brief-about h2{
+    color: #f6aa28;
+    font-size: 1.1em;
+    font-weight: lighter;
+}
+
+.homepage-brief-about h3{
+    font-size: 3em;
+    font-weight: lighter;
+}
+
+.homepage-brief-about p{
+    font-size: 1.3em;
+    color: #999;
+}
+
+.homepage-brief-about a{
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid #f6aa28;
+    color: #222;
+    padding: .3em 0;
+}
+
+.homepage-brief-about a:hover{
+    border-bottom: 2px solid black;
+}
+.homepage-brief-about img{
+    width: 100%;
 }
