@@ -1,6 +1,6 @@
 const LinkButton = ({ text }) => {
   return (
-    <a href="/" className="intro-link-buttons">
+    <a href="/" className="link-buttons">
       {text}
     </a>
   );

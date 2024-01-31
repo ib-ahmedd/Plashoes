@@ -1,15 +1,15 @@
 import Logo from "./sub-components/Logo";
 import Image from "./sub-components/Image";
-const Recycle = () => {
+const HomeRecycle = () => {
   return (
-    <section className="recycle">
+    <section className="home-recycle">
       <span>
         <p>
           Eu eget felis erat mauris aliquam mattis lacus, arcu leo aliquam
           sapien pulvinar laoreet vulputate sem aliquet phasellus egestas felis,
           est, vulputate morbi massa mauris vestibulum dui odio.
         </p>
-        <div className="recycle-logo-container">
+        <div className="home-recycle-logo-container">
           <Logo
             source={"./images/recycle/recycled-shoe-badge-1.svg"}
             detail={"logo"}
@@ -34,4 +34,4 @@ const Recycle = () => {
   );
 };
 
-export default Recycle;
+export default HomeRecycle;

@@ -1,5 +1,5 @@
 import CartIcon from "./sub-components/CartIcon";
-import Links from "./sub-components/Links";
+import Link from "./sub-components/Link";
 import Logo from "./sub-components/Logo";
 import React, { useState } from "react";
 const NavBar = () => {
@@ -40,17 +40,17 @@ const NavBar = () => {
       <Logo source={"./images/navbar/site-logo.svg"} detail={"exshoes logo"} />
       <div className="navbar-center widthh" style={isMenuOpen}>
         <section className="navbar-left">
-          <Links text={"MEN"} />
-          <Links text={"WOMEN"} />
-          <Links text={"COLLECTION"} />
-          <Links text={"LOOKBOOK"} />
-          <Links text={"SALE"} />
+          <Link text={"MEN"} />
+          <Link text={"WOMEN"} />
+          <Link text={"COLLECTION"} />
+          <Link text={"LOOKBOOK"} />
+          <Link text={"SALE"} />
         </section>
         <section className="navbar-right">
-          <Links text={"OUR STORY"} />
-          <Links text={"CONTACT"} />
+          <Link text={"OUR STORY"} />
+          <Link text={"CONTACT"} />
           <span className="profile-icon">
-            <Links
+            <Link
               text={
                 <img
                   src="./images/navbar/profile icon.png"

@@ -1,11 +1,11 @@
 import HeadingAndButton from "./sub-components/HeadingAndButton";
-const Shop = () => {
+const HomeShop = () => {
   return (
-    <section className="shop">
+    <section className="home-shop">
       <HeadingAndButton heading={"MEN"} button={"SHOP MEN"} />
       <HeadingAndButton heading={"WOMEN"} button={"SHOP WOMEN"} />
     </section>
   );
 };
 
-export default Shop;
+export default HomeShop;

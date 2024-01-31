@@ -1,5 +1,5 @@
 @media (max-width: 1100px){
-    body{
+    .home-body{
         margin: 0;
     }
 
@@ -36,7 +36,7 @@
         width: 100%;
     }
 
-    .navbar-links{
+    .navbar .link{
         width: 70%;
         padding-bottom: 1em;
         text-align: center;
@@ -135,7 +135,7 @@
     /* shop men shop women section */
     /* shop men shop women section */
 
-    .shop{
+    .home-shop{
         gap: 0;
     }
     .heading-button{
@@ -148,14 +148,54 @@
     /* recycle section */
     /* recycle section */
 
-    .recycle{
+    .home-recycle{
         padding: 2em 2em;
     }
 
-    .recycle span{
+    .home-recycle span{
         padding: 0;
         gap: 2em;
     }
 
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+
+    .footer-better{
+        padding: 8em 0;
+    }
     
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    .footer > div{
+        width: 100%;
+    }
+
+    /* footer links */
+    /* footer links */
+    /* footer links */
+    /* footer links */
+    /* footer links */
+    /* footer links */
+
+    .footer-links{
+        flex-wrap: wrap;
+        padding: 0 2em;
+    }
+
+   .footer-links .heading-content{
+        width: 45%;
+    }
+    .footer-links > div{
+        width: 45%;
+    }
+
+    .foot-end{
+        padding: 2em 2em;
+    }
 }

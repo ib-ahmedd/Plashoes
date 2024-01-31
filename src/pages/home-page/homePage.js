@@ -2,19 +2,23 @@ import HomePageAbout from "./components/HomePageAbout";
 import HomeShoesMade from "./components/HomeShoesMade";
 import NavBar from "./components/NavBar";
 import SiteIntro from "./components/SiteIntro";
-import Shop from "./components/Shop";
-import Recycle from "./components/Recycle";
-import Customers from "./components/Customers";
+import HomeShop from "./components/HomeShop";
+import HomeRecycle from "./components/HomeRecycle";
+import HomeCustomers from "./components/HomeCustomers";
+import Footer from "./components/Footer";
 const HomePage = () => {
   return (
     <div className="home-page">
       <NavBar />
-      <SiteIntro />
-      <HomePageAbout />
-      <HomeShoesMade />
-      <Shop />
-      <Recycle />
-      <Customers />
+      <main className="home-body">
+        <SiteIntro />
+        <HomePageAbout />
+        <HomeShoesMade />
+        <HomeShop />
+        <HomeRecycle />
+        <HomeCustomers />
+      </main>
+      <Footer />
     </div>
   );
 };

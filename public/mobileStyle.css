@@ -37,7 +37,7 @@
         width: 100%;
     }
     
-    .navbar-links {
+    .navbar .link {
         width: 70%;
         padding-bottom: 1em;
         text-align: center;
@@ -84,7 +84,7 @@
         gap: 2em;
     }
     
-    .intro-link-buttons {
+    .site-intro .link-buttons {
         width: 100%;
     }
 
@@ -149,7 +149,7 @@
     /* shop men shop women section */
     /* shop men shop women section */
 
-    .shop{
+    .home-shop{
         flex-direction: column;
     }
 
@@ -163,11 +163,11 @@
     /* recycle section */
     /* recycle section */
 
-    .recycle{
+    .home-recycle{
         flex-direction: column-reverse;
     }
 
-    .recycle > * {
+    .home-recycle > * {
         width: 100%;
     }
 
@@ -177,12 +177,82 @@
     /* home page customer reviews */
     /* home page customer reviews */
 
-    .customers > span{
+    .home-customers > span{
         flex-direction: column;
         width: 100%;
         align-items: center;
     }
-    .review{
+    .home-customers .review{
         width: 90%;
+    }
+
+    
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+
+    .footer-better {
+        padding: 5em 0;
+    }
+
+    .footer-better h2{
+        font-size: 2em;
+    }
+    .footer-better .head-info-buttons span{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-better span > a{
+        width: 90%;
+    }
+
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    .foot-icons{
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0;
+    }
+
+    /* footer links */
+    /* footer links */
+    /* footer links */
+    /* footer links */
+    /* footer links */
+
+    .footer-links{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+.footer-links .heading-content{
+    width: 100%;
+}
+
+    .footer-links > div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-links .head-and-links span a{
+        justify-content: center;
+    }
+
+    .foot-end{
+        flex-direction: column;
+        margin-top: 3em;
+        text-align: center ;
     }
 }
