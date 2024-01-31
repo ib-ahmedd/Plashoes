@@ -1,17 +1,17 @@
 import logosArray from "../../../firstBodyLogosArray";
 import Logo from "./sub-components/Logo";
 import Image from "./sub-components/Image";
-const HomePageFirstBody = () => {
+const HomePageAbout = () => {
   const logosDisplay = logosArray.map((logo) => (
     <Logo key={logo.id} {...logo} />
   ));
   return (
-    <section className="homepage-firstbody">
-      <div className="firstbody-logos-container">
+    <section className="homepage-about">
+      <div className="about-logos-container">
         <h3>AS SEEN IN:</h3>
         <span>{logosDisplay}</span>
       </div>
-      <div className="homepage-brief-about">
+      <div className="homepage-about-paragraph">
         <Image
           source={
             "./images/home page first body/recycled-shoe-store-home-about-image.jpg"
@@ -33,4 +33,4 @@ const HomePageFirstBody = () => {
   );
 };
 
-export default HomePageFirstBody;
+export default HomePageAbout;

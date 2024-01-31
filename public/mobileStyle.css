@@ -2,6 +2,11 @@
     body{
         margin: 0;
     }
+
+    .navbar{
+        padding: 0 1em;
+    }
+
     .navbar-center,.navbar-center>* {
         flex-direction: column;
     }
@@ -20,8 +25,9 @@
         transition: .3s;
         z-index: 2;
         box-sizing: border-box;
+        flex-basis: 0;
     }
-    
+
     .navbar button {
         position: static;
         display: block;
@@ -48,7 +54,16 @@
         border-bottom: none;
     }
 
-        /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+
     .site-intro{
         padding: 5em 2em;
     }
@@ -74,24 +89,100 @@
     }
 
     /* home page first body */
-    .firstbody-logos-container{
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+
+    .about-logos-container{
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
     }
-    .firstbody-logos-container span{
+    .about-logos-container span{
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .firstbody-logos-container .logo{
+    .about-logos-container .logo{
         width: 50%;
         display: flex;
         justify-content: center;
     }
 
-    .firstbody-logos-container img{
+    .about-logos-container img{
         width: 60%;
+    }
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+
+    .shoe-made-container{
+        flex-direction: column;
+    }
+
+    .shoe-made-container span{
+        width: 100%;
+    }
+
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+
+    .shop{
+        flex-direction: column;
+    }
+
+    .heading-button{
+        width: 100%;
+    }
+
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+
+    .recycle{
+        flex-direction: column-reverse;
+    }
+
+    .recycle > * {
+        width: 100%;
+    }
+
+    /* home page customer reviews */
+    /* home page customer reviews */
+    /* home page customer reviews */
+    /* home page customer reviews */
+    /* home page customer reviews */
+
+    .customers > span{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .review{
+        width: 90%;
     }
 }

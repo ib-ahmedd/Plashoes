@@ -1,7 +1,20 @@
+:root{
+    --orange: #f6aa28;
+    --black: #262b2c;
+    --grey: #a0a5a7;
+    --light-grey: #f1f1ef;
+
+    --P-font-size: 1.2em;
+}
 body{
     margin: 0 3em;
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
+    color: var(--black);
+}
+
+p{
+    line-height: 2em;
 }
 
 .home-page{
@@ -41,7 +54,7 @@ button{
     font-size: 0.9em;
     font-weight: bold;
     text-decoration: none;
-    color: #ababab;
+    color: var(--grey);
 }
 
 .navbar a:hover{
@@ -64,6 +77,16 @@ button{
 
 
 /*site intro*/
+/*site intro*/
+/*site intro*/
+/*site intro*/
+/*site intro*/
+/*site intro*/
+/*site intro*/
+/*site intro*/
+/*site intro*/
+/*site intro*/
+
 .site-intro{
     width: 100%;
     padding: 13em 10em;
@@ -88,7 +111,7 @@ button{
     margin: 0.5em 0;
 }
 .site-intro p{
-    font-size: 1.2em;
+    font-size: var(--P-font-size);
 }
 
 .intro-link-buttons-container{
@@ -115,82 +138,324 @@ button{
     color: white;
 }
 
-/* home page first body */
+/* home page about*/
+/* home page about*/
+/* home page about*/
+/* home page about*/
+/* home page about*/
+/* home page about*/
+/* home page about*/
+/* home page about*/
+/* home page about*/
+/* home page about*/
 
-.homepage-firstbody{
+.homepage-about{
     width: 80%;
 }
 
-.firstbody-logos-container{
+.about-logos-container{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2em 0;
-    border-bottom: 1px solid #bababa;
+    border-bottom: 1px solid var(--grey);
 }
 
-.firstbody-logos-container h3{
+.about-logos-container h3{
     width: 13%;
     font-size: 1em;
     flex-shrink: 0;
 }
 
-.firstbody-logos-container span {
+.about-logos-container span {
     display: flex;
 }
 
-.firstbody-logos-container .logo{
+.about-logos-container .logo{
     width: 15%;
 }
 
-.firstbody-logos-container img{
+.about-logos-container img{
     width: 100%;
 }
 
-.homepage-brief-about{
+.homepage-about-paragraph{
     padding: 7em 0;
     display: flex;
     justify-content: space-between;
 }
 
-.homepage-brief-about .image{
+.homepage-about-paragraph .image{
     width: 50%;
 }
 
-.homepage-brief-about > div{
+.homepage-about-paragraph > div{
     width: 50%;
     box-sizing: border-box;
     padding: 2em;
 }
 
-.homepage-brief-about h2{
-    color: #f6aa28;
+.homepage-about-paragraph h2{
+    color: var(--orange);
     font-size: 1.1em;
     font-weight: lighter;
 }
 
-.homepage-brief-about h3{
+.homepage-about-paragraph h3{
     font-size: 3em;
     font-weight: lighter;
 }
 
-.homepage-brief-about p{
-    font-size: 1.3em;
-    color: #999;
+.homepage-about-paragraph p{
+    font-size: var(--P-font-size);
+    color: var(--grey);
 }
 
-.homepage-brief-about a{
+.homepage-about-paragraph a{
     font-weight: bold;
     text-decoration: none;
-    border-bottom: 2px solid #f6aa28;
+    border-bottom: 2px solid var(--orange);
     color: #222;
     padding: .3em 0;
 }
 
-.homepage-brief-about a:hover{
+.homepage-about-paragraph a:hover{
     border-bottom: 2px solid black;
 }
-.homepage-brief-about img{
+.homepage-about-paragraph img{
     width: 100%;
+}
+
+/* home page how shoes are made */
+/* home page how shoes are made */
+/* home page how shoes are made */
+/* home page how shoes are made */
+/* home page how shoes are made */
+/* home page how shoes are made */
+/* home page how shoes are made */
+/* home page how shoes are made */
+/* home page how shoes are made */
+/* home page how shoes are made */
+
+
+.home-shoe-made{
+    width: 100%;
+    background-color: var(--light-grey);
+    padding: 5em 10em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-shoe-made > :first-child{
+    text-align: center;
+    width: 70%;
+}
+
+.home-shoe-made h2{
+    font-size: 3em;
+    font-weight: lighter;
+}
+
+.home-shoe-made p {
+    color: var(--grey);
+    font-size: var(--P-font-size);
+}
+
+.shoe-made-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.shoe-made-container span{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    text-align: right;
+}
+
+.shoe-made-container .image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shoe-made-container img{
+    width: 90%;
+}
+
+.shoe-made-container > :first-child{
+    text-align: left;
+}
+
+
+#info-num {
+    font-size: 1em;
+    color: var(--orange);
+}
+
+.info h3{
+    font-size: 1.7em;
+}
+
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+/* shop men shop women section */
+
+.shop{
+    width: 100%;
+    display: flex;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+.heading-button{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15em 0;
+    background-image: url(./images/shop/recycled-shoe-store-shop-women-image-tumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.shop > :first-child{
+    background-image: url(./images/shop/recycled-shoe-store-shop-men-image-thumbnail.jpg);
+}
+
+.shop h2{
+    color: white;
+    font-size: 3em;
+}
+
+.shop a{
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    border: 2px solid white;
+    width: 10em;
+    padding: 1em 0;
+    text-align: center;
+}
+
+/* recycle section */
+/* recycle section */
+/* recycle section */
+/* recycle section */
+/* recycle section */
+/* recycle section */
+/* recycle section */
+/* recycle section */
+/* recycle section */
+/* recycle section */
+
+.recycle{
+    background-color: var(--light-grey);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5em 10%;
+    box-sizing: border-box;
+}
+
+.recycle > *{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.recycle span{
+    box-sizing: border-box;
+    padding: 3em;
+    flex-direction: column;
+    font-size: var(--P-font-size);
+    color: var(--grey);
+    gap: 5em;
+    line-height: 2em;
+}
+
+.recycle span > div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.recycle .image img{
+    border-radius: 50%;
+    border: 2px dashed var(--black);
+}
+
+/* home page customer reviews */
+/* home page customer reviews */
+/* home page customer reviews */
+/* home page customer reviews */
+/* home page customer reviews */
+/* home page customer reviews */
+/* home page customer reviews */
+/* home page customer reviews */
+/* home page customer reviews */
+/* home page customer reviews */
+
+.customers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4em;
+    width: 100%;
+}
+
+.customers h2{
+    font-size: 2.5em;
+}
+.customers > span{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap: 1em;
+    margin: 2em 0;
+}
+
+.customers > p {
+   color: var(--grey);
+   font-weight: bold
+}
+
+.review{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d7d7d7;
+    width: 33%;
+    padding: 2em 2em;
+    box-sizing: border-box;
+}
+
+.review > p {
+    font-size: var(--P-font-size);
+    font-weight: bold;
+}
+
+.review img{
+    border-radius: 50%;
+}
+
+.review span{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.review span p{
+    color: var(--grey);
 }

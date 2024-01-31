@@ -2,8 +2,13 @@
     body{
         margin: 0;
     }
+
+    .navbar{
+        padding: 0 2em;
+    }
     .navbar-center, .navbar-center > *{
         flex-direction: column;
+        flex-basis: 0;
     }
     .navbar-center{
         padding-top: 1.5em;
@@ -19,6 +24,7 @@
         transition: .3s;
         z-index: 2;
         box-sizing: border-box;
+        flex-basis: 0;
     }
 
     .navbar button{
@@ -35,6 +41,7 @@
         padding-bottom: 1em;
         text-align: center;
         border-bottom: 1px solid #bfbfbf;
+        flex-basis: 0;
     }
 
     .profile-icon div{
@@ -52,6 +59,12 @@
     }
 
     /*site intro*/
+    /*site intro*/
+    /*site intro*/
+    /*site intro*/
+    /*site intro*/
+
+
     .site-intro {
         padding: 13em 5em;
     }
@@ -65,32 +78,84 @@
     }
 
     /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
     
-    .homepage-firstbody {
+    .homepage-about {
         width: 100%;
     }
 
-    .firstbody-logos-container{
+    .about-logos-container{
         flex-direction: column;
         align-items: center;
     }
 
-    .firstbody-logos-container h3{
+    .about-logos-container h3{
         width: 100%;
         text-align: center;
     }
     
 
-    .homepage-brief-about{
+    .homepage-about-paragraph{
         flex-direction: column;
     }
     
-    .homepage-brief-about .image {
+    .homepage-about-paragraph .image {
         width: 100%;
     }
 
-    .homepage-brief-about > div {
+    .homepage-about-paragraph > div {
         width: 100%;
         flex-direction: column;
     }
+
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+
+    .home-shoe-made{
+        padding: 5em 3em;
+    }
+
+    .home-shoe-made > :first-child{
+        width: 100%;
+    }
+
+    .shoe-made-container span{
+        width: 30%;
+    }
+
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+
+    .shop{
+        gap: 0;
+    }
+    .heading-button{
+        padding: 4em 0;
+    }
+
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+
+    .recycle{
+        padding: 2em 2em;
+    }
+
+    .recycle span{
+        padding: 0;
+        gap: 2em;
+    }
+
+    
 }
