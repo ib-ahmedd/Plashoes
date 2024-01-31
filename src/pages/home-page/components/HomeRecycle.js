@@ -1,5 +1,5 @@
-import Logo from "./sub-components/Logo";
-import Image from "./sub-components/Image";
+import Logo from "../../../components/Logo";
+import Image from "../../../components/Image";
 const HomeRecycle = () => {
   return (
     <section className="home-recycle">
@@ -11,22 +11,22 @@ const HomeRecycle = () => {
         </p>
         <div className="home-recycle-logo-container">
           <Logo
-            source={"./images/recycle/recycled-shoe-badge-1.svg"}
+            source={"./images/home-page/recycled-shoe-badge-1.svg"}
             detail={"logo"}
           />
           <Logo
-            source={"./images/recycle/recycled-shoe-badge-2.svg"}
+            source={"./images/home-page/recycled-shoe-badge-2.svg"}
             detail={"logo"}
           />
           <Logo
-            source={"./images/recycle/recycled-shoe-badge-3.svg"}
+            source={"./images/home-page/recycled-shoe-badge-3.svg"}
             detail={"logo"}
           />
         </div>
       </span>
       <Image
         source={
-          "./images/recycle/recycled-shoe-store-recycled-circle-iamge.jpg"
+          "./images/home-page/recycled-shoe-store-recycled-circle-iamge.jpg"
         }
         alter={"round recycle image"}
       />

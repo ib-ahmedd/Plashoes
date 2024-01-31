@@ -1,6 +1,6 @@
-import HeadLinks from "./sub-components/HeadLinks";
-import footerLinksArray from "../../../footerLinksArray";
-import HeadingContent from "./sub-components/HeadingContent";
+import HeadLinks from "../../../components/HeadLinks";
+import footerLinksArray from "../../../arrays/footerLinksArray";
+import HeadingContent from "../../../components/HeadingContent";
 
 const FootLinks = () => {
   return (

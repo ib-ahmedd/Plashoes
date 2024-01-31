@@ -1,7 +1,11 @@
-import CartIcon from "./sub-components/CartIcon";
-import Link from "./sub-components/Link";
-import Logo from "./sub-components/Logo";
+import CartIcon from "./components/CartIcon";
+import Link from "../../components/Link";
+import Logo from "../../components/Logo";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 const NavBar = () => {
   const [isMenuOpen, setMenuOpen] = useState({});
   const [closeMenu, setCloseMenu] = useState({});
@@ -22,12 +26,8 @@ const NavBar = () => {
 
   return (
     <div className="navbar">
-      <button onClick={openMenu}>
-        <img
-          src="./images/navbar/menu icon.png"
-          alt="menu icon"
-          width={"30em"}
-        />
+      <button onClick={openMenu} className="navbar-button">
+        <FontAwesomeIcon icon={faBars} />
       </button>
       <div
         className="closeMenu"
@@ -37,7 +37,10 @@ const NavBar = () => {
           setCloseMenu({});
         }}
       ></div>
-      <Logo source={"./images/navbar/site-logo.svg"} detail={"exshoes logo"} />
+      <Logo
+        source={"./images/navbar/navbar-site-logo.svg"}
+        detail={"exshoes logo"}
+      />
       <div className="navbar-center widthh" style={isMenuOpen}>
         <section className="navbar-left">
           <Link text={"MEN"} />
@@ -50,19 +53,11 @@ const NavBar = () => {
           <Link text={"OUR STORY"} />
           <Link text={"CONTACT"} />
           <span className="profile-icon">
-            <Link
-              text={
-                <img
-                  src="./images/navbar/profile icon.png"
-                  alt="profile icon"
-                  width={"30em"}
-                />
-              }
-            />
+            <Link text={<FontAwesomeIcon icon={faUser} />} />
           </span>
         </section>
       </div>
-      <CartIcon />
+      <CartIcon icon={faCartShopping} />
     </div>
   );
 };

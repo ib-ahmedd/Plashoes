@@ -1,6 +1,6 @@
-import logosArray from "../../../firstBodyLogosArray";
-import Logo from "./sub-components/Logo";
-import Image from "./sub-components/Image";
+import logosArray from "../../../arrays/firstBodyLogosArray";
+import Logo from "../../../components/Logo";
+import Image from "../../../components/Image";
 const HomePageAbout = () => {
   const logosDisplay = logosArray.map((logo) => (
     <Logo key={logo.id} {...logo} />
@@ -12,12 +12,7 @@ const HomePageAbout = () => {
         <span>{logosDisplay}</span>
       </div>
       <div className="homepage-about-paragraph">
-        <Image
-          source={
-            "./images/home page first body/recycled-shoe-store-home-about-image.jpg"
-          }
-          alter={"shoe"}
-        />
+        <Image source={"./images/home-page/about-pic.jpg"} alter={"shoe"} />
         <div>
           <h2>ABOUT US</h2>
           <h3>Selected materials designed for comfort and sustainability</h3>

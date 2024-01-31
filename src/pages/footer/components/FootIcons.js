@@ -1,4 +1,4 @@
-import FontDesc from "./sub-components/FontDesc";
+import FontDesc from "../../../components/FontDesc";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faArrowsSpin } from "@fortawesome/free-solid-svg-icons";

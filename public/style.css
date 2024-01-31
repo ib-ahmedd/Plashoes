@@ -83,6 +83,10 @@ button{
     display: none;
 }
 
+.profile-icon a, .cart-icon a, .navbar-button{
+    font-size: 1.3em;
+    color: var(--black);
+}
 
 /*site intro*/
 /*site intro*/
@@ -100,7 +104,7 @@ button{
     padding: 13em 10em;
     box-sizing: border-box;
     position: relative;
-    background-image: url("./images/site intro/recycled-shoe-store-hero-image-bg.jpg");
+    background-image: url("./images/home-page/home-site-intro.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -334,14 +338,14 @@ button{
     align-items: center;
     justify-content: center;
     padding: 15em 0;
-    background-image: url(./images/shop/recycled-shoe-store-shop-women-image-tumbnail.jpg);
+    background-image: url(./images/home-page/shop-women.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .home-shop > :first-child{
-    background-image: url(./images/shop/recycled-shoe-store-shop-men-image-thumbnail.jpg);
+    background-image: url(./images/home-page/shop-men.jpg);
 }
 
 .home-shop h2{
@@ -497,7 +501,7 @@ button{
     align-items: center;
     padding: 13em 0;
     text-align: center;
-    background-image: url("./images/better/recycled-shoe-store-cta-image-bg.jpg");
+    background-image: url("./images/footer/better-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -553,7 +557,7 @@ button{
     display: flex;
     justify-content: space-evenly;
     padding: 2em 0;
-    border-bottom: 1px solid var(--grey);
+    border-bottom: 1px solid #d5d5d5;
 }
 
 .foot-icons .icon-desc{

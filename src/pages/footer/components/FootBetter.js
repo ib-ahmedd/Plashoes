@@ -1,4 +1,4 @@
-import HeadInfoButtons from "./sub-components/HeadInfoButtons";
+import HeadInfoButtons from "../../../components/HeadInfoButtons";
 
 const FootBetter = () => {
   return (

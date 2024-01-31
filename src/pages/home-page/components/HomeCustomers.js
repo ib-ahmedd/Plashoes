@@ -1,5 +1,5 @@
-import customerReview from "../../../cutomerReviews";
-import Review from "./sub-components/Review";
+import customerReview from "../../../arrays/cutomerReviews";
+import Review from "../../../components/Review";
 const HomeCustomers = () => {
   const reviewsDisplay = customerReview.map((item) => (
     <Review key={item.id} {...item} />

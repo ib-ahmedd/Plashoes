@@ -1,38 +1,12 @@
-import Info from "./sub-components/Info";
-import Image from "./sub-components/Image";
+import Info from "../../../components/Info";
+import Image from "../../../components/Image";
+import infoArray from "../../../arrays/infoArray";
 
 const HomeShoesMade = () => {
-  const InfoArray = [
-    [
-      {
-        id: "01",
-        heading: "Pet canvas",
-        info: "Morbi eget bibendum sit adipiscing morbi ac nisl vitae maecenas nulla cursus",
-      },
-      {
-        id: "02",
-        heading: "Algae foam + vegan glue",
-        info: "Enim tincidunt donec vulputate magna pharetra mattis in",
-      },
-    ],
-    [
-      {
-        id: "03",
-        heading: "Organic cotton",
-        info: "A vel ipsum, sed dignissim elementum ultrices amet",
-      },
-      {
-        id: "04",
-        heading: "Upcycled plastic bottles ",
-        info: "Pellentesque viverra amet netus facilisis amet felis odio tortor orci cursus est",
-      },
-    ],
-  ];
-
-  const leftInfoDisplay = InfoArray[0].map((item) => (
+  const leftInfoDisplay = infoArray[0].map((item) => (
     <Info key={item.id} {...item} />
   ));
-  const rightInfoDisplay = InfoArray[1].map((item) => (
+  const rightInfoDisplay = infoArray[1].map((item) => (
     <Info key={item.id} {...item} />
   ));
 
@@ -49,9 +23,7 @@ const HomeShoesMade = () => {
       <div className="shoe-made-container">
         <span>{leftInfoDisplay}</span>
         <Image
-          source={
-            "./images/how shoes are made/recycled-shoe-store-how-shoes-are-made-image.png"
-          }
+          source={"./images/home-page/how-shoes-are-made.png"}
           alter={"How shoe is made"}
         />
         <span>{rightInfoDisplay}</span>

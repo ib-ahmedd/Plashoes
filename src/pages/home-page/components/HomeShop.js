@@ -1,4 +1,4 @@
-import HeadingAndButton from "./sub-components/HeadingAndButton";
+import HeadingAndButton from "../../../components/HeadingAndButton";
 const HomeShop = () => {
   return (
     <section className="home-shop">
