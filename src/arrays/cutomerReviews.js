@@ -3,7 +3,7 @@ const customerReview = [
     id: 1,
     review:
       "“Felis semper duis massa scelerisque ac amet porttitor ac tellus venenatis aliquam varius mauris integer”",
-    reviewImage: "./images/reviews/1.jpg",
+    reviewImage: "./images/home-page/review-1.jpg",
     stars: 5,
     name: "	JULIA KEYS",
   },
@@ -11,7 +11,7 @@ const customerReview = [
     id: 2,
     review:
       "“Felis semper duis massa scelerisque ac amet porttitor ac tellus venenatis aliquam varius mauris integer”",
-    reviewImage: "./images/reviews/2.jpg",
+    reviewImage: "./images/home-page/review-2.jpg",
     stars: 5,
     name: "LUIS ADRIAN",
   },
@@ -19,7 +19,7 @@ const customerReview = [
     id: 3,
     review:
       "“Felis semper duis massa scelerisque ac amet porttitor ac tellus venenatis aliquam varius mauris integer”",
-    reviewImage: "./images/reviews/3.jpg",
+    reviewImage: "./images/home-page/review-3.jpg",
     stars: 5,
     name: "MARIA ANNA",
   },

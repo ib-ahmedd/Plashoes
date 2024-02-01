@@ -31,12 +31,11 @@
         position: static;
         display: block;
     }
-
     .navbar section{
         width: 100%;
     }
 
-    .navbar .link{
+    .navbar .navbar-center .link{
         width: 70%;
         padding-bottom: 1em;
         text-align: center;
@@ -53,7 +52,9 @@
         top: 2.5em;
         border-bottom: none;
     }
-
+    .profile-icon a{
+        border-bottom: none;
+    }
     .closeMenu {
         display: block;
     }

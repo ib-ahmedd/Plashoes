@@ -6,42 +6,9 @@
     .navbar{
         padding: 0 1em;
     }
-
-    .navbar-center,.navbar-center>* {
-        flex-direction: column;
-    }
     
     .navbar-center {
-        padding-top: 1.5em;
-        background-color: white;
         width: 80%;
-        height: 100vh;
-        left: 0;
-        top: 0;
-        position: fixed;
-        justify-content: space-around;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-        transform: translateX(-150%);
-        transition: .3s;
-        z-index: 2;
-        box-sizing: border-box;
-        flex-basis: 0;
-    }
-
-    .navbar button {
-        position: static;
-        display: block;
-    }
-    
-    .navbar section {
-        width: 100%;
-    }
-    
-    .navbar .link {
-        width: 70%;
-        padding-bottom: 1em;
-        text-align: center;
-        border-bottom: 1px solid #bfbfbf;
     }
     
     .profile-icon div {

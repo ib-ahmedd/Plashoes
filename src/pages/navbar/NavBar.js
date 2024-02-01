@@ -1,6 +1,5 @@
 import CartIcon from "./components/CartIcon";
-import Link from "../../components/Link";
-import Logo from "../../components/Logo";
+import LinkComp from "../../components/LinkComp";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -37,23 +36,31 @@ const NavBar = () => {
           setCloseMenu({});
         }}
       ></div>
-      <Logo
-        source={"./images/navbar/navbar-site-logo.svg"}
-        detail={"exshoes logo"}
+      <LinkComp
+        text={
+          <img
+            src="./images/navbar/navbar-site-logo.svg"
+            alt="Site logo"
+            className="nav-site-logo"
+          />
+        }
+        path={"/"}
       />
       <div className="navbar-center widthh" style={isMenuOpen}>
         <section className="navbar-left">
-          <Link text={"MEN"} />
-          <Link text={"WOMEN"} />
-          <Link text={"COLLECTION"} />
-          <Link text={"LOOKBOOK"} />
-          <Link text={"SALE"} />
+          <LinkComp text={"MEN"} path={"/shop-men"} />
+          <LinkComp text={"WOMEN"} path={"/shop-women"} />
+          <LinkComp text={"COLLECTION"} path={"/collection"} />
+          <LinkComp text={"LOOKBOOK"} path={"/lookbook"} />
+          <LinkComp text={"SALE"} path={"/sale"} />
         </section>
         <section className="navbar-right">
-          <Link text={"OUR STORY"} />
-          <Link text={"CONTACT"} />
+          <LinkComp text={"OUR STORY"} path={"/our-story"} />
+          <LinkComp text={"CONTACT"} path={"/contact"} />
           <span className="profile-icon">
-            <Link text={<FontAwesomeIcon icon={faUser} />} />
+            <LinkComp
+              text={<FontAwesomeIcon icon={faUser} path={"/profile"} />}
+            />
           </span>
         </section>
       </div>

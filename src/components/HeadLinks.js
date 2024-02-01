@@ -1,7 +1,9 @@
-import Link from "./Link";
+import LinkComp from "./LinkComp";
 
 const HeadLinks = ({ heading, items }) => {
-  const linksDisplay = items.map((item) => <Link key={item.id} {...item} />);
+  const linksDisplay = items.map((item) => (
+    <LinkComp key={item.id} {...item} />
+  ));
   return (
     <div className="head-and-links">
       <h3>{heading}</h3>

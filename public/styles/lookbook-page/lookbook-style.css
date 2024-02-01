@@ -1,0 +1,63 @@
+.lookbook{
+    width: 100%;
+    padding: 0 2em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lookbook h1{
+    font-size: 4em;
+    margin: 1.5em 0;
+}
+
+.lookbook .img-head-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10em;
+}
+
+.lookbook .img-head-content img{
+    width: 100%;
+}
+.lookbook .img-head-content-sec{
+    margin-top: 1em;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lookbook .img-head-content-sec > *{
+    width: 50%;
+}
+
+.lookbook .img-head-content-sec h2{
+    font-weight: lighter;
+    font-size: 3em;
+}
+
+.lookbook .img-head-content-shopnow{
+    display: flex;
+    flex-direction: column;
+}
+
+.lookbook .img-head-content-shopnow p{
+    font-size: var(--P-font-size);
+    color: var(--grey);
+}
+
+.lookbook .img-head-content-shopnow .link{
+    font-size: 1.2em;
+    text-decoration: none;
+    color: var(--black);
+    border-bottom: 2px solid var(--orange);
+    width: 6em;
+    font-weight: bold;
+}
+
+.lookbook .img-head-content-shopnow .link:hover{
+    border-bottom: 2px solid var(--black);
+}

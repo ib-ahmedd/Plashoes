@@ -69,8 +69,8 @@ button{
     color: #555;
 }
 
-.navbar > div > img{
-    width: 9em ;
+.nav-site-logo{
+    width: 9em;
 }
 
 .navbar button{
@@ -104,7 +104,7 @@ button{
     padding: 13em 10em;
     box-sizing: border-box;
     position: relative;
-    background-image: url("./images/home-page/home-site-intro.jpg");
+    background-image: url("/images/home-page/home-site-intro.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -469,14 +469,14 @@ button{
     align-items: center;
     justify-content: center;
     padding: 15em 0;
-    background-image: url(./images/home-page/shop-women.jpg);
+    background-image: url("/images/home-page/shop-women.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .home-shop > :first-child{
-    background-image: url(./images/home-page/shop-men.jpg);
+    background-image: url("/images/home-page/shop-men.jpg");
 }
 
 .home-shop h2{
@@ -632,7 +632,7 @@ button{
     align-items: center;
     padding: 13em 0;
     text-align: center;
-    background-image: url("./images/footer/better-bg.jpg");
+    background-image: url("/images/footer/better-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

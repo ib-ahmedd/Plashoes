@@ -1,0 +1,8 @@
+@media (min-width: 0px) and (max-width: 750px){
+    .lookbook .img-head-content-sec{
+        flex-direction: column;
+    }
+    .lookbook .img-head-content-sec > *{
+        width: 100%;
+    }
+}
