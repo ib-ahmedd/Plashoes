@@ -10,7 +10,7 @@ const RatingStars = ({ stars }) => {
   while (starsArray.length < 5) {
     starsArray.push(<FontAwesomeIcon icon={faStar} />);
   }
-  return <div>{starsArray}</div>;
+  return <div className="rating-stars">{starsArray}</div>;
 };
 
 export default RatingStars;

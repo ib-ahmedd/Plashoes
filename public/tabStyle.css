@@ -129,6 +129,22 @@
         width: 30%;
     }
 
+
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    .best-sellers, .new-arrivals{
+        width: 100%;
+        padding: 0 2em;
+        box-sizing: border-box;
+    }
+
+    .product-modal{
+        padding-bottom: 0em;
+    }
+
     /* shop men shop women section */
     /* shop men shop women section */
     /* shop men shop women section */

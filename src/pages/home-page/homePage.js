@@ -4,6 +4,8 @@ import SiteIntro from "./components/SiteIntro";
 import HomeShop from "./components/HomeShop";
 import HomeRecycle from "./components/HomeRecycle";
 import HomeCustomers from "./components/HomeCustomers";
+import BestSellers from "./components/BestSellers";
+import NewArrivals from "./components/NewArrivals";
 const HomePage = () => {
   return (
     <div className="home-page">
@@ -11,7 +13,9 @@ const HomePage = () => {
         <SiteIntro />
         <HomePageAbout />
         <HomeShoesMade />
+        <BestSellers />
         <HomeShop />
+        <NewArrivals />
         <HomeRecycle />
         <HomeCustomers />
       </main>

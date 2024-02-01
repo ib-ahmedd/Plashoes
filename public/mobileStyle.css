@@ -59,10 +59,6 @@
     /*site intro */
     /*site intro */
     /*site intro */
-    /*site intro */
-    /*site intro */
-    /*site intro */
-    /*site intro */
 
     .site-intro{
         padding: 5em 2em;
@@ -88,11 +84,6 @@
         width: 100%;
     }
 
-    /* home page first body */
-    /* home page first body */
-    /* home page first body */
-    /* home page first body */
-    /* home page first body */
     /* home page first body */
     /* home page first body */
     /* home page first body */
@@ -125,10 +116,6 @@
     /* home page how shoes are made */
     /* home page how shoes are made */
     /* home page how shoes are made */
-    /* home page how shoes are made */
-    /* home page how shoes are made */
-    /* home page how shoes are made */
-    /* home page how shoes are made */
 
     .shoe-made-container{
         flex-direction: column;
@@ -138,11 +125,25 @@
         width: 100%;
     }
 
-    /* shop men shop women section */
-    /* shop men shop women section */
-    /* shop men shop women section */
-    /* shop men shop women section */
-    /* shop men shop women section */
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    .best-sellers, .new-arrivals{
+        margin: 0;
+    }
+    .best-sellers > span, .new-arrivals > span{
+        flex-direction: column;
+        margin: 3em 0;
+    }
+    .product-modal{
+        width: 45%;
+        height: 25em;
+    }
+
+
+
     /* shop men shop women section */
     /* shop men shop women section */
     /* shop men shop women section */
