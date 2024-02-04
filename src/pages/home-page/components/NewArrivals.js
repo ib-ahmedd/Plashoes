@@ -1,17 +1,16 @@
-import ProductModal from "../../../components/ProductModal";
-import demoShoeData from "../../../arrays/demoShoeData";
 import ProductsSection from "./ProductsSection";
+import useFetch from "../../../hooks/useFetch";
 
 const NewArrivals = () => {
-  const displayedProducts = demoShoeData.map((item) => (
-    <ProductModal key={item.id} {...item} />
-  ));
+  const { products, isLoading } = useFetch("http://localhost:5000/new-arrived");
+
   return (
     <section className="new-arrivals">
       <ProductsSection
         heading={"New Arrivals"}
         linkText={"VIEW ALL NEW ARRIVALS"}
-        displayedProducts={displayedProducts}
+        products={products}
+        isLoading={isLoading}
       />
     </section>
   );

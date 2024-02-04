@@ -1,9 +1,11 @@
 import RatingStars from "./RatingStars";
 import SaleModal from "./SaleModal";
 const ProductModal = ({ id, shoeName, image, price, sale, rating }) => {
-  const amount = price.toFixed(2);
-  const value = (50 / price) * 100;
+  const numPrice = parseInt(price);
+  const amount = numPrice.toFixed(2);
+  const value = (50 / numPrice) * 100;
   const percentage = value.toFixed(2);
+  const currency = "$";
 
   return (
     <div className="product-modal">
@@ -15,11 +17,11 @@ const ProductModal = ({ id, shoeName, image, price, sale, rating }) => {
         <a href="/">{shoeName}</a>
         {sale ? (
           <span className="sale-disp">
-            <p>${amount}</p>
-            <p> ${percentage}</p>
+            <p>{currency + amount}</p>
+            <p>{currency + percentage}</p>
           </span>
         ) : (
-          <p>${amount}</p>
+          <p>{currency + amount}</p>
         )}
         <RatingStars stars={rating} />
       </span>

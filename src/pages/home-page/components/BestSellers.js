@@ -1,17 +1,17 @@
-import ProductModal from "../../../components/ProductModal";
-import demoShoeData from "../../../arrays/demoShoeData";
+import useFetch from "../../../hooks/useFetch";
 import ProductsSection from "./ProductsSection";
+import LoadingSection from "../../../components/LoadingSection";
 
 const BestSellers = () => {
-  const displayedProducts = demoShoeData.map((item) => (
-    <ProductModal key={item.id} {...item} />
-  ));
+  const { products, isLoading } = useFetch("http://localhost:5000/bestsellers");
+
   return (
     <section className="best-sellers">
       <ProductsSection
         heading={"Our Best Seller"}
         linkText={"VIEW ALL BEST SELLERS"}
-        displayedProducts={displayedProducts}
+        products={products}
+        isLoading={isLoading}
       />
     </section>
   );
