@@ -113,9 +113,12 @@
         flex-direction: column;
         margin: 3em 0;
     }
+    .products-container{
+        justify-content: space-between;
+    }
     .product-modal{
         width: 45%;
-        height: 25em;
+        height: 30em;
     }
     .loading-product-modal{
         width: 45%;

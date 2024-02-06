@@ -12,8 +12,9 @@ function App() {
       <SearchBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop-men" element={<ShopPage />} />
-        <Route path="/shop-women" element={<h2>Shop women</h2>} />
+        <Route path="/shop-men" element={<ShopPage page={"Men"} />} />
+        <Route path="/shop-women" element={<ShopPage page={"Women"} />} />
+        <Route path="/product/:id" element={<h1>product page</h1>} />
         <Route path="/lookbook" element={<Lookbook />} />
         <Route path="*" element={<h2>Not found</h2>} />
       </Routes>

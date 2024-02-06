@@ -1,0 +1,18 @@
+@media (min-width: 0px) and (max-width: 750px){
+    .shop-page h1{
+        font-size: 3em;
+    }
+    .filter-sort{
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .filter-sort span{
+        width: 100%;
+    }
+    .shop-filter-btn{
+        width: 15em;
+    }
+    .shop-sort{
+        height: 3em;
+    }
+}

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import ScreenCover from "../../components/ScreenCover";
 const NavBar = () => {
   const [isMenuOpen, setMenuOpen] = useState({});
   const [closeMenu, setCloseMenu] = useState({});
@@ -28,14 +29,11 @@ const NavBar = () => {
       <button onClick={openMenu} className="navbar-button">
         <FontAwesomeIcon icon={faBars} />
       </button>
-      <div
-        className="closeMenu"
-        style={closeMenu}
-        onClick={() => {
-          setMenuOpen({});
-          setCloseMenu({});
-        }}
-      ></div>
+      <ScreenCover
+        setCloseMenu={setCloseMenu}
+        setMenuOpen={setMenuOpen}
+        closeMenu={closeMenu}
+      />
       <LinkComp
         text={
           <img
