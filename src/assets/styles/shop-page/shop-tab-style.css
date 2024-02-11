@@ -1,0 +1,13 @@
+@media (max-width: 1100px){
+    .shop-page{
+        padding: 1em;
+        box-sizing: border-box;
+    }
+    .shop-items-section{
+        width: 100%;
+    }
+
+    .filter-menu{
+        width: 50%;
+    }
+}

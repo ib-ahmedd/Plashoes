@@ -7,7 +7,10 @@ import ShopByPrice from "./SortByPrice";
 const FilterMenu = () => {
   const { isMenuOpen } = useContext(ShopPageContext);
   return (
-    <div className="filter-menu" style={isMenuOpen}>
+    <div
+      className="filter-menu"
+      style={{ transform: isMenuOpen && "translateX(0)" }}
+    >
       <SearchBar />
       <ShopByPrice />
       <FilterByCategory />

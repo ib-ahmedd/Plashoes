@@ -5,14 +5,21 @@ import { useContext } from "react";
 import { ShopPageContext } from "../ShopPage";
 
 const FilterSort = () => {
-  const { resultCount, toggleMenu } = useContext(ShopPageContext);
+  const { count, toggleMenu, itemNumbers } = useContext(ShopPageContext);
+
   return (
     <div className="filter-sort">
       <span>
         <button className="shop-filter-btn" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} /> FILTER SHOES
         </button>
-        <p className="result-count-p">Showing all {resultCount} results</p>
+        <p className="result-count-p">
+          Showing{" "}
+          {count < 13
+            ? `all ${count}`
+            : `${itemNumbers.start} - ${itemNumbers.end} of ${count}`}{" "}
+          results
+        </p>
       </span>
       <SortOptions />
     </div>

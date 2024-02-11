@@ -1,8 +1,8 @@
-import Info from "../../../components/Info";
-import Image from "../../../components/Image";
-import infoArray from "../../../arrays/infoArray";
+import Info from "./Info";
+import Image from "./Image";
+import infoArray from "../arrays/infoArray";
 
-const HomeShoesMade = () => {
+const ShoesMade = () => {
   const leftInfoDisplay = infoArray[0].map((item) => (
     <Info key={item.id} {...item} />
   ));
@@ -11,7 +11,7 @@ const HomeShoesMade = () => {
   ));
 
   return (
-    <section className="home-shoe-made">
+    <section className="shoe-made">
       <div>
         <h2>See how your shoes are made</h2>
         <p>
@@ -32,4 +32,4 @@ const HomeShoesMade = () => {
   );
 };
 
-export default HomeShoesMade;
+export default ShoesMade;

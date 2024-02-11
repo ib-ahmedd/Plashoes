@@ -1,0 +1,11 @@
+@media (max-width: 1100px){
+    .contact-page{
+        padding: 0 2%;
+    }
+    .contact-form{
+        padding: 5em 2em;
+    }
+    .contact-FAQs{
+        width: 80%;
+    }
+}

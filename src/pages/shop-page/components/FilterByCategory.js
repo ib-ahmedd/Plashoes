@@ -6,7 +6,7 @@ import useFetch from "../../../hooks/useFetch";
 const FilterByCategory = () => {
   const { page } = useContext(ShopPageContext);
   const { products: productCategories } = useFetch(
-    `http://localhost:5000/product-categories/${page}`
+    `/product-categories/${page}`
   );
   let categories = [];
   if (productCategories) {

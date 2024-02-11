@@ -1,0 +1,28 @@
+@media (min-width: 0px) and (max-width: 750px){
+    .our-story-page{
+        padding: 5em 0;
+    }
+
+    .our-story-page h1{
+        font-size: 2.5em;
+    }
+
+    .story-heading {
+        padding: 0 5%;
+        box-sizing: border-box;
+    }
+
+    .story-heading p{
+        font-size: 1.5em;
+    }
+    .short-notes{
+        padding: 2em;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .mission, .vision{
+        flex-direction: column;
+        gap: 0;
+    }
+}

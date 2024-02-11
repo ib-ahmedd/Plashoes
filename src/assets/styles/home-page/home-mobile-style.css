@@ -1,0 +1,255 @@
+@media (min-width: 0px) and (max-width: 750px){
+    body{
+        margin: 0;
+    }
+
+    .navbar{
+        padding: 0 1em;
+    }
+    
+    .navbar-center {
+        width: 80%;
+    }
+    
+    .profile-icon div {
+        border: none;
+    }
+    
+    .profile-icon {
+        position: absolute;
+        top: 2.5em;
+        border-bottom: none;
+    }
+
+    .cart{
+        width: 100%;
+    }
+
+    /* search bar */
+    /* search bar */
+    /* search bar */
+    /* search bar */
+    /* search bar */
+    .search-bar{
+        height: 4em;
+    }
+    .search-bar form{
+        width: 100%;
+        height: 3em;
+    }
+
+    /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+    /*site intro */
+
+    .site-intro{
+        padding: 5em 2em;
+    }
+    .site-intro-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .site-intro h1{
+        text-align: center;
+    }
+    
+    .intro-link-buttons-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 2em;
+    }
+    
+    .site-intro .link-buttons {
+        width: 100%;
+    }
+
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+    /* home page first body */
+
+    .about-logos-container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .about-logos-container span{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .about-logos-container .logo{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-logos-container img{
+        width: 60%;
+    }
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+    /* home page how shoes are made */
+
+    .shoe-made-container{
+        flex-direction: column;
+    }
+
+    .shoe-made-container span{
+        width: 100%;
+    }
+
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    /* best sellers */
+    .best-sellers, .new-arrivals{
+        margin: 0;
+    }
+    .best-sellers > span, .new-arrivals > span{
+        flex-direction: column;
+        margin: 3em 0;
+    }
+    .products-container{
+        justify-content: space-between;
+    }
+    .product-modal{
+        width: 45%;
+        padding-bottom: 0;
+        height: 27em;
+    }
+    .loading-product-modal{
+        width: 45%;
+        height: 25em;
+    }
+
+
+
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+    /* shop men shop women section */
+
+    .home-shop{
+        flex-direction: column;
+    }
+
+    .heading-button{
+        width: 100%;
+    }
+
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+    /* recycle section */
+
+    .home-recycle{
+        flex-direction: column-reverse;
+    }
+
+    .home-recycle > * {
+        width: 100%;
+    }
+
+    /* home page customer reviews */
+    /* home page customer reviews */
+    /* home page customer reviews */
+    /* home page customer reviews */
+    /* home page customer reviews */
+
+    .home-customers > span{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .home-customers .review{
+        width: 90%;
+    }
+
+    
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+    /* footer better for people and planer section */
+
+    .footer-better {
+        padding: 5em 0;
+    }
+
+    .footer-better h2{
+        font-size: 2em;
+    }
+    .footer-better .head-info-buttons span{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-better span > a{
+        width: 90%;
+    }
+
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    /* footer center */
+    .foot-icons{
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0;
+    }
+
+    /* footer links */
+    /* footer links */
+    /* footer links */
+    /* footer links */
+    /* footer links */
+
+    .footer-links{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+.footer-links .heading-content{
+    width: 100%;
+}
+
+    .foot-icons .icon-desc{
+        width: 100%;
+    }
+
+    .footer-links > div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-links .head-and-links span a{
+        justify-content: center;
+    }
+
+    .foot-end{
+        flex-direction: column;
+        margin-top: 3em;
+        text-align: center ;
+    }
+}

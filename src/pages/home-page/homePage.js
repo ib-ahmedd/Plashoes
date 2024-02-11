@@ -1,5 +1,5 @@
 import HomePageAbout from "./components/HomePageAbout";
-import HomeShoesMade from "./components/HomeShoesMade";
+import ShoesMade from "../../components/ShoesMade";
 import SiteIntro from "./components/SiteIntro";
 import HomeShop from "./components/HomeShop";
 import HomeRecycle from "./components/HomeRecycle";
@@ -12,7 +12,7 @@ const HomePage = () => {
       <main className="home-body">
         <SiteIntro />
         <HomePageAbout />
-        <HomeShoesMade />
+        <ShoesMade />
         <BestSellers />
         <HomeShop />
         <NewArrivals />

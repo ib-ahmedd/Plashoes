@@ -1,3 +1,7 @@
+import "../../assets/styles/lookbook-page/lookbook-style.css";
+import "../../assets/styles/lookbook-page/lookbook-tab-style.css";
+import "../../assets/styles/lookbook-page/lookbook-mobile-style.css";
+
 import ImgHeadContent from "./components/ImgHeadContent";
 import lookbookSections from "../../arrays/lookbookSections";
 

@@ -1,0 +1,58 @@
+@media (min-width: 0px) and (max-width: 750px){
+    
+    .product-section{
+        padding: 2em 0.5em;
+    }
+    .product-details .image, .product-details .details{
+        padding: 0 1em;
+    }
+    .product-details .shoe-name, .product-details .price-cont .price{
+        font-size: 1.7em;
+    }
+    .product-details .short-desc{
+        font-size: 1em;
+    }
+
+    .fixed-quantity{
+        height: 3em;
+    }
+
+    .fixed-quantity .image-name{
+        display: none;
+    }
+
+    .fixed-quantity .price-cont{
+        display: none;
+    }
+
+    .fixed-quantity .price-quantity{
+        width: 100%;
+    }
+    .fixed-quantity .quantity-add-cart{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .fixed-quantity .quantity-add-cart > *{
+        height: 2em;
+        width: 40%;
+    }
+
+    .image-sale-cont .sale-modal{
+        left: 1em;
+        font-size: 1em;
+    }
+
+    /* loading section */
+    /* loading section */
+    /* loading section */
+    /* loading section */
+    /* loading section */
+    .loading-products{
+        padding: 2em 2%;
+    }
+
+    .product-details-loading .image-loading{
+        height: 20em;
+    }
+}

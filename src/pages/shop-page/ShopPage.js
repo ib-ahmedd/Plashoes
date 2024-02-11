@@ -1,6 +1,10 @@
+import "../../assets/styles/shop-page/shop-style.css";
+import "../../assets/styles/shop-page/shop-tab-style.css";
+import "../../assets/styles/shop-page/shop-mobile-style.css";
+
 import ItemsDisplay from "./components/ItemsDisplay";
 import useFetch from "../../hooks/useFetch";
-import ProductsContainer from "../../components/ProductsContainer";
+import ShopProductsContainer from "./components/ShopProductsContainer";
 import FilterMenu from "./components/FilterMenu";
 import { useState, createContext, useEffect } from "react";
 import ScreenCover from "../../components/ScreenCover";
@@ -8,30 +12,43 @@ import ScreenCover from "../../components/ScreenCover";
 export const ShopPageContext = createContext("");
 
 const ShopPage = ({ page }) => {
-  const [url, setUrl] = useState(`http://localhost:5000/categories/${page}`);
-  const [isMenuOpen, setMenuOpen] = useState({});
-  const [closeMenu, setCloseMenu] = useState({});
+  const [url, setUrl] = useState(`/categories/${page}`);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const [priceRange, setPriceRange] = useState(150);
   const [selectedOption, setSelectedOption] = useState("Default sorting");
   const [filterCategory, setCategory] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [offSet, setOffset] = useState(0);
+  const [itemNumbers, setItemNumbers] = useState({ start: 1, end: 12 });
 
-  const { products, isLoading, categories } = useFetch(url);
-
-  const resultCount = products.length;
+  const { products, isLoading, count } = useFetch(url);
 
   useEffect(() => {
     setSelectedOption("Default sorting");
     setPriceRange(150);
-    setUrl(`http://localhost:5000/categories/${page}`);
+    setUrl(`/categories/${page}`);
+    setCurrentPage(1);
   }, [page]);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+  const handleCurrentPage = (buttonNo) => {
+    setCurrentPage(buttonNo);
+    setOffset((buttonNo - 1) * 12);
+    setUrl(
+      `/sort-filter?page=${page}&offset=${
+        (buttonNo - 1) * 12
+      }&cat=${filterCategory}&price=${priceRange}&sort=${selectedOption}`
+    );
+  };
   const handleChange = (e) => {
     setSelectedOption(e.target.value);
     const value = e.target.value;
     setUrl(
-      `http://localhost:5000/sort-filter?page=${page}&cat=${filterCategory}&price=${priceRange}&sort=${value}`
+      `/sort-filter?page=${page}&offset=${0}&cat=${filterCategory}&price=${priceRange}&sort=${value}`
     );
-    console.log(products);
+    setCurrentPage(1);
+    setItemNumbers({ start: 1, end: 12 });
   };
 
   const handlePriceChange = (e) => {
@@ -40,75 +57,67 @@ const ShopPage = ({ page }) => {
   const handleFilterPrice = (func) => {
     if (func === "set") {
       setUrl(
-        `http://localhost:5000/sort-filter?page=${page}&cat=${filterCategory}&price=${priceRange}&sort=${selectedOption}`
+        `/sort-filter?page=${page}&offset=${0}&cat=${filterCategory}&price=${priceRange}&sort=${selectedOption}`
       );
-      setMenuOpen({});
-      setCloseMenu({});
+      setMenuOpen(false);
+      setCurrentPage(1);
+      setItemNumbers({ start: 1, end: 12 });
     } else {
       setPriceRange(150);
       setUrl(
-        `http://localhost:5000/sort-filter?page=${page}&cat=${filterCategory}&price=${150}&sort=${selectedOption}`
+        `/sort-filter?page=${page}&offset=${0}&cat=${filterCategory}&price=${150}&sort=${selectedOption}`
       );
-      setMenuOpen({});
-      setCloseMenu({});
+      setMenuOpen(false);
+      setCurrentPage(1);
+      setItemNumbers({ start: 1, end: 12 });
     }
   };
 
   const handleFilterCat = (cat) => {
     setUrl(
-      `http://localhost:5000/sort-filter?page=${page}&cat=${cat}&price=${priceRange}&sort=${selectedOption}`
+      `/sort-filter?page=${page}&offset=${0}&cat=${cat}&price=${priceRange}&sort=${selectedOption}`
     );
     setCategory(cat);
-    setMenuOpen({});
-    setCloseMenu({});
+    setMenuOpen(false);
+    setCurrentPage(1);
+    setItemNumbers({ start: 1, end: 12 });
+    console.log(cat);
   };
   const toggleMenu = () => {
-    setMenuOpen({ transform: "translateX(0)" });
-    setCloseMenu({
-      display: "block",
-      position: "fixed",
-      width: "100%",
-      right: "0",
-      bottom: "0",
-      height: "100vh",
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-      zIndex: "2",
-    });
+    setMenuOpen((prevState) => !prevState);
   };
 
   const shopContextValue = {
     page,
-    resultCount,
     handleChange,
     category: page,
     selectedOption,
     isMenuOpen,
     toggleMenu,
-    closeMenu,
-    setCloseMenu,
     priceRange,
     handlePriceChange,
     handleFilterPrice,
     handleFilterCat,
-    categories,
+    count,
+    currentPage,
+    handleCurrentPage,
+    offSet,
+    itemNumbers,
+    setItemNumbers,
   };
 
   return (
     <main className="shop-page">
       <ShopPageContext.Provider value={shopContextValue}>
         <section className="shop-items-section">
-          <ScreenCover
-            setCloseMenu={setCloseMenu}
-            setMenuOpen={setMenuOpen}
-            closeMenu={closeMenu}
-          />
+          {isMenuOpen && <ScreenCover toggleMenu={toggleMenu} />}
           <FilterMenu />
-          <ItemsDisplay
-            category={page}
-            resultCount={resultCount}
-            handleChange={handleChange}
+          <ItemsDisplay />
+          <ShopProductsContainer
+            products={products}
+            isLoading={isLoading}
+            count={count}
           />
-          <ProductsContainer products={products} isLoading={isLoading} />
         </section>
       </ShopPageContext.Provider>
     </main>

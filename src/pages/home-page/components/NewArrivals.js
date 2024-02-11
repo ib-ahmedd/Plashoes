@@ -2,7 +2,7 @@ import ProductsSection from "./ProductsSection";
 import useFetch from "../../../hooks/useFetch";
 
 const NewArrivals = () => {
-  const { products, isLoading } = useFetch("http://localhost:5000/new-arrived");
+  const { products, isLoading } = useFetch("/new-arrived");
 
   return (
     <section className="new-arrivals">
