@@ -9,8 +9,8 @@ const SiteIntro = () => {
           the State and Well-Being of the Planet
         </p>
         <span className="intro-link-buttons-container">
-          <LinkButton text={"SHOP MEN"} />
-          <LinkButton text={"SHOP WOMEN"} />
+          <LinkButton text={"SHOP MEN"} path={"/shop-men"} />
+          <LinkButton text={"SHOP WOMEN"} path={"/shop-women"} />
         </span>
       </section>
     </div>

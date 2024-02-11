@@ -1,8 +1,10 @@
-const HeadingAndButton = ({ heading, button }) => {
+import LinkButton from "./LinkButton";
+
+const HeadingAndButton = ({ heading, button, path }) => {
   return (
     <div className="heading-button">
       <h2>{heading}</h2>
-      <a href="/">{button}</a>
+      <LinkButton text={button} path={path} />
     </div>
   );
 };

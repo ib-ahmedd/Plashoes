@@ -1,0 +1,35 @@
+.sale-page{
+    width: 100%;
+    padding: 0 3em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sale-page h1{
+    font-size: 5em;
+}
+
+.sale-image{
+    width: 100%;
+    padding: 13em 10em;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/sale-page/recycled-shoe-store-promo-image-2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+.sale-image h2{
+    color: white;
+    font-size: 5em;
+}
+
+.sale-products{
+    width: 75%;
+    margin: 5em 0;
+}

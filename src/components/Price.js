@@ -5,7 +5,7 @@ const Price = ({ price, sale }) => {
   const salePrice = (amount - value).toFixed(2);
   const currency = "$";
   return (
-    <>
+    <div className="price">
       {sale ? (
         <span className="sale-disp">
           <p>{currency + amount}</p>
@@ -14,7 +14,7 @@ const Price = ({ price, sale }) => {
       ) : (
         <p>{currency + amount}</p>
       )}
-    </>
+    </div>
   );
 };
 export default Price;

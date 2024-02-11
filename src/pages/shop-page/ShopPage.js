@@ -29,9 +29,6 @@ const ShopPage = ({ page }) => {
     setUrl(`/categories/${page}`);
     setCurrentPage(1);
   }, [page]);
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage]);
   const handleCurrentPage = (buttonNo) => {
     setCurrentPage(buttonNo);
     setOffset((buttonNo - 1) * 12);

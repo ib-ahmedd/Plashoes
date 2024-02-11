@@ -50,9 +50,7 @@ const ProductDetails = () => {
         </p>
         <h1 className="shoe-name">{shoename}</h1>
         <span className="price-cont">
-          <p className="price">
-            <Price price={price} sale={sale} />
-          </p>
+          <Price price={price} sale={sale} />
           {free_shipping && (
             <p className="free-shipping">{"& Free shipping"}</p>
           )}

@@ -1,0 +1,21 @@
+@media (min-width: 0px) and (max-width: 750px){
+    .sale-page{
+        padding: 0 3%;
+    }
+
+    .sale-page h1{
+        font-size: 3em;
+    }
+
+    .sale-image{
+        padding: 7em 0;
+    }
+
+    .sale-image h2{
+        font-size: 3em;
+    }
+
+    .sale-products{
+        margin: 0;
+    }
+}

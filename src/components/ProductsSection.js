@@ -1,8 +1,8 @@
-import ProductsContainer from "../../../components/ProductsContainer";
+import ProductsContainer from "./ProductsContainer";
 const ProductsSection = ({ heading, linkText, products, isLoading }) => {
   return (
     <>
-      <span>
+      <span className="products-section">
         <h2>{heading}</h2>
         <a href="/">{linkText}</a>
       </span>

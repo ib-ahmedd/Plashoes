@@ -1,18 +1,17 @@
 import ProductsSection from "../../../components/ProductsSection";
 import useFetch from "../../../hooks/useFetch";
 
-const NewArrivals = () => {
-  const { products, isLoading } = useFetch("/new-arrived");
-
+const SaleProducts = () => {
+  const { products, isLoading } = useFetch("/sale");
   return (
-    <section className="new-arrivals">
+    <section className="sale-products">
       <ProductsSection
-        heading={"New Arrivals"}
-        linkText={"VIEW ALL NEW ARRIVALS"}
+        heading={"Last Pairs"}
+        linkText={"VIEW ALL"}
         products={products}
         isLoading={isLoading}
       />
     </section>
   );
 };
-export default NewArrivals;
+export default SaleProducts;

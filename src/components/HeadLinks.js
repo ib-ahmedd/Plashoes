@@ -1,8 +1,8 @@
-import LinkComp from "./LinkComp";
+import LinkButton from "./LinkButton";
 
 const HeadLinks = ({ heading, items }) => {
   const linksDisplay = items.map((item) => (
-    <LinkComp key={item.id} {...item} />
+    <LinkButton key={item.id} {...item} />
   ));
   return (
     <div className="head-and-links">

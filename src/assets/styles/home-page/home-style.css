@@ -561,7 +561,7 @@ button{
     gap: 2em;
 }
 
-.best-sellers > span, .new-arrivals > span{
+.products-section{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -569,12 +569,12 @@ button{
     align-content: space-between;
 }
 
-.best-sellers h2, .new-arrivals h2{
+.products-section h2{
     font-size: 2em;
     font-weight: lighter;
 }
 
-.best-sellers > span > a, .new-arrivals > span > a{
+.products-section a{
     text-decoration: none;
     color: var(--black);
     font-weight: bolder;
@@ -582,7 +582,7 @@ button{
     padding-bottom: 0.5em;
 }
 
-.best-sellers > span > a:hover, .new-arrivals > span > a:hover{
+.products-section a:hover{
     border-bottom: 2px solid var(--black);
 }
 

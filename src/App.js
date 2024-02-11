@@ -9,12 +9,17 @@ import Footer from "./pages/footer/Footer";
 import SearchBar from "./pages/navbar/SearchBar";
 import ProductPage from "./pages/product-page/ProductPage";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import "./assets/styles/home-page/home-style.css";
 import "./assets/styles/home-page/home-tab-style.css";
 import "./assets/styles/home-page/home-mobile-style.css";
+import { useEffect } from "react";
 function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
   return (
     <>
       <NavBar />
