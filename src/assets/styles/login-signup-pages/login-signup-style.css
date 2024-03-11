@@ -1,0 +1,195 @@
+.login-page{
+    background-color: var(--light-grey);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-modal{
+    width: 30em;
+    height: 25em;
+    padding: 2em;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.login-modal input{
+    width: 100%;
+    height: 3em;
+    padding: 0 1em;
+    box-sizing: border-box;
+    font-size: 1.3em;
+    border: none;
+    background-color: var(--light-grey);
+    margin-bottom: 1em;
+}
+
+.login-modal button{
+    width: 100%;
+    height: 3em;
+    background-color: var(--green);
+    color: white;
+    font-size: 1.3em;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-bottom: .5em;
+}
+
+.login-modal button:hover{
+    background-color: rgb(60, 72, 60);
+}
+
+.incorrectDetails {
+    font-size: 1.2em;
+    color: red;
+    margin: 0; 
+    flex-shrink: 1;
+}
+
+.login-modal .not-registered{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    font-size: 1.2em;
+}
+
+.login-modal .not-registered > *{
+    margin: 0;
+}
+
+.login-modal .not-registered a{
+    text-decoration: none;
+    color: var(--green);
+}
+
+
+/* sign up page */
+/* sign up page */
+/* sign up page */
+/* sign up page */
+/* sign up page */
+/* sign up page */
+/* sign up page */
+/* sign up page */
+/* sign up page */
+/* sign up page */
+
+.signup-page{
+    background-color: var(--light-grey);
+    width: 100%;
+    padding: 3em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-page h1{
+    width: 100%;
+    font-size: 3em;
+    color: var(--green);
+    margin: 0;
+    text-align: left;
+}
+
+.signup-page h2{
+    font-weight: lighter;
+}
+
+.signup-modal{
+    width: 45em;
+    padding: 3em;
+    box-sizing: border-box;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-modal > *{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-modal .labeled-input, .signup-modal .select-input{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em 0;
+}
+
+.signup-modal .labeled-input input{
+    height: 2.5em;
+    font-size: 1.3em;
+    padding: 0 1em;
+    box-sizing: border-box;
+    background-color: var(--light-grey);
+    border: none;
+}
+
+.signup-modal .labeled-input input:focus{
+    outline: 1px solid var(--grey);
+}
+
+.signup-modal label{
+    font-size: 1.2em;
+}
+
+.signup-modal .double{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.signup-modal .double input{
+    width: 100%;
+}
+
+.signup-modal .select-input{
+    width: 25%;
+    height: 100%;
+}
+
+.signup-modal select{
+    height: 2.5em;
+    font-size: 1.2em;
+}
+
+.gender-DOB .select-input, .gender-DOB .labeled-input{
+    width: 30%;
+}
+
+.country-post .select-input, .country-post .labeled-input{
+    width: 50%;
+}
+
+.signup-modal .terms{
+    display: flex;
+    flex-direction: row;
+    margin: 1em 0;
+}
+
+.signup-modal .terms a{
+    color: var(--green);
+}
+
+.signup-btn{
+    width: 40%;
+    padding: 1em;
+    background-color: var(--green);
+    color: rgb(204, 68, 68);
+    font-size: 1.2em;
+}

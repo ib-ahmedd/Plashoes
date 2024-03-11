@@ -1,6 +1,6 @@
 import CartIcon from "./components/CartIcon";
 import LinkButton from "../../components/LinkButton";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,9 @@ import ScreenCover from "../../components/ScreenCover";
 import ScrollTopBtn from "../../components/ScrollTopBtn";
 import { useInView } from "react-intersection-observer";
 import { useLocation } from "react-router-dom";
+import { LoginContext } from "../../App";
 const NavBar = () => {
+  const { isLoggedIn } = useContext(LoginContext);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { ref, inView } = useInView();
   const { pathname } = useLocation();
@@ -53,7 +55,8 @@ const NavBar = () => {
             <LinkButton text={"CONTACT"} path={"/contact"} />
             <span className="profile-icon">
               <LinkButton
-                text={<FontAwesomeIcon icon={faUser} path={"/profile"} />}
+                text={<FontAwesomeIcon icon={faUser} />}
+                path={isLoggedIn ? "/profile/account" : "/login"}
               />
             </span>
           </section>

@@ -1,0 +1,55 @@
+@media (min-width: 0px) and (max-width: 750px){
+
+    .login-modal{
+        width: 95%;
+        height: 20em;
+        padding: 2em 3%;
+    }
+
+    .login-modal input{
+        height: 3em;
+        font-size: 1.1em;
+    }
+
+    .login-modal button{
+        font-size: 1.1em;
+    }
+
+    .login-modal .not-registered{
+        font-size: 1em;
+    }
+    .signup-modal{
+        padding: 3em 3%;
+    }
+    .signup-modal h1{
+        font-size: 2em;
+    }
+
+    .signup-modal h2{
+        font-size: 1.2em;
+    }
+
+    .signup-modal label{
+        font-size: 0.9em;
+    }
+
+    .signup-modal .labeled-input input{
+        padding: 0 0.5em;
+        height: 2.5em;
+        font-size: 0.9em;
+    }
+
+    .signup-modal select{
+        height: 2em;
+        font-size: 0.9em;
+    }
+
+    .gender-DOB .select-input, .gender-DOB .labeled-input{
+        width: 40%;
+    }
+
+    .signup-btn{
+        width: 100%;
+        font-size: 0.9em;
+    }
+}
