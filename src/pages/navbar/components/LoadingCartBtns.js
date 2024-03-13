@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-const LoadedCartBtns = () => {
+const LoadedCartBtns = ({ totalPrice }) => {
   return (
     <div className="loaded-cart">
       <span>
         <p>Subtotal:</p>
-        <p className="price">{"$69.00"}</p>
+        <p className="price">${totalPrice}</p>
       </span>
       <Link to={"/cart"}>VIEW CART</Link>
       <Link to={"/cart"}>CHECKOUT</Link>

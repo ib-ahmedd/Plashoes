@@ -4,9 +4,21 @@ import { Link } from "react-router-dom";
 import CartContent from "./CartContent";
 import LoadedCartBtns from "./LoadingCartBtns";
 import ScreenCover from "../../../components/ScreenCover";
+import useFetch from "../../../hooks/useFetch";
+import { useContext } from "react";
+import { AppContext } from "../../../App";
 
 const Cart = ({ cartOpen, toggleCart }) => {
-  const cartContent = 1;
+  const { user } = useContext(AppContext);
+  const { id } = user;
+  const { products, isLoading } = useFetch(`/cart/${id}`);
+  const cartContent = products.length;
+  let totalPrice = 0;
+  if (products.length !== 0) {
+    products.forEach((item) => {
+      totalPrice = totalPrice + parseFloat(item.price) * item.quantity;
+    });
+  }
   return (
     <>
       <section
@@ -20,10 +32,14 @@ const Cart = ({ cartOpen, toggleCart }) => {
               <FontAwesomeIcon icon={faClose} />
             </button>
           </span>
-          <CartContent />
+          {cartContent ? (
+            <CartContent products={products} isLoading={isLoading} />
+          ) : (
+            <h3>Cart is empty</h3>
+          )}
         </div>
         {cartContent ? (
-          <LoadedCartBtns />
+          <LoadedCartBtns totalPrice={totalPrice.toFixed(2)} />
         ) : (
           <Link to={"/collection"}>CONTINUE SHOPPING</Link>
         )}

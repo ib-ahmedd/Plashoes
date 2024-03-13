@@ -214,7 +214,7 @@ button{
     color: var(--grey);
 }
 
-.cart-item-right span{
+.cart-item-right button{
     color: var(--grey);
     font-size: 1.3em;
 }

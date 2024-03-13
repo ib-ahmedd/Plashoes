@@ -8,9 +8,9 @@ import ScreenCover from "../../components/ScreenCover";
 import ScrollTopBtn from "../../components/ScrollTopBtn";
 import { useInView } from "react-intersection-observer";
 import { useLocation } from "react-router-dom";
-import { LoginContext } from "../../App";
+import { AppContext } from "../../App";
 const NavBar = () => {
-  const { isLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn } = useContext(AppContext);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { ref, inView } = useInView();
   const { pathname } = useLocation();

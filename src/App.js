@@ -19,29 +19,37 @@ import { createContext, useEffect, useState } from "react";
 import LoginPage from "./pages/signup-login-pages/LoginPage";
 import SignupPage from "./pages/signup-login-pages/SignupPage";
 
-export const LoginContext = createContext("");
+export const AppContext = createContext("");
 
 function App() {
   const { pathname } = useLocation();
   const [user, setUser] = useState({});
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [cartRefresh, setCartRefresh] = useState(true);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const localStorageUser = localStorage.getItem("user");
+    if (localStorageUser) {
+      const storedUser = JSON.parse(localStorageUser);
+      setUser(storedUser);
+      setLoggedIn(true);
+    } else {
+      setUser({});
+    }
   }, [pathname]);
 
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const handleLogin = (data) => {
-    setLoggedIn(true);
-    setUser(data);
-  };
-
-  const LoginContextValue = {
+  const AppContextValue = {
     isLoggedIn,
-    handleLogin,
+    setLoggedIn,
+    setUser,
     user,
+    cartRefresh,
+    setCartRefresh,
   };
   return (
     <>
-      <LoginContext.Provider value={LoginContextValue}>
+      <AppContext.Provider value={AppContextValue}>
         <NavBar />
         <SearchBar />
         <Routes>
@@ -60,7 +68,7 @@ function App() {
           <Route path="*" element={<h2>Not found</h2>} />
         </Routes>
         <Footer />
-      </LoginContext.Provider>
+      </AppContext.Provider>
     </>
   );
 }

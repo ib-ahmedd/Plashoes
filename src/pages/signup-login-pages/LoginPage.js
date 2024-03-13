@@ -6,14 +6,14 @@ import "../../assets/styles/login-signup-pages/login-signup-style.css";
 import "../../assets/styles/login-signup-pages/login-signup-tab-style.css";
 import "../../assets/styles/login-signup-pages/login-signup-mobile-style.css";
 import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../../App";
+import { AppContext } from "../../App";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [details, setDetails] = useState({ email: "", password: "" });
   const [inputStyle, setInputStyle] = useState({});
   const [error, setError] = useState(false);
-  const { handleLogin } = useContext(LoginContext);
+  const { setLoggedIn, setUser } = useContext(AppContext);
   const errorStyle = {
     backgroundColor: "rgb(255, 218, 218)",
     border: "1px solid red",
@@ -29,16 +29,25 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:5000/login", {
-      ...details,
-    });
-    const path = "/profile/account";
-    if (response.data) {
-      navigate(path);
-      handleLogin(response.data);
-    } else {
-      setInputStyle(errorStyle);
-      setError(true);
+    try {
+      const response = await axios.post("http://localhost:5000/login", {
+        ...details,
+      });
+      const path = "/profile/account";
+      const { data } = response;
+      if (data) {
+        const stringifiedData = JSON.stringify(data);
+        localStorage.setItem("user", stringifiedData);
+        const user = JSON.parse(localStorage.getItem("user"));
+        setUser(user);
+        setLoggedIn(true);
+        navigate(path);
+      } else {
+        setInputStyle(errorStyle);
+        setError(true);
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
   return (

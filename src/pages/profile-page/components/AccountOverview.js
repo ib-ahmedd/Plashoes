@@ -1,9 +1,9 @@
 import AccountInfoBox from "./AccountInfoBox";
 import { useContext } from "react";
-import { LoginContext } from "../../../App";
+import { AppContext } from "../../../App";
 
 const AccountOverview = () => {
-  const { user } = useContext(LoginContext);
+  const { user } = useContext(AppContext);
   const { user_name, email, address, mobile_no, country_code } = user;
   return (
     <section className="acc-overview">

@@ -3,25 +3,28 @@ import Image from "../../../components/Image";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import SetQuantity from "../../../components/SetQuantity";
 import { useState } from "react";
-const CartItem = () => {
-  const [quantity, setQuantity] = useState(1);
+const CartItem = ({ image, shoe_name, quantity, price, id, handleDelete }) => {
+  const [itemQuantity, setQuantity] = useState(quantity);
+  const totalItemPrice = itemQuantity * price;
   return (
     <div className="cart-item">
       <div className="cart-item-left">
-        <Image
-          source={"./images/demo-shoes-images/men/men black running.jpg"}
-          alter={"shoe"}
-        />
+        <Image source={image} alter={shoe_name} />
         <span>
-          <p>{"Men's Classic Blue"}</p>
-          <SetQuantity quantity={quantity} setQuantity={setQuantity} />
+          <p>{shoe_name}</p>
+          <SetQuantity quantity={itemQuantity} setQuantity={setQuantity} />
         </span>
       </div>
       <div className="cart-item-right">
-        <span>
+        <button
+          onClick={() => {
+            console.log("working");
+            handleDelete(id);
+          }}
+        >
           <FontAwesomeIcon icon={faCircleXmark} />
-        </span>
-        <p>{"$69.00"}</p>
+        </button>
+        <p>${totalItemPrice.toFixed(2)}</p>
       </div>
     </div>
   );
