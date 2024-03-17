@@ -1,9 +1,9 @@
-const SetQuantity = ({ setQuantity, quantity }) => {
+const SetQuantity = ({ id, handleQuantity, quantity }) => {
   return (
     <div className="quantity">
       <button
         onClick={() => {
-          setQuantity((prevQuant) => prevQuant - 1);
+          handleQuantity("sub", id, quantity);
         }}
       >
         -
@@ -11,7 +11,7 @@ const SetQuantity = ({ setQuantity, quantity }) => {
       <p>{quantity}</p>
       <button
         onClick={() => {
-          setQuantity((prevQuant) => prevQuant + 1);
+          handleQuantity("add", id, quantity);
         }}
       >
         +

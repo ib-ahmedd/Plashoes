@@ -446,6 +446,12 @@
     background-color: var(--light-grey);
 }
 
+.added-to-cart-cont{
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .added-to-cart{
     background-color: var(--light-grey);
     border-top: 3px solid var(--green);
@@ -478,4 +484,5 @@
     background-color: var(--green);
     color: white;
     padding: 1em 1.5em;
+    flex-shrink: 0;
 }

@@ -1,0 +1,8 @@
+@media (min-width: 1100px) and (max-width: 1400px){
+    .cart-page{
+        padding: 2%;
+    }
+    .cart-page-body{
+        width: 100%;
+    }
+}

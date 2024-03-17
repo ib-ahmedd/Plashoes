@@ -4,6 +4,7 @@
     }
     .product-section{
         width: 100%;
+        padding: 1em;
     }
     .product-details{
         flex-direction: column;
@@ -13,6 +14,10 @@
     .product-details .image-sale-cont, .product-details .details{
         width: 100%;
         margin-bottom: 2em;
+    }
+
+    .added-to-cart-cont{
+        padding: 0 1em;
     }
 
     .fixed-quantity{
@@ -25,6 +30,10 @@
 
     .name-email-span span{
         width: 100%;
+    }
+
+    .added-to-cart{
+        padding: 0 2em;
     }
 
     /* loading section */

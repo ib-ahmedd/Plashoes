@@ -3,6 +3,14 @@
     .product-section{
         padding: 2em 0.5em;
     }
+    
+    .added-to-cart{
+        flex-direction: column;
+        padding: 1em;
+    }
+    .added-to-cart p, .cart-check-icon {
+        font-size: 1em;
+    }
     .product-details .image, .product-details .details{
         padding: 0 1em;
     }

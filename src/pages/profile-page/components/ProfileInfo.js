@@ -1,12 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import profileSideBarArray from "../../../arrays/profileSideBarArray";
-import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleDown,
-  faAngleRight,
-  faArrowDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileInfo = () => {
   const routes = profileSideBarArray.map((item) => (
@@ -15,7 +10,6 @@ const ProfileInfo = () => {
   const { pathname } = useLocation();
   const pathArray = pathname.split("/");
   const currentPath = pathArray[pathArray.length - 1];
-  const [heading, setHeading] = useState("Account Overview");
   const { text } = profileSideBarArray.find(
     (item) => item.path === currentPath
   );

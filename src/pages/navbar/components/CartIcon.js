@@ -1,18 +1,10 @@
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart from "./Cart";
-import { createContext, useContext, useEffect, useState } from "react";
-import { AppContext } from "../../../App";
-
-export const CartContext = createContext("");
-
+import { useState } from "react";
 const CartIcon = () => {
   const [cartOpen, setCartOpen] = useState(false);
-  const { cartRefresh, setCartRefresh } = useContext(AppContext);
 
-  useEffect(() => {
-    setCartRefresh(false);
-  }, [cartRefresh, setCartRefresh]);
   const toggleCart = () => {
     setCartOpen((prevState) => !prevState);
   };
@@ -22,7 +14,7 @@ const CartIcon = () => {
       <button onClick={toggleCart}>
         <FontAwesomeIcon icon={faCartShopping} />
       </button>
-      {!cartRefresh && <Cart cartOpen={cartOpen} toggleCart={toggleCart} />}
+      <Cart cartOpen={cartOpen} toggleCart={toggleCart} />
     </div>
   );
 };

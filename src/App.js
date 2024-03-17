@@ -15,9 +15,11 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import "./assets/styles/home-page/home-style.css";
 import "./assets/styles/home-page/home-tab-style.css";
 import "./assets/styles/home-page/home-mobile-style.css";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import LoginPage from "./pages/signup-login-pages/LoginPage";
 import SignupPage from "./pages/signup-login-pages/SignupPage";
+import CartPage from "./pages/cart-page/CartPage";
+import axios from "axios";
 
 export const AppContext = createContext("");
 
@@ -26,6 +28,9 @@ function App() {
   const [user, setUser] = useState({});
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [cartRefresh, setCartRefresh] = useState(true);
+  const [cartProducts, setProducts] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+  const [cartEmpty, setCartEmpty] = useState(true);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -39,6 +44,25 @@ function App() {
     }
   }, [pathname]);
 
+  const getCartProducts = useCallback(async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/cart/${user.id}`);
+      const result = response.data.productsArray;
+      setProducts(result);
+      setLoading(false);
+      if (result.length > 0) {
+        setCartEmpty(false);
+      } else {
+        setCartEmpty(true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }, [user.id]);
+
+  useEffect(() => {
+    getCartProducts();
+  }, [cartRefresh, getCartProducts]);
   const AppContextValue = {
     isLoggedIn,
     setLoggedIn,
@@ -46,6 +70,12 @@ function App() {
     user,
     cartRefresh,
     setCartRefresh,
+    cartProducts,
+    getCartProducts,
+    isLoading,
+    setLoading,
+    cartEmpty,
+    setCartEmpty,
   };
   return (
     <>
@@ -65,6 +95,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/profile/*" element={<ProfilePage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="*" element={<h2>Not found</h2>} />
         </Routes>
         <Footer />

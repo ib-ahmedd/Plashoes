@@ -1,0 +1,31 @@
+@media (max-width: 1100px){
+    .cart-content-table{
+        display: none;
+    }
+    .cart-content-mobile{
+        display: flex;
+    }
+    .cart-page{
+        padding: 2%;
+    }
+    .cart-page-body{
+        width: 100%;
+        padding: 2em;
+    }
+
+    .cart-page-body h1{
+        font-size: 4em;
+    }
+
+    .table-total{
+        flex-direction: column;
+    }
+    
+    .table-total > *{
+        width: 100%;
+    }
+
+    .cart-totals span{
+        justify-content: space-between;
+    }
+}

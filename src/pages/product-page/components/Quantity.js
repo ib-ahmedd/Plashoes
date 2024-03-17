@@ -5,7 +5,7 @@ import SetQuantity from "../../../components/SetQuantity";
 
 const Quantity = ({ getInView }) => {
   const { ref, inView } = useInView();
-  const { quantity, setQuantity, handleAddCart } =
+  const { quantity, handleQuantity, handleAddCart } =
     useContext(ProductPageContext);
   useEffect(() => {
     if (getInView) {
@@ -15,7 +15,7 @@ const Quantity = ({ getInView }) => {
 
   return (
     <span className="quantity-add-cart" ref={ref}>
-      <SetQuantity setQuantity={setQuantity} quantity={quantity} />
+      <SetQuantity handleQuantity={handleQuantity} quantity={quantity} />
       <button className="add-cart" onClick={handleAddCart}>
         ADD TO CART
       </button>
