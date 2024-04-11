@@ -6,8 +6,11 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-import AccountOverview from "../pages/profile-page/components/AccountOverview";
-import Orders from "../pages/profile-page/components/Orders";
+import AccountOverview from "../pages/profile-page/sub-pages/account-overview/AccountOverview";
+import Orders from "../pages/profile-page/sub-pages/orders/Orders";
+import PendingReviews from "../pages/profile-page/sub-pages/pending-reviews/PendingReviews";
+import RecentlyViewed from "../pages/profile-page/sub-pages/recently-viewed/RecentlyViewed";
+import Inbox from "../pages/profile-page/sub-pages/inbox/Inbox";
 const profileSideBarArray = [
   {
     id: 1,
@@ -28,21 +31,21 @@ const profileSideBarArray = [
     text: "Inbox",
     icon: faEnvelope,
     path: "inbox",
-    element: <h1>Inbox</h1>,
+    element: <Inbox />,
   },
   {
     id: 4,
     text: "Pending Reviews",
     icon: faMessage,
     path: "reviews",
-    element: <h1>Reviews</h1>,
+    element: <PendingReviews />,
   },
   {
     id: 5,
     text: "Recently Viewed",
     icon: faClockRotateLeft,
     path: "recent",
-    element: <h1>Recent</h1>,
+    element: <RecentlyViewed />,
   },
 ];
 

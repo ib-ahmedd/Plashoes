@@ -1,6 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-const RatingStarsButtons = ({ stars, handleStars }) => {
+const RatingStarsButtons = ({
+  stars,
+  handleStars,
+  handleMouseOut,
+  handleHover,
+}) => {
   const starsArray = [];
   <FontAwesomeIcon icon={faStar} style={{ color: "var(--orange)" }} />;
   for (let i = 0; i < stars; i++) {
@@ -29,6 +34,12 @@ const RatingStarsButtons = ({ stars, handleStars }) => {
     <button
       onClick={() => {
         handleStars(item.id);
+      }}
+      onMouseOver={() => {
+        handleHover(item.id);
+      }}
+      onMouseOut={() => {
+        handleMouseOut();
       }}
       key={item.id}
       className="rating-button"

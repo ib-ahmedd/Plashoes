@@ -186,6 +186,10 @@
     font-size: 1.3em;
 }
 
+.cart-content-table .subtotal .xmark:hover{
+    cursor: pointer;
+}
+
 /* mobile table */
 /* mobile table */
 /* mobile table */
@@ -319,4 +323,9 @@
     font-size: 1.5em;
     margin-top: 2em;
     padding: 1.5em 2em;
+}
+
+.checkout-btn:hover{
+    cursor: pointer;
+    background-color: var(--green-hover);
 }

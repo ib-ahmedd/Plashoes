@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .contact-page h1{
@@ -98,7 +99,42 @@
 }
 
 .contact-form-inputs button:hover{
-    background-color: rgb(38, 57, 38);
+    cursor: pointer;
+    background-color: var(--green-hover);
+}
+
+/* message sent */
+/* message sent */
+/* message sent */
+/* message sent */
+/* message sent */
+/* message sent */
+/* message sent */
+/* message sent */
+/* message sent */
+/* message sent */
+
+.message-sent{
+    width: 100%;
+    background-color: var(--light-grey);
+    padding: 2em 12.5%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.message-sent .image{
+    width: 50%;
+}
+.message-sent img{
+    width: 100%;
+}
+
+.message-sent p{
+    font-size: 1.3em;
+    color: var(--grey);
+    text-align: center;
 }
 
 /* FAQs section */

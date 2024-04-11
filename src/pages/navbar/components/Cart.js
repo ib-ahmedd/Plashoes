@@ -10,8 +10,17 @@ import axios from "axios";
 
 export const CartIconContext = createContext("");
 
-const Cart = ({ cartOpen, toggleCart }) => {
-  const { cartRefresh, setCartRefresh, cartProducts } = useContext(AppContext);
+const Cart = ({ toggleCart }) => {
+  const {
+    cartRefresh,
+    setCartRefresh,
+    cartProducts,
+    setProducts,
+    cartOpen,
+    isLoggedIn,
+    setCookie,
+    accessToken,
+  } = useContext(AppContext);
 
   const cartContent = cartProducts && cartProducts.length;
   let totalPrice = 0;
@@ -21,37 +30,84 @@ const Cart = ({ cartOpen, toggleCart }) => {
     });
   }
 
-  const handleDelete = async (id) => {
-    const response = await axios.delete(
-      `http://localhost:5000/cart-delete/${id}`
-    );
-    console.log(response);
-    setCartRefresh(true);
-  };
-
-  const handleQuantity = async (func, id, quantity) => {
-    if (func === "add") {
-      console.log("clicked");
-      const response = await axios.patch(
-        `http://localhost:5000/cart-update/${id}`,
-        {
-          quantity: quantity + 1,
+  async function handleDelete(id) {
+    try {
+      if (isLoggedIn) {
+        try {
+          await axios.delete(`http://localhost:5000/cart-delete/${id}`, {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          });
+        } catch (err) {
+          console.log(err);
         }
-      );
-      console.log(response);
-    } else {
-      if (quantity > 1) {
-        const response = await axios.patch(
-          `http://localhost:5000/cart-update/${id}`,
-          {
-            quantity: quantity - 1,
-          }
-        );
-        console.log(response);
+      } else {
+        setProducts((prevState) => {
+          const updatedItems = prevState.filter((item) => item.id !== id);
+          setCookie("noLogCart", JSON.stringify(updatedItems), 7);
+          return updatedItems;
+        });
       }
+      setCartRefresh(true);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function handleQuantity(func, id, quantity) {
+    if (isLoggedIn) {
+      try {
+        if (func === "add") {
+          await axios.patch(
+            `http://localhost:5000/cart-update/${id}`,
+            {
+              quantity: quantity + 1,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+              },
+            }
+          );
+        } else {
+          if (quantity > 1) {
+            await axios.patch(
+              `http://localhost:5000/cart-update/${id}`,
+              {
+                quantity: quantity - 1,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${accessToken}`,
+                },
+              }
+            );
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      setProducts((prevState) => {
+        const updatedItems = prevState.map((item) => {
+          if (item.id === id) {
+            if (func === "add") {
+              item.quantity = item.quantity + 1;
+            } else {
+              if (item.quantity > 1) {
+                item.quantity = item.quantity - 1;
+              }
+            }
+          }
+          return item;
+        });
+        setCookie("noLogCart", JSON.stringify(updatedItems), 7);
+        return updatedItems;
+      });
     }
     setCartRefresh(true);
-  };
+  }
 
   useEffect(() => {
     setCartRefresh(false);
@@ -79,11 +135,14 @@ const Cart = ({ cartOpen, toggleCart }) => {
             {cartContent && !cartRefresh ? (
               <CartContent />
             ) : (
-              <h3>Cart is empty</h3>
+              <p className="cart-empty">No products in cart</p>
             )}
           </div>
           {cartContent ? (
-            <LoadedCartBtns totalPrice={totalPrice.toFixed(2)} />
+            <LoadedCartBtns
+              totalPrice={totalPrice.toFixed(2)}
+              isLoggedIn={isLoggedIn}
+            />
           ) : (
             <Link to={"/collection"}>CONTINUE SHOPPING</Link>
           )}

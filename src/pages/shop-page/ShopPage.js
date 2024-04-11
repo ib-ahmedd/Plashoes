@@ -1,18 +1,32 @@
 import "../../assets/styles/shop-page/shop-style.css";
+import "../../assets/styles/shop-page/shop-laptop-style.css";
 import "../../assets/styles/shop-page/shop-tab-style.css";
 import "../../assets/styles/shop-page/shop-mobile-style.css";
 
 import ItemsDisplay from "./components/ItemsDisplay";
-import useFetch from "../../hooks/useFetch";
 import ShopProductsContainer from "./components/ShopProductsContainer";
 import FilterMenu from "./components/FilterMenu";
-import { useState, createContext, useEffect } from "react";
+import {
+  useState,
+  createContext,
+  useEffect,
+  useContext,
+  useCallback,
+} from "react";
 import ScreenCover from "../../components/ScreenCover";
+import axios from "axios";
+import { AppContext } from "../../App";
 
 export const ShopPageContext = createContext("");
 
 const ShopPage = ({ page }) => {
+  const { searchKey } = useContext(AppContext);
   const [url, setUrl] = useState(`/categories/${page}`);
+
+  const [isLoading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(0);
+
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [priceRange, setPriceRange] = useState(150);
   const [selectedOption, setSelectedOption] = useState("Default sorting");
@@ -21,7 +35,39 @@ const ShopPage = ({ page }) => {
   const [offSet, setOffset] = useState(0);
   const [itemNumbers, setItemNumbers] = useState({ start: 1, end: 12 });
 
-  const { products, isLoading, count } = useFetch(url);
+  const getProducts = useCallback(async () => {
+    try {
+      const host = "http://localhost:5000";
+      const result = await axios.get(host + url);
+      const { data } = result;
+      const { productsArray, count } = data;
+      setProducts(productsArray);
+      setCount(count);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [url]);
+  const getSearchProducts = useCallback(async () => {
+    const response = await axios.post("http://localhost:5000/search", {
+      keywords: searchKey,
+      filter: filterCategory,
+      sort: selectedOption,
+      priceRange: priceRange,
+      offSet: offSet,
+    });
+    const { productsArray, count } = response.data;
+    setProducts(productsArray);
+    setCount(count);
+    setLoading(false);
+  }, [searchKey, filterCategory, selectedOption, priceRange, offSet]);
+  useEffect(() => {
+    if (page === "Search") {
+      getSearchProducts();
+    } else {
+      getProducts();
+    }
+  }, [page, searchKey, getProducts, getSearchProducts]);
 
   useEffect(() => {
     setSelectedOption("Default sorting");
@@ -29,6 +75,11 @@ const ShopPage = ({ page }) => {
     setUrl(`/categories/${page}`);
     setCurrentPage(1);
   }, [page]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
   const handleCurrentPage = (buttonNo) => {
     setCurrentPage(buttonNo);
     setOffset((buttonNo - 1) * 12);
@@ -38,6 +89,7 @@ const ShopPage = ({ page }) => {
       }&cat=${filterCategory}&price=${priceRange}&sort=${selectedOption}`
     );
   };
+
   const handleChange = (e) => {
     setSelectedOption(e.target.value);
     const value = e.target.value;
@@ -106,16 +158,14 @@ const ShopPage = ({ page }) => {
   return (
     <main className="shop-page">
       <ShopPageContext.Provider value={shopContextValue}>
-        <section className="shop-items-section">
-          {isMenuOpen && <ScreenCover toggleMenu={toggleMenu} />}
-          <FilterMenu />
-          <ItemsDisplay />
-          <ShopProductsContainer
-            products={products}
-            isLoading={isLoading}
-            count={count}
-          />
-        </section>
+        {isMenuOpen && <ScreenCover toggleMenu={toggleMenu} />}
+        <FilterMenu />
+        <ItemsDisplay />
+        <ShopProductsContainer
+          products={products}
+          isLoading={isLoading}
+          count={count}
+        />
       </ShopPageContext.Provider>
     </main>
   );

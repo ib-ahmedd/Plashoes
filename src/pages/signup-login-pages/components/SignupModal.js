@@ -5,10 +5,22 @@ import { useContext } from "react";
 import { SignupPageContext } from "../SignupPage";
 
 const SignupModal = () => {
-  const { formComplete, termsChecked, handleTermsChecked } =
-    useContext(SignupPageContext);
+  const {
+    termsChecked,
+    handleTermsChecked,
+    otpOnScreen,
+    handleSubmit,
+    emptyFields,
+    inputError,
+    loading,
+  } = useContext(SignupPageContext);
+
   return (
-    <form className="signup-modal">
+    <form
+      className="signup-modal"
+      onSubmit={handleSubmit}
+      style={otpOnScreen ? { transform: "translate(-200%)" } : {}}
+    >
       <span>
         <h1>Sign up</h1>
       </span>
@@ -26,15 +38,17 @@ const SignupModal = () => {
         </label>
       </span>
       <span>
-        {formComplete && termsChecked ? (
+        {emptyFields && <h3>Fill all input fields!</h3>}
+        {!emptyFields && inputError && <h3>{inputError}</h3>}
+        {!loading ? (
           <button className="signup-btn">SIGN UP</button>
         ) : (
           <button
-            className="signup-btn"
-            disabled
             style={{ backgroundColor: "var(--grey)" }}
+            disabled
+            className="signup-btn"
           >
-            SIGN UP
+            Loading...
           </button>
         )}
       </span>

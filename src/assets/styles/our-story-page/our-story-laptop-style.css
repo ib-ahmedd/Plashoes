@@ -1,0 +1,9 @@
+@media (min-width: 1100px) and (max-width: 1400px){
+    .image-notes{
+        width: 100%;
+    }
+
+    .mission-vision{
+        padding: 2em;
+    }
+}

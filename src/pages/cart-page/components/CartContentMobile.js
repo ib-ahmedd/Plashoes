@@ -16,7 +16,6 @@ const CartContentMobile = () => {
         handleDelete={handleDelete}
       />
     ));
-  console.log(cartContent);
   return <section className="cart-content-mobile">{cartContent}</section>;
 };
 export default CartContentMobile;

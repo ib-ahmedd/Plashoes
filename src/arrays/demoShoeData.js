@@ -1,7 +1,7 @@
 const demoShoeData = [
   {
     id: 1,
-    shoeName: "Men’s Black Running",
+    shoename: "Men’s Black Running",
     image: "./images/demo-shoes-images/men/men black running.jpg",
     price: 89.9,
     sale: true,
@@ -9,7 +9,7 @@ const demoShoeData = [
   },
   {
     id: 2,
-    shoeName: "Men’s Green Running",
+    shoename: "Men’s Green Running",
     image: "./images/demo-shoes-images/men/men green running.jpg",
     price: 78.9,
     sale: true,
@@ -17,7 +17,7 @@ const demoShoeData = [
   },
   {
     id: 3,
-    shoeName: "Men’s Classic Mint",
+    shoename: "Men’s Classic Mint",
     image: "./images/demo-shoes-images/men/men classic mint.jpg",
     price: 105.2,
     sale: false,
@@ -25,7 +25,7 @@ const demoShoeData = [
   },
   {
     id: 4,
-    shoeName: "Men’s Red Running",
+    shoename: "Men’s Red Running",
     image: "./images/demo-shoes-images/men/men red running.jpg",
     price: 66.3,
     sale: true,
@@ -33,7 +33,7 @@ const demoShoeData = [
   },
   {
     id: 5,
-    shoeName: "Men’s Classic Blue",
+    shoename: "Men’s Classic Blue",
     image: "./images/demo-shoes-images/men/men classic blue.jpg",
     price: 97.9,
     sale: false,
@@ -41,7 +41,7 @@ const demoShoeData = [
   },
   {
     id: 6,
-    shoeName: "Men’s navy Running",
+    shoename: "Men’s navy Running",
     image: "./images/demo-shoes-images/men/men navy running.jpg",
     price: 89.9,
     sale: true,

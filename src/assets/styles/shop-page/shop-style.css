@@ -1,25 +1,18 @@
 .shop-page{
-    width: 100%;
+    width: 70%;
     background-color: var(--light-grey);
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 3em 0;
+    padding: 0 3em; 
+    box-sizing: border-box;
+    background-color: white;
 }
 
 .shop-page h1{
     font-size: 5em;
     color: var(--green);
     width: 100%;
-}
-
-.shop-items-section{
-    width: 70%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 3em;
-    box-sizing: border-box;
 }
 
 .filter-sort{
@@ -45,7 +38,7 @@
 }
 
 .shop-filter-btn:hover{
-    background-color: rgb(42, 61, 42);
+    background-color: var(--green-hover);
     cursor: pointer;
 }
 
@@ -103,12 +96,13 @@
 }
 
 .filter-menu .search-bar{
+    width: 100%;
     display: flex;
     height: 4em;
-
 }
 
 .filter-menu .search-bar form{
+    width: 100%;
     height: 100%;
     display: flex;
 }
@@ -152,9 +146,9 @@
     text-decoration: underline;
 }
 .filter-price button:hover{
-    background-color: rgb(27, 61, 38);
+    background-color: var(--green-hover);
     cursor: pointer;
-}
+}   
 .filter-category{
     width: 100%;
     display: flex;
@@ -180,7 +174,7 @@
 }
 
 .filter-category button:hover{
-    color: rgb(16, 43, 16);
+    color: var(--green-hover);
     cursor: pointer;
 }
 
@@ -204,4 +198,9 @@
     width: 2.5em;
     height: 2.5em;
     box-sizing: border-box;
+}
+
+.result-pages-button:hover{
+    cursor: pointer;
+    background-color: #c8caac;
 }

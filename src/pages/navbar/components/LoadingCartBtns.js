@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const LoadedCartBtns = ({ totalPrice }) => {
+const LoadedCartBtns = ({ totalPrice, isLoggedIn }) => {
   return (
     <div className="loaded-cart">
       <span>
@@ -8,7 +8,9 @@ const LoadedCartBtns = ({ totalPrice }) => {
         <p className="price">${totalPrice}</p>
       </span>
       <Link to={"/cart"}>VIEW CART</Link>
-      <Link to={"/cart"}>CHECKOUT</Link>
+      <Link to={isLoggedIn ? "/checkout" : "/login"} state={"/checkout"}>
+        CHECKOUT
+      </Link>
     </div>
   );
 };

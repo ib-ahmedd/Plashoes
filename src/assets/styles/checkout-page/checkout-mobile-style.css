@@ -1,0 +1,51 @@
+@media (min-width: 0px) and (max-width: 750px){
+    .checkout-page{
+        padding: 2%;
+    }
+
+    .checkout-page h1{
+        font-size: 2em;
+        margin: 0.5em 0;
+    }
+
+    .checkout-page h2{
+        font-size: 1.5em;
+    }
+
+    .checkout-page h3{
+        font-size: 1em;
+    }
+
+    .order-modal{
+        margin-top: 1em;
+    }
+
+    .order-modal > *{
+        font-size: 1em;
+    }
+
+    .customer-info label{
+        font-size: 1em;
+    }
+
+    .customer-info input{
+        height: 2em;
+        font-size: 1em;
+    }
+
+    .customer-info .phone-postcode > div:first-child{
+        width: 100%;
+    }
+
+    .customer-info .phone-postcode{
+        gap: 1em;
+    }
+
+    .customer-info textarea{
+        font-size: 1em;
+    }
+
+    .customer-info button{
+        font-size: 1em;
+    }
+}

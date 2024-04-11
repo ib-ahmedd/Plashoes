@@ -5,6 +5,7 @@ import ShoesMade from "../../components/ShoesMade";
 
 import "../../assets/styles/our-story-page/our-story-style.css";
 import "../../assets/styles/our-story-page/our-story-tab-style.css";
+import "../../assets/styles/our-story-page/our-story-laptop-style.css";
 import "../../assets/styles/our-story-page/our-story-mobile-style.css";
 
 const OurStoryPage = () => {

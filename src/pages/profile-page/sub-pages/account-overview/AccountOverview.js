@@ -1,6 +1,6 @@
-import AccountInfoBox from "./AccountInfoBox";
+import AccountInfoBox from "./components/AccountInfoBox";
 import { useContext } from "react";
-import { AppContext } from "../../../App";
+import { AppContext } from "../../../../App";
 
 const AccountOverview = () => {
   const { user } = useContext(AppContext);
@@ -23,7 +23,7 @@ const AccountOverview = () => {
               <h3>Your default shipping address:</h3>
               <p>{user_name}</p>
               <p>{address}</p>
-              <p>{"+" + country_code + mobile_no}</p>
+              <p>{mobile_no && country_code + mobile_no.toString()}</p>
             </>
           }
         />

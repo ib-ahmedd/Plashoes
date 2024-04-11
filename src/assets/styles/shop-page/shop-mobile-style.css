@@ -1,6 +1,6 @@
 @media (min-width: 0px) and (max-width: 750px){
     .shop-page h1{
-        font-size: 3em;
+        font-size: 2em;
     }
 
     .shop-items-section{
@@ -15,9 +15,15 @@
     }
     .shop-filter-btn{
         width: 15em;
+        font-size: 0.8em;
+    }
+
+    .result-count-p{
+        font-size: 0.9em;
     }
     .shop-sort{
         height: 3em;
+        font-size: 0.9em;
     }
 
     .filter-menu{

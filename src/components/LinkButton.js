@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
-const LinkButton = ({ text, path }) => {
+const LinkButton = ({ text, path, state }) => {
   const { pathname } = useLocation();
   const [isActive, setIsActive] = useState(false);
   useEffect(() => {
@@ -18,6 +18,7 @@ const LinkButton = ({ text, path }) => {
       to={path}
       className="link-buttons"
       style={{ color: isActive && "#222" }}
+      state={state}
     >
       {text}
     </NavLink>

@@ -2,14 +2,7 @@
     --very-light-grey: #cdcdcd
 }
 .product-page{
-    background-color: var(--light-grey);
-    padding: 2em 1.5%;
-    box-sizing: border-box;
-}
-
-.product-section{
     width: 75%;
-    margin: auto;
     padding: 3em;
     box-sizing: border-box;
     background-color: white;
@@ -113,6 +106,10 @@
     justify-content: center;
 }
 
+.quantity > button:hover{
+    cursor: pointer;
+}
+
 .quantity p{
     border-left: 1px solid var(--grey);
     border-right: 1px solid var(--grey);
@@ -124,6 +121,11 @@
     width: 8em;
     font-size: 1.1em;
     height: 2.5em;
+}
+
+.add-cart:hover{
+    cursor: pointer;
+    background-color: var(--green-hover);
 }
 
 .categ{
@@ -191,6 +193,10 @@
     height: 100%;
 }
 
+.desc-review .div-button:hover{
+    cursor: pointer;
+}
+
 /* long description */
 /* long description */
 /* long description */
@@ -209,77 +215,40 @@
 /* review section */
 /* review section */
 
-.product-review-form{
+.product-review{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 1em 2em;
-    box-sizing: border-box;
-    border: 1px solid var(--very-light-grey);
 }
 
-.product-review-form .rating-span{
-    display: flex;
-    align-items: center;
-}
-
-.product-review-form .rating-span button{
-    margin: 1em 0;
+.product-review .review-sf{
     font-size: 1.3em;
 }
 
-.product-review-form textarea{
+.product-review .review-comments{
     width: 100%;
-    height: 6em;
-    padding: 0;
-    margin-top: 1em;
-}
-
-.name-email-span{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
-    margin-bottom: 2em;
-}
-
-.name-email-span span{
-    margin-top: 2em;
-    width: 49%;
-    height: 6em;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
+    gap: 1em;
 }
 
-.name-email-span input{
-    box-sizing: border-box;
-    height: 4em;
+.product-review .comment{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    box-sizing: border-box;
+    padding: 1em;
+    border: 1px solid var(--border-grey);
+    border-radius: 5px;
 }
 
-.review-bf{
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.review-mf{
-    font-size: 1.4em;
-    margin: 0;
-}
-
-.review-sf{
+.product-review .comment h4{
     font-size: 1.2em;
+    color: black;
     margin: 0;
 }
 
-.review-submit{
-    background-color: var(--green);
-    color: white;
-    font-size: 1.1em;
-    width: 7em;
-    height: 3em;
+.product-review .comment p{
+    margin: 0;
 }
 
 /* switching divs */
@@ -359,10 +328,9 @@
     font-weight: lighter;
 }
 
-.fixed-quantity p{
+.fixed-quantity .price p{
     color: var(--grey);
-    font-size: 0.9em;
-    font-weight: bold;
+    font-size: 0.8em;
 }
 
 /* loading page */
@@ -377,9 +345,8 @@
 /* loading page */
 
 .loading-products{
-    width: 75%;
+    width: 100%;
     margin: auto;
-    padding: 3em;
     box-sizing: border-box;
     background-color: white;
     display: flex;
@@ -485,4 +452,8 @@
     color: white;
     padding: 1em 1.5em;
     flex-shrink: 0;
+}
+
+.added-to-cart a:hover{
+    background-color: var(--green-hover);
 }

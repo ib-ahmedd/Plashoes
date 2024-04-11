@@ -6,7 +6,7 @@ const SideBarBtn = ({ text, icon, path }) => {
   const { pathname } = useLocation();
   const [isActive, setIsActive] = useState(false);
   useEffect(() => {
-    if (pathname === "/profile/" + path) {
+    if (pathname.includes(path)) {
       setIsActive(true);
     }
 
@@ -18,8 +18,7 @@ const SideBarBtn = ({ text, icon, path }) => {
     <NavLink
       to={"/profile/" + path}
       style={{
-        backgroundColor: isActive && "#d4d4d4",
-        color: isActive && "black",
+        backgroundColor: isActive && "#e3e3e3",
       }}
     >
       <FontAwesomeIcon icon={icon} />

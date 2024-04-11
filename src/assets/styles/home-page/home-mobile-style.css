@@ -3,6 +3,9 @@
         margin: 0;
     }
 
+    .app-body{
+        padding: 0 2%;
+    }
     .navbar{
         padding: 0 1em;
     }
@@ -32,10 +35,11 @@
     /* search bar */
     .search-bar{
         height: 4em;
+        font-size: 0.8em;
     }
     .search-bar form{
-        width: 100%;
-        height: 3em;
+        width: 90%;
+        height: 95%;
     }
 
     /*site intro */
@@ -128,6 +132,14 @@
         width: 47%;
         padding-bottom: 0;
         height: 27em;
+    }
+
+    .product-modal a{
+        font-size: 1em;
+    }
+
+    .product-modal p{
+        font-size: 1em;
     }
     .loading-product-modal{
         width: 47%;

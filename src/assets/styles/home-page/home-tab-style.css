@@ -1,4 +1,7 @@
 @media (max-width: 1100px){
+    .app-body{
+        padding: 0 1em;
+    }
     .home-body{
         margin: 0;
     }

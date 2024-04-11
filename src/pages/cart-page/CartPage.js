@@ -14,42 +14,60 @@ import CartEmpty from "./components/CartEmpty";
 export const CartPageContext = createContext("");
 
 const CartPage = () => {
-  const { user, cartEmpty, setLoading, setCartRefresh } =
+  const { user, cartEmpty, setLoading, setCartRefresh, accessToken } =
     useContext(AppContext);
   const { id } = user;
   const [cartUpdated, setCartUpdate] = useState(false);
 
   const handleQuantity = async (func, id, quantity) => {
     setLoading(true);
-    if (func === "add") {
-      const response = await axios.patch(
-        `http://localhost:5000/cart-update/${id}`,
-        {
-          quantity: quantity + 1,
-        }
-      );
-      console.log(response);
-    } else {
-      if (quantity > 1) {
-        const response = await axios.patch(
+    try {
+      if (func === "add") {
+        await axios.patch(
           `http://localhost:5000/cart-update/${id}`,
           {
-            quantity: quantity - 1,
+            quantity: quantity + 1,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
           }
         );
-        console.log(response);
+      } else {
+        if (quantity > 1) {
+          await axios.patch(
+            `http://localhost:5000/cart-update/${id}`,
+            {
+              quantity: quantity - 1,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+              },
+            }
+          );
+        }
       }
+    } catch (err) {
+      console.log(err);
     }
     setCartUpdate(true);
     setCartRefresh(true);
   };
 
   const handleDelete = async (id) => {
-    const response = await axios.delete(
-      `http://localhost:5000/cart-delete/${id}`
-    );
-    console.log(response);
     setLoading(true);
+    try {
+      await axios.delete(`http://localhost:5000/cart-delete/${id}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    setLoading(false);
     setCartUpdate(true);
     setCartRefresh(true);
   };

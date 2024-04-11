@@ -1,4 +1,5 @@
 import "../../assets/styles/product-page/product-style.css";
+import "../../assets/styles/product-page/product-laptop-style.css";
 import "../../assets/styles/product-page/product-tab-style.css";
 import "../../assets/styles/product-page/product-mobile-style.css";
 
@@ -7,7 +8,7 @@ import ProductDetails from "./components/ProductDetails";
 import DescReview from "./components/DescReview";
 import RelatedProducts from "./components/RelatedProducts";
 import useFetch from "../../hooks/useFetch";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import LoadingProductSection from "./components/LoadingProductSection";
 import axios from "axios";
 import { AppContext } from "../../App";
@@ -16,41 +17,105 @@ import AddedToCart from "./components/AddedToCart";
 export const ProductPageContext = createContext("");
 
 const ProductPage = () => {
-  const { user, setCartRefresh, cartProducts } = useContext(AppContext);
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, [pathname]);
+  const {
+    user,
+    setCartRefresh,
+    cartProducts,
+    isLoggedIn,
+    setCookie,
+    setProducts,
+    accessToken,
+    setRecentProducts,
+  } = useContext(AppContext);
   const { id } = useParams();
   const { products, isLoading } = useFetch(`/product/${id}`);
-  const [displayedProduct, relatedProducts] = products;
+  const [displayedProduct, relatedProducts, comments] = products;
   const [addedOpen, setAddedOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const addedQuantity = useRef(0);
+  const [disabledBtn, setDisabledBtn] = useState(false);
 
-  const handleAddCart = async () => {
-    const foundProduct = cartProducts.find(
-      (item) => item.product_id === parseInt(id)
-    );
-    console.log(foundProduct);
+  const { pathname } = useLocation();
+
+  function handleNoLogCart() {
+    const { image, shoename, price, id } = displayedProduct;
+    const cartItem = {
+      image,
+      shoe_name: shoename,
+      quantity,
+      price,
+      id,
+    };
+
+    const foundProduct = cartProducts.find((item) => item.id === cartItem.id);
     if (foundProduct) {
-      await axios.patch(
-        `http://localhost:5000/cart-update/${foundProduct.id}`,
-        {
-          quantity: foundProduct.quantity + quantity,
-        }
-      );
+      setProducts((prevState) => {
+        const updatedItems = prevState.map((item) => {
+          if (item.id === cartItem.id) {
+            item.quantity = item.quantity + cartItem.quantity;
+          }
+          return item;
+        });
+        setCookie("noLogCart", JSON.stringify(updatedItems), 7);
+        return updatedItems;
+      });
     } else {
-      axios.post("http://localhost:5000/add-cart", {
-        productId: id,
-        userId: user ? user.id : 1,
-        quantity: quantity,
+      setProducts((prevState) => {
+        setCookie("noLogCart", JSON.stringify([...prevState, cartItem], 7));
+        return [...prevState, cartItem];
       });
     }
+    addedQuantity.current = quantity;
     setAddedOpen(true);
-    setCartRefresh(true);
-  };
+  }
+  async function handleAddCart() {
+    setDisabledBtn(true);
+    if (isLoggedIn) {
+      const foundProduct = cartProducts.find(
+        (item) => item.product_id === parseInt(id)
+      );
+      console.log(foundProduct);
+      if (foundProduct) {
+        await axios.patch(
+          `http://localhost:5000/cart-update/${foundProduct.id}`,
+          {
+            quantity: foundProduct.quantity + quantity,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        addedQuantity.current = quantity;
+        setAddedOpen(true);
+        setCartRefresh(true);
+      } else {
+        await axios.post(
+          "http://localhost:5000/add-cart",
+          {
+            productId: id,
+            userId: user ? user.id : 1,
+            quantity: quantity,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        addedQuantity.current = quantity;
+        setAddedOpen(true);
+        setCartRefresh(true);
+      }
+    } else {
+      console.log(products);
+    }
 
-  const handleQuantity = (func) => {
+    setDisabledBtn(false);
+  }
+
+  function handleQuantity(func) {
     if (func === "add") {
       setQuantity((prevQuantity) => prevQuantity + 1);
     } else {
@@ -58,7 +123,7 @@ const ProductPage = () => {
         setQuantity((prevQuantity) => prevQuantity - 1);
       }
     }
-  };
+  }
 
   const ProductPageContextValues = {
     product: displayedProduct ? displayedProduct : {},
@@ -67,7 +132,20 @@ const ProductPage = () => {
     setQuantity,
     handleAddCart,
     handleQuantity,
+    handleNoLogCart,
+    disabledBtn,
+    comments: comments ? comments : [],
   };
+
+  useEffect(() => {
+    if (!isLoading) {
+      setRecentProducts(displayedProduct);
+    }
+  }, [setRecentProducts, isLoading, displayedProduct]);
+
+  useEffect(() => {
+    setAddedOpen(false);
+  }, [pathname]);
 
   return (
     <main className="product-page">
@@ -75,11 +153,11 @@ const ProductPage = () => {
         {isLoading ? (
           <LoadingProductSection />
         ) : (
-          <section className="product-section">
+          <>
             {addedOpen && (
               <span className="added-to-cart-cont">
                 <AddedToCart
-                  quantity={quantity}
+                  quantity={addedQuantity.current}
                   productName={displayedProduct.shoename}
                 />
               </span>
@@ -87,7 +165,7 @@ const ProductPage = () => {
             <ProductDetails />
             <DescReview />
             <RelatedProducts />
-          </section>
+          </>
         )}
       </ProductPageContext.Provider>
     </main>

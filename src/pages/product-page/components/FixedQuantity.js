@@ -16,9 +16,9 @@ const FixedQuantity = ({ fixedQuantityOpen }) => {
         <h4>{shoename}</h4>
       </span>
       <span className="price-quantity">
-        <p className="price-cont">
+        <div className="price-cont">
           <Price price={price} sale={sale} />
-        </p>
+        </div>
         <Quantity />
       </span>
     </div>

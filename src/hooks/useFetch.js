@@ -1,5 +1,6 @@
+import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
-const useFetch = (url) => {
+const useFetch = (url, headers) => {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
   const [isLoading, setLoading] = useState(true);
@@ -7,15 +8,16 @@ const useFetch = (url) => {
   const getProducts = useCallback(async () => {
     const host = "http://localhost:5000";
     try {
-      const result = await fetch(host + url);
-      const { productsArray, count } = await result.json();
+      const result = await axios.get(host + url, { headers });
+      const { data } = result;
+      const { productsArray, count } = data;
       setProducts(productsArray);
       setCount(count);
       setLoading(false);
     } catch (err) {
       console.log(err);
     }
-  }, [url]);
+  }, [url, headers]);
   useEffect(() => {
     getProducts();
   }, [url, getProducts]);

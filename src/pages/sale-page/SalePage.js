@@ -3,8 +3,7 @@ import SaleImage from "./components/SaleImage";
 import "../../assets/styles/sale-page/sale-style.css";
 import "../../assets/styles/sale-page/sale-tab-style.css";
 import "../../assets/styles/sale-page/sale-mobile-style.css";
-// import ProductsSection from "../../components/ProductsSection";
-// import useFetch from "../../hooks/useFetch";
+import "../../assets/styles/sale-page/sale-laptop-style.css";
 import SaleProducts from "./components/SaleProducts";
 
 const SalePage = () => {

@@ -1,8 +1,5 @@
 @media (max-width: 1100px){
     .product-page{
-        padding: 0 2%;
-    }
-    .product-section{
         width: 100%;
         padding: 1em;
     }

@@ -13,6 +13,7 @@ const NavBar = () => {
   const { isLoggedIn } = useContext(AppContext);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { ref, inView } = useInView();
+  const [hidden, setHidden] = useState(false);
   const { pathname } = useLocation();
 
   const toggleMenu = () => {
@@ -21,11 +22,20 @@ const NavBar = () => {
 
   useEffect(() => {
     setMenuOpen(false);
+    if (pathname === "/login" || pathname === "/signup") {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
   }, [pathname]);
 
   return (
     <>
-      <div className="navbar" ref={ref}>
+      <div
+        className="navbar"
+        ref={ref}
+        style={hidden ? { display: "none" } : {}}
+      >
         <button onClick={toggleMenu} className="navbar-button">
           <FontAwesomeIcon icon={faBars} />
         </button>
@@ -57,6 +67,7 @@ const NavBar = () => {
               <LinkButton
                 text={<FontAwesomeIcon icon={faUser} />}
                 path={isLoggedIn ? "/profile/account" : "/login"}
+                state={"/profile/account"}
               />
             </span>
           </section>

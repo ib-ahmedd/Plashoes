@@ -1,0 +1,200 @@
+.checkout-page{
+    width: 75%;
+    margin: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3em;
+    box-sizing: border-box;
+}
+
+.checkout-content{
+    width: 100%;
+    background-color: white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    gap: 3em;
+}
+
+.checkout-body{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-page h1{
+    width: 100%;
+    text-align: center;
+    font-size: 5em;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+.checkout-page h2{
+    font-size: 2em;
+    margin: 0;
+}
+
+.customer-info{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.customer-info span{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.customer-info .checkout-labeled-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-info label{
+    font-size: 1.3em;
+    color: #717171;
+}
+
+.customer-info input{
+    border: 1px solid #dddddd;
+    width: 100%;
+    font-size: 1.3em;
+    height: 2.5em;
+    padding: 0 1em;
+    box-sizing: border-box;
+    color: var(--grey);
+}
+
+.customer-info .names > *{
+    width: 48%;
+}
+
+.customer-info .phone-postcode{
+    gap: 2em;
+}
+.customer-info .phone-postcode > div:first-child{
+    width: 100%;
+}
+
+.customer-info textarea{
+    padding: 1em;
+    box-sizing: border-box;
+    height: 5em;
+    font-size: 1.5em;
+}
+
+.customer-info button{
+    width: 100%;
+    background-color: var(--green);
+    color: white;
+    height: 3em;
+    font-size: 1.3em;
+}
+
+.customer-info button:hover{
+    cursor: pointer;
+    background-color: var(--green-hover);
+}
+
+.your-order{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-modal{
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1PX solid #dddddd;
+}
+
+.order-modal > *{
+    border-bottom: 1px solid #dddddd;
+    width: 100%;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    color: var(--grey) ;
+}
+
+.order-modal h3{
+    font-size: 1.1em;
+}
+
+.order-modal p, .order-modal h3{
+    margin: 0.5em 0;
+}
+
+.order-modal .item-detail span{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.order-modal img{
+    width: 4em;
+}
+
+/* payment success */
+/* payment success */
+/* payment success */
+/* payment success */
+/* payment success */
+/* payment success */
+/* payment success */
+/* payment success */
+/* payment success */
+/* payment success */
+
+.payment-success{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.payment-success span{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.payment-success img{
+    width: 50%;
+}
+
+.payment-success h3{
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.payment-success p{
+    margin: 0;
+    font-size: 1.3em;
+    color: var(--grey);
+}
+
+.payment-success a{
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    padding: 1em 0;
+    background-color: var(--green);
+    color: white;
+}
+
+.payment-success a:hover{
+    background-color: var(--green-hover);
+}

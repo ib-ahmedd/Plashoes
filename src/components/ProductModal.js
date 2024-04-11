@@ -10,7 +10,9 @@ const ProductModal = ({ id, shoename, image, price, sale, rating }) => {
         <img src={image} alt={shoename + " image"} />
       </Link>
       <span>
-        <Link to={`/product/${id}`}>{shoename}</Link>
+        <Link to={`/product/${id}`} className="name">
+          {shoename}
+        </Link>
         <Price price={price} sale={sale} />
         <RatingStars stars={rating} />
       </span>

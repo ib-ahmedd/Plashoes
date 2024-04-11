@@ -7,6 +7,7 @@ const SaleProducts = () => {
     <section className="sale-products">
       <ProductsSection
         heading={"Last Pairs"}
+        link={"/sale-shop"}
         linkText={"VIEW ALL"}
         products={products}
         isLoading={isLoading}
