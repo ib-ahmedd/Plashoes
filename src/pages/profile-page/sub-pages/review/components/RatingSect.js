@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import Image from "../../../../../components/Image";
 import RatingStarsButtons from "../../../../../components/RatingStarsButtons";
-import { AppContext } from "../../../../../App";
+import ApiImage from "../../../../../components/ApiImage";
 
 const RatingSect = ({
   shoe_name,
@@ -11,11 +9,9 @@ const RatingSect = ({
   handleStars,
   stars,
 }) => {
-  const { host } = useContext(AppContext);
-
   return (
     <div className="rating-sect">
-      <Image source={host + image} alter={shoe_name} />
+      <ApiImage imgPath={image} desc={shoe_name} />
       <span>
         <p>{shoe_name}</p>
         <RatingStarsButtons

@@ -1,8 +1,12 @@
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { AppContext } from "../../../App";
 
 const AddedToCart = ({ quantity, productName }) => {
+  const { handleMouseDown } = useContext(AppContext);
+  const [clicked, setClicked] = useState(false);
   return (
     <div className="added-to-cart">
       <span>
@@ -12,7 +16,15 @@ const AddedToCart = ({ quantity, productName }) => {
           added to your cart.
         </p>
       </span>
-      <Link to={"/cart"}>VIEW CART</Link>
+      <NavLink
+        to={"/cart"}
+        onMouseDown={() => {
+          handleMouseDown(setClicked);
+        }}
+        style={{ backgroundColor: clicked && "var(--clicked-green)" }}
+      >
+        VIEW CART
+      </NavLink>
     </div>
   );
 };

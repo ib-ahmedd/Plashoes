@@ -16,7 +16,7 @@ const ContactPage = () => {
   const [inputs, setInputs] = useState({
     contactName: user.user_name ? user.user_name : "",
     contactEmail: user.user_name ? user.user_name : "",
-    message: user.user_name ? user.user_name : "",
+    message: "",
   });
   const [success, setSuccess] = useState(false);
 
@@ -31,7 +31,7 @@ const ContactPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/contact-message",
+        "http://localhost:5000/api/contact-message",
         {
           contactName: isLoggedIn ? user.user_name : inputs.contactName,
           contactEmail: isLoggedIn ? user.email : inputs.contactEmail,

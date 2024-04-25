@@ -1,14 +1,30 @@
-const ItemsInOrder = ({ orderDetails }) => {
-  const { order_status, date_ordered, quantity, shoe_name, price, image } =
-    orderDetails;
+import { useNavigate } from "react-router-dom";
+import ApiImage from "../../../../../components/ApiImage";
+
+const ItemsInOrder = ({ orderDetails, buyLoading, buyAgain }) => {
+  const {
+    order_status,
+    date_ordered,
+    quantity,
+    shoe_name,
+    price,
+    image,
+    product_id,
+  } = orderDetails;
+  const navigate = useNavigate();
   return (
     <article className="items-in-order">
       <div className="left">
-        <p className="status">{order_status}</p>
+        <p
+          className="status"
+          style={{ backgroundColor: order_status === "Delivered" && "green" }}
+        >
+          {order_status}
+        </p>
         <p className="date">On {date_ordered}</p>
         <span className="outer-span">
           <div className="image">
-            <img src={"http://localhost:5000/" + image} alt={shoe_name} />
+            <ApiImage imgPath={image} desc={shoe_name} />
           </div>
           <span className="inner-span">
             <h3>{shoe_name}</h3>
@@ -18,8 +34,32 @@ const ItemsInOrder = ({ orderDetails }) => {
         </span>
       </div>
       <div className="right">
-        <button className="buy">BUY AGAIN</button>
-        <button className="view">VIEW PRODUCT</button>
+        {!buyLoading ? (
+          <button
+            className="buy"
+            onClick={() => {
+              buyAgain(product_id, shoe_name);
+            }}
+          >
+            BUY AGAIN
+          </button>
+        ) : (
+          <button
+            className="buy"
+            style={{ backgroundColor: "var(--grey)" }}
+            disabled
+          >
+            BUY AGAIN
+          </button>
+        )}
+        <button
+          className="view"
+          onClick={() => {
+            navigate(`/product/${product_id}`);
+          }}
+        >
+          VIEW PRODUCT
+        </button>
       </div>
     </article>
   );

@@ -8,10 +8,21 @@
     }
     .navbar{
         padding: 0 1em;
+        height: 4em;
+        font-size: 0.8em;
     }
     
     .navbar-center {
-        width: 80%;
+        width: 100%;
+    }
+
+    .navbar-center a{
+        padding: 1.5em;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-site-logo{
+        width: 9em;
     }
     
     .profile-icon div {
@@ -24,8 +35,50 @@
         border-bottom: none;
     }
 
+    .scroll-top-btn{
+        font-size: 0.7em;
+    }
+
+    /* cart */
+    /* cart */
+    /* cart */
+    /* cart */
+    /* cart */
+
     .cart{
         width: 100%;
+    }
+
+    
+
+    /* general page */
+    /* general page */
+    /* general page */
+    /* general page */
+    /* general page */
+
+    .home-page h1{
+        font-size: 2em;
+    }
+
+    .home-page h2{
+        font-size: 2em;
+    }
+
+    .home-page h3, .footer h3{
+        font-size: 1.5em;
+    }
+
+    .footer h4{
+        font-size: 0.8em;
+    }
+
+    .home-page p{
+        font-size: 0.9em
+    }
+
+    .home-page a{
+        font-size: 0.8em;
     }
 
     /* search bar */
@@ -34,12 +87,19 @@
     /* search bar */
     /* search bar */
     .search-bar{
-        height: 4em;
         font-size: 0.8em;
     }
     .search-bar form{
-        width: 90%;
-        height: 95%;
+        width: 100%;
+        height: 3em;
+    }
+
+    .search-bar input{
+        font-size: 1em;
+    }
+
+    .search-results{
+        width: 100%;
     }
 
     /*site intro */
@@ -57,10 +117,6 @@
         flex-direction: column;
         align-items: center;
     }
-
-    .site-intro h1{
-        text-align: center;
-    }
     
     .intro-link-buttons-container {
         width: 100%;
@@ -70,6 +126,7 @@
     
     .site-intro .link-buttons {
         width: 100%;
+        font-size: 0.8em;
     }
 
     /* home page first body */
@@ -83,6 +140,7 @@
         flex-wrap: wrap;
         align-items: center;
     }
+
     .about-logos-container span{
         flex-direction: row;
         flex-wrap: wrap;
@@ -98,6 +156,16 @@
     .about-logos-container img{
         width: 60%;
     }
+
+    /* about us */
+    /* about us */
+    /* about us */
+    /* about us */
+    /* about us */
+    .homepage-about-paragraph{
+        padding: 0;
+    }
+
     /* home page how shoes are made */
     /* home page how shoes are made */
     /* home page how shoes are made */
@@ -105,33 +173,54 @@
     /* home page how shoes are made */
     /* home page how shoes are made */
 
+    .shoe-made{
+        padding: 0;
+        border-top: 1px solid var(--border-grey);
+    }
+
+    .shoe-made h2{
+        font-size: 2em;
+    }
+
     .shoe-made-container{
         flex-direction: column;
+        padding: 1em;
     }
+
+    .shoe-made p{
+        font-size: 0.9em;
+    }
+
 
     .shoe-made-container span{
         width: 100%;
     }
 
+    .info h3{
+        font-size: 1.2em;
+    }
+
     /* best sellers */
     /* best sellers */
     /* best sellers */
     /* best sellers */
     /* best sellers */
+
     .best-sellers, .new-arrivals{
         margin: 0;
     }
+
     .products-section{
         flex-direction: column;
         margin: 3em 0;
     }
+
     .products-container{
         justify-content: space-between;
     }
+
     .product-modal{
         width: 47%;
-        padding-bottom: 0;
-        height: 27em;
     }
 
     .product-modal a{

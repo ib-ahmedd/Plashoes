@@ -6,11 +6,12 @@ const useFetch = (url, headers) => {
   const [isLoading, setLoading] = useState(true);
 
   const getProducts = useCallback(async () => {
-    const host = "http://localhost:5000";
     try {
-      const result = await axios.get(host + url, { headers });
+      const result = await axios.get("http://localhost:5000/api" + url, {
+        headers,
+      });
       const { data } = result;
-      const { productsArray, count } = data;
+      const { data: productsArray, count } = data;
       setProducts(productsArray);
       setCount(count);
       setLoading(false);

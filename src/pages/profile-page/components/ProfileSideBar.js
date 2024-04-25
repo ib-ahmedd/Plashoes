@@ -12,13 +12,15 @@ const ProfileSideBar = ({ menuOpen, setMenuOpen }) => {
     <SideBarBtn key={item.text} {...item} />
   ));
 
-  const { setLoggedIn, setUser } = useContext(AppContext);
+  const { setLoggedIn, setUser, deleteCookie, setCartRefresh } =
+    useContext(AppContext);
 
   const handleLogOut = () => {
-    localStorage.clear();
+    deleteCookie("userData");
     setLoggedIn(false);
     setUser({});
-    navigate("/login");
+    setCartRefresh(true);
+    navigate("/");
   };
   return (
     <section

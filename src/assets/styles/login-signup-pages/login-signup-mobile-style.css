@@ -2,8 +2,8 @@
 
     .login-modal{
         width: 95%;
-        height: 20em;
-        padding: 2em 3%;
+        height: 15em;
+        padding: 1em 3%;
     }
 
     .login-modal input{
@@ -12,12 +12,108 @@
     }
 
     .login-modal button{
+        height: 2.5em;
         font-size: 1.1em;
     }
-
+    
     .login-modal .not-registered{
         font-size: 1em;
     }
+
+    .login-modal .signup-forgot a{
+        font-size: 0.9em;
+    }
+
+    /* forgot password */
+    /* forgot password */
+    /* forgot password */
+    /* forgot password */
+    /* forgot password */
+    /* forgot password */
+    /* forgot password */
+
+
+    .email-modal{
+        height: 10em;
+        width: 95%;
+        padding: 1em 3%;
+    }
+
+    .email-modal input{
+        height: 2.5em;
+        font-size: 1em;
+    }
+
+    .email-modal button{
+        height: 2.5em;
+        font-size: 1em;
+    }
+
+    /* otp modal */
+    /* otp modal */
+    /* otp modal */
+    /* otp modal */
+    /* otp modal */
+    /* otp modal */
+
+    .forgot-otp{
+        width: 90%;
+        padding: 1em 3%;
+        height: fit-content;
+    }
+
+    .forgot-otp .sent-code{
+        font-size: 0.9em;
+    }
+
+    .forgot-otp input{
+        width: 4em;
+        height: 1em;
+        font-size: 2.5em;
+    }
+
+    .forgot-otp .resend p, .forgot-otp .resend button{
+        font-size: 0.9em;
+    }
+
+    .forgot-otp .verify-btn{
+        font-size: 1em;
+        padding: 1em;
+    }
+    
+    /* reset password */
+    /* reset password */
+    /* reset password */
+    /* reset password */
+    /* reset password */
+
+    .reset-password-modal{
+        width: 95%;
+        padding: 1em 3%;
+    }
+
+    .reset-password-modal input{
+        font-size: 1em;
+        height: 2.5em;
+    }
+
+    .reset-password-modal button{
+        font-size: 1em;
+        height: 2.5em;
+        margin: 0;
+    }
+    
+
+
+    /* sign up */
+    /* sign up */
+    /* sign up */
+    /* sign up */
+    /* sign up */
+    /* sign up */
+    /* sign up */
+
+    
     .signup-modal{
         padding: 3em 3%;
     }
@@ -38,12 +134,12 @@
         height: 2.5em;
         font-size: 0.9em;
     }
-
+    
     .signup-modal select{
         height: 2em;
         font-size: 0.9em;
     }
-
+    
     .gender-DOB .select-input, .gender-DOB .labeled-input{
         width: 40%;
     }
@@ -51,5 +147,32 @@
     .signup-btn{
         width: 100%;
         font-size: 0.9em;
+    }
+
+    .otp-modal{
+        margin-top: 25vh;
+        gap: 0.5em;
+        width: 95%;
+        padding: 1em 3%;
+        height: fit-content;
+    }
+
+    .otp-modal h2{
+        font-size: 1.5em;
+    }
+
+    .otp-modal p{
+        font-size: 0.9em;
+        margin: 0;
+    }
+
+    .otp-modal input{
+        width: 4em;
+    font-size: 2em;
+    }
+
+    .otp-modal .verify-btn{
+        font-size: 1em;
+        padding: 1em;
     }
 }

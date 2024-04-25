@@ -11,13 +11,18 @@ import PaymentSuccess from "./components/PaymentSuccess";
 
 const Checkout = () => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
-  const { isLoggedIn, appLoaded } = useContext(AppContext);
+  const { isLoggedIn, appLoaded, cartProducts } = useContext(AppContext);
   const navigate = useNavigate();
   useEffect(() => {
     if (appLoaded && !isLoggedIn) {
-      navigate("/login", { state: "/checkout" });
+      navigate("/login", { state: "/checkout", replace: true });
     }
   }, [isLoggedIn, navigate, appLoaded]);
+  useEffect(() => {
+    if (cartProducts.length < 1 && !paymentSuccess) {
+      navigate("/cart", { replace: true });
+    }
+  }, [navigate, cartProducts.length, paymentSuccess]);
   return (
     <main className="checkout-page">
       <h1>Checkout</h1>

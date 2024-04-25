@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { ProductPageContext } from "../ProductPage";
 import SetQuantity from "../../../components/SetQuantity";
@@ -6,7 +6,7 @@ import { AppContext } from "../../../App";
 
 const Quantity = ({ getInView }) => {
   const { ref, inView } = useInView();
-  const { isLoggedIn } = useContext(AppContext);
+  const { isLoggedIn, handleMouseDown } = useContext(AppContext);
   const {
     quantity,
     handleQuantity,
@@ -14,6 +14,9 @@ const Quantity = ({ getInView }) => {
     handleNoLogCart,
     disabledBtn,
   } = useContext(ProductPageContext);
+
+  const [clicked, setClicked] = useState(false);
+
   useEffect(() => {
     if (getInView) {
       getInView(inView);
@@ -27,6 +30,10 @@ const Quantity = ({ getInView }) => {
         <button
           className="add-cart"
           onClick={isLoggedIn ? handleAddCart : handleNoLogCart}
+          onMouseDown={() => {
+            handleMouseDown(setClicked);
+          }}
+          style={{ backgroundColor: clicked && "var(--clicked-green)" }}
         >
           ADD TO CART
         </button>

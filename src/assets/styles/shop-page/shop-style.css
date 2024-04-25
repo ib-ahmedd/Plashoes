@@ -1,6 +1,5 @@
 .shop-page{
     width: 70%;
-    background-color: var(--light-grey);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,6 +12,8 @@
     font-size: 5em;
     color: var(--green);
     width: 100%;
+    margin: 0;
+    margin-top: 0.5em;
 }
 
 .filter-sort{
@@ -42,21 +43,21 @@
     cursor: pointer;
 }
 
-.result-count-p{
+.filter-sort p{
     font-size: var(--P-font-size);
     color: var(--grey);
     flex-shrink: 0;
     margin-right: 0.5em;
 }
 
-.shop-sort{
+.filter-sort select{
     font-size: var(--P-font-size);
     color: #555;
     width: 15em;
     border: none;
 }
 
-.shop-sort:hover{
+.filter-sort select:hover{
     cursor: pointer;
     border: 1px dotted black;
 }
@@ -203,4 +204,34 @@
 .result-pages-button:hover{
     cursor: pointer;
     background-color: #c8caac;
+}
+
+.shop-page .no-result{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10%;
+    box-sizing: border-box;
+}
+
+.shop-page .no-result p{
+    font-size: 1.5em;
+    color: var(--grey);
+    margin: 0;
+}
+
+.shop-page .no-result .reset-filters{
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: var(--orange);
+    padding: 0.9em 2em;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.shop-page .no-result .reset-filters:hover{
+    cursor: pointer;
+    background-color: var(--orange-hover);
 }

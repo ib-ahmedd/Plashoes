@@ -15,6 +15,7 @@ const ContactForm = ({ inputs, handleInputs, handleSubmit }) => {
       <label htmlFor="message">Comment or message *</label>
       <textarea
         name="message"
+        id="message"
         value={inputs.message}
         onChange={handleInputs}
         maxLength={200}

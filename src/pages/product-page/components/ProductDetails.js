@@ -1,11 +1,11 @@
 import ProductPaymentMethods from "./ProductPaymentMethods";
-import Image from "../../../components/Image";
 import FixedQuantity from "./FixedQuantity";
 import Quantity from "./Quantity";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { ProductPageContext } from "../ProductPage";
 import Price from "../../../components/Price";
 import SaleModal from "../../../components/SaleModal";
+import ApiImage from "../../../components/ApiImage";
 
 const ProductDetails = () => {
   const { product } = useContext(ProductPageContext);
@@ -42,7 +42,7 @@ const ProductDetails = () => {
     <section className="product-details">
       <span className="image-sale-cont">
         {sale && <SaleModal />}
-        <Image source={image} alter={shoename} />
+        <ApiImage imgPath={image} desc={shoename} />
       </span>
       <div className="details">
         <p className="gender-categ">

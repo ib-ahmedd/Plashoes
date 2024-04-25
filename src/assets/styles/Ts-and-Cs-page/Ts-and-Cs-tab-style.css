@@ -1,0 +1,9 @@
+@media (max-width: 1100px){
+    .terms-conditions{
+        width: 100%;
+    }
+
+    .terms-conditions h1{
+        font-size: 2em;
+    }
+}

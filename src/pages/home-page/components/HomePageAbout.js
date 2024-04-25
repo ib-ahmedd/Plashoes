@@ -1,6 +1,7 @@
 import logosArray from "../../../arrays/firstBodyLogosArray";
 import Logo from "../../../components/Logo";
 import Image from "../../../components/Image";
+import { Link } from "react-router-dom";
 const HomePageAbout = () => {
   const logosDisplay = logosArray.map((logo) => (
     <Logo key={logo.id} {...logo} />
@@ -21,7 +22,7 @@ const HomePageAbout = () => {
             auctor nec sed elit nunc, magna non urna amet ac neque ut quam enim
             pretium risus gravida ullamcorper adipiscing at ut magna.
           </p>
-          <a href="/">READ MORE</a>
+          <Link to="/our-story">READ MORE</Link>
         </div>
       </div>
     </section>

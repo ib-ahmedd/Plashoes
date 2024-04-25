@@ -1,0 +1,2 @@
+replace links with api link
+replace cart item names with links to products

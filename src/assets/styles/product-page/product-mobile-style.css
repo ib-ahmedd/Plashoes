@@ -1,25 +1,116 @@
 @media (min-width: 0px) and (max-width: 750px){
     
     .product-section{
-        padding: 2em 0.5em;
+        padding: 2em 0;
     }
+
+    /* added to cart */
+    /* added to cart */
+    /* added to cart */
+    /* added to cart */
+    /* added to cart */
     
     .added-to-cart{
-        flex-direction: column;
         padding: 1em;
     }
-    .added-to-cart p, .cart-check-icon {
-        font-size: 1em;
+    .added-to-cart p{
+        font-size: 0.8em;
+    }
+
+    .added-to-cart a{
+        padding: 1em 1em;
+        font-size: 0.6em;
+    }
+
+    /* product details */
+    /* product details */
+    /* product details */
+    /* product details */
+    /* product details */
+
+    .product-details{
+        padding: 0;
     }
     .product-details .image, .product-details .details{
-        padding: 0 1em;
+        padding: 0;
+    }
+
+    .product-details .gender-categ{
+        font-size: 0.9em;
     }
     .product-details .shoe-name, .product-details .price-cont .price{
-        font-size: 1.7em;
+        font-size: 1.2em;
     }
     .product-details .short-desc{
+        font-size: 0.8em;
+    }
+
+    .product-details .quantity-add-cart{
+        justify-content: space-between;
+    }
+    
+    .product-details .quantity-add-cart > *{
+        justify-content: space-between;
+        font-size: 0.8em;
+    }
+
+    .product-details .categ{
+        font-size: 0.9em;
+    }
+
+    .product-details .payment-methods legend{
+        font-size: 0.9em;
+    }
+
+    /* description and review */
+    /* description and review */
+    /* description and review */
+    /* description and review */
+    /* description and review */
+
+    .desc-review .div-button{
         font-size: 1em;
     }
+
+    .desc-review .switching-divs > div{
+        padding-top: 0.5em;
+    }
+    .desc-review p{
+        font-size: 0.8em;
+        margin: 0;
+    }
+
+    .desc-review .product-review .comment{
+        padding: 0.5em;
+        gap: 0;
+    }
+
+    .desc-review .product-review .rating-stars{
+        font-size: 0.8em;
+    }
+
+    .desc-review .product-review h4{
+        font-size: 1em;
+        margin: 0.2em 0;
+    }
+
+    /* related products */
+    /* related products */
+    /* related products */
+    /* related products */
+    /* related products */
+    /* related products */
+    .related-products h2{
+        font-size: 1.2em;
+        margin-top: 2em;
+    }
+
+    /* fixed quantity */
+    /* fixed quantity */
+    /* fixed quantity */
+    /* fixed quantity */
+    /* fixed quantity */
+    /* fixed quantity */
 
     .fixed-quantity{
         height: 3em;
@@ -40,10 +131,11 @@
         width: 100%;
         justify-content: space-between;
     }
-
+    
     .fixed-quantity .quantity-add-cart > *{
         height: 2em;
         width: 40%;
+        font-size: 0.8em;
     }
 
     .image-sale-cont .sale-modal{

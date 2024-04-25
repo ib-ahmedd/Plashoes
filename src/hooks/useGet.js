@@ -5,12 +5,10 @@ const useGet = (url, accessToken) => {
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState([]);
 
-  const host = "http://localhost:5000";
-
   const getData = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await axios.get(host + url, {
+      const response = await axios.get("http://localhost:5000/api" + url, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

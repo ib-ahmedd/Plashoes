@@ -1,7 +1,7 @@
 const Inbox = () => {
   return (
     <section className="inbox">
-      <p>You don't have any new messages</p>
+      <p className="empty-profile-tab">You don't have any new messages</p>
     </section>
   );
 };

@@ -3,156 +3,178 @@ import "../../assets/styles/shop-page/shop-laptop-style.css";
 import "../../assets/styles/shop-page/shop-tab-style.css";
 import "../../assets/styles/shop-page/shop-mobile-style.css";
 
-import ItemsDisplay from "./components/ItemsDisplay";
 import ShopProductsContainer from "./components/ShopProductsContainer";
 import FilterMenu from "./components/FilterMenu";
-import {
-  useState,
-  createContext,
-  useEffect,
-  useContext,
-  useCallback,
-} from "react";
+import { useState, createContext, useEffect, useCallback } from "react";
 import ScreenCover from "../../components/ScreenCover";
 import axios from "axios";
-import { AppContext } from "../../App";
+import FilterSort from "./components/FilterSort";
+import SearchBar from "../navbar/search-bar/SearchBar";
+import { useLocation } from "react-router-dom";
 
 export const ShopPageContext = createContext("");
 
 const ShopPage = ({ page }) => {
-  const { searchKey } = useContext(AppContext);
-  const [url, setUrl] = useState(`/categories/${page}`);
-
+  const [getItems, setGetItems] = useState(false);
   const [isLoading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
-  const [count, setCount] = useState(0);
+  const [productCategories, setProductCategories] = useState([]);
+  const [itemsCount, setCount] = useState(0);
+
+  const { state } = useLocation();
 
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [priceRange, setPriceRange] = useState(150);
-  const [selectedOption, setSelectedOption] = useState("Default sorting");
-  const [filterCategory, setCategory] = useState("");
+  const [maxAndMinPrice, setMaxAndMinPrice] = useState({
+    maxPrice: 0,
+    minPrice: 0,
+  });
+  const [priceRange, setPriceRange] = useState(0);
+  const [sortOption, setSortOption] = useState("Default sorting");
+  const [filterCategory, setCategory] = useState("Default");
   const [currentPage, setCurrentPage] = useState(1);
-  const [offSet, setOffset] = useState(0);
+  const [offset, setOffset] = useState(0);
   const [itemNumbers, setItemNumbers] = useState({ start: 1, end: 12 });
 
-  const getProducts = useCallback(async () => {
+  const getPageProducts = useCallback(async () => {
+    setCategory("Default");
+    setSortOption("Default sorting");
+    setCurrentPage(1);
+    setOffset(0);
+    setItemNumbers({ start: 1, end: 12 });
+    setLoading(true);
     try {
-      const host = "http://localhost:5000";
-      const result = await axios.get(host + url);
-      const { data } = result;
-      const { productsArray, count } = data;
-      setProducts(productsArray);
+      const response = await axios.get(
+        `http://localhost:5000/api/product-page/${page}`
+      );
+      const { data, categoriesData, count, range } = response.data;
+      setMaxAndMinPrice(range);
+      setPriceRange(range.maxPrice);
+      setProducts(data);
+      setProductCategories(categoriesData);
       setCount(count);
       setLoading(false);
     } catch (err) {
       console.log(err);
     }
-  }, [url]);
-  const getSearchProducts = useCallback(async () => {
-    const response = await axios.post("http://localhost:5000/search", {
-      keywords: searchKey,
-      filter: filterCategory,
-      sort: selectedOption,
-      priceRange: priceRange,
-      offSet: offSet,
-    });
-    const { productsArray, count } = response.data;
-    setProducts(productsArray);
-    setCount(count);
-    setLoading(false);
-  }, [searchKey, filterCategory, selectedOption, priceRange, offSet]);
-  useEffect(() => {
-    if (page === "Search") {
-      getSearchProducts();
-    } else {
-      getProducts();
-    }
-  }, [page, searchKey, getProducts, getSearchProducts]);
-
-  useEffect(() => {
-    setSelectedOption("Default sorting");
-    setPriceRange(150);
-    setUrl(`/categories/${page}`);
-    setCurrentPage(1);
   }, [page]);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage]);
+  const sortFilterProducts = useCallback(async () => {
+    setLoading(true);
+    try {
+      const result = await axios.post("http://localhost:5000/api/filter-sort", {
+        page: page,
+        priceRange: priceRange,
+        sort: sortOption,
+        category: filterCategory,
+        offset: offset,
+      });
+      const { data } = result;
+      const { data: productsArray, count } = data;
+      setProducts(productsArray);
+      setCount(count);
+      setLoading(false);
+      setGetItems(false);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [page, offset, priceRange, sortOption, filterCategory]);
 
-  const handleCurrentPage = (buttonNo) => {
+  function handleCurrentPage(buttonNo) {
+    const offsetNo = (buttonNo - 1) * 12;
+    setLoading(true);
     setCurrentPage(buttonNo);
-    setOffset((buttonNo - 1) * 12);
-    setUrl(
-      `/sort-filter?page=${page}&offset=${
-        (buttonNo - 1) * 12
-      }&cat=${filterCategory}&price=${priceRange}&sort=${selectedOption}`
-    );
-  };
+    setOffset(offsetNo);
+    setItemNumbers({
+      start: offsetNo + 1,
+      end: offsetNo + 12 < itemsCount ? offsetNo + 12 : itemsCount,
+    });
+    setGetItems(true);
+  }
 
-  const handleChange = (e) => {
-    setSelectedOption(e.target.value);
-    const value = e.target.value;
-    setUrl(
-      `/sort-filter?page=${page}&offset=${0}&cat=${filterCategory}&price=${priceRange}&sort=${value}`
-    );
+  function handleChange(e) {
+    setSortOption(e.target.value);
+    setGetItems(true);
     setCurrentPage(1);
     setItemNumbers({ start: 1, end: 12 });
-  };
+  }
 
-  const handlePriceChange = (e) => {
+  function handlePriceChange(e) {
     setPriceRange(e.target.value);
-  };
-  const handleFilterPrice = (func) => {
+  }
+
+  function handleFilterPrice(func) {
     if (func === "set") {
-      setUrl(
-        `/sort-filter?page=${page}&offset=${0}&cat=${filterCategory}&price=${priceRange}&sort=${selectedOption}`
-      );
+      setGetItems(true);
       setMenuOpen(false);
       setCurrentPage(1);
       setItemNumbers({ start: 1, end: 12 });
     } else {
       setPriceRange(150);
-      setUrl(
-        `/sort-filter?page=${page}&offset=${0}&cat=${filterCategory}&price=${150}&sort=${selectedOption}`
-      );
+      setGetItems(true);
       setMenuOpen(false);
       setCurrentPage(1);
       setItemNumbers({ start: 1, end: 12 });
     }
-  };
+  }
 
-  const handleFilterCat = (cat) => {
-    setUrl(
-      `/sort-filter?page=${page}&offset=${0}&cat=${cat}&price=${priceRange}&sort=${selectedOption}`
-    );
+  function resetFilters() {
+    setPriceRange(150);
+    setCategory("Default");
+    setCurrentPage(1);
+    setItemNumbers({ start: 1, end: 12 });
+    setGetItems(true);
+  }
+
+  function handleFilterCat(cat) {
+    setGetItems(true);
     setCategory(cat);
     setMenuOpen(false);
     setCurrentPage(1);
     setItemNumbers({ start: 1, end: 12 });
-    console.log(cat);
-  };
-  const toggleMenu = () => {
+  }
+
+  function toggleMenu() {
     setMenuOpen((prevState) => !prevState);
-  };
+  }
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  useEffect(() => {
+    getPageProducts();
+  }, [getPageProducts]);
+
+  useEffect(() => {
+    if (getItems) {
+      sortFilterProducts();
+    } else if (state) {
+      setSortOption(state);
+      sortFilterProducts();
+    }
+  }, [sortFilterProducts, getItems, state]);
 
   const shopContextValue = {
-    page,
+    maxAndMinPrice,
     handleChange,
+    handleFilterCat,
+    handleFilterPrice,
+    page,
     category: page,
-    selectedOption,
+    sortOption,
     isMenuOpen,
     toggleMenu,
     priceRange,
     handlePriceChange,
-    handleFilterPrice,
-    handleFilterCat,
-    count,
+    count: itemsCount,
     currentPage,
     handleCurrentPage,
-    offSet,
+    offset,
     itemNumbers,
     setItemNumbers,
+    filterCategory,
+    productCategories,
+    resetFilters,
   };
 
   return (
@@ -160,11 +182,13 @@ const ShopPage = ({ page }) => {
       <ShopPageContext.Provider value={shopContextValue}>
         {isMenuOpen && <ScreenCover toggleMenu={toggleMenu} />}
         <FilterMenu />
-        <ItemsDisplay />
+        <h1>{page}</h1>
+        <SearchBar />
+        <FilterSort />
         <ShopProductsContainer
           products={products}
           isLoading={isLoading}
-          count={count}
+          count={itemsCount}
         />
       </ShopPageContext.Provider>
     </main>

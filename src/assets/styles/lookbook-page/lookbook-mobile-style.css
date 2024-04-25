@@ -1,8 +1,32 @@
 @media (min-width: 0px) and (max-width: 750px){
+    .lookbook{
+        padding: 0 3%;
+    }
     .lookbook .img-head-content-sec{
         flex-direction: column;
     }
     .lookbook .img-head-content-sec > *{
         width: 100%;
+    }
+
+    .lookbook h1{
+        font-size: 2em;
+        margin: 0.5em 0;
+    }
+
+    .lookbook .img-head-content{
+        padding-bottom: 2em;
+    }
+
+    .lookbook .img-head-content-sec h2{
+        font-size: 1.5em;
+    }
+
+    .lookbook .img-head-content-shopnow p{
+        font-size: 0.9em;
+    }
+
+    .lookbook .img-head-content-shopnow .link{
+        font-size: 0.8em;
     }
 }

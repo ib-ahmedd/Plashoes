@@ -28,14 +28,45 @@
         z-index: 4;
         box-sizing: border-box;
         flex-basis: 0;
+        gap: 0;
     }
 
-    .navbar button{
+    .navbar-center section{
+        width: 100%;
+        gap: 0.5em;
+        padding: 1em;
+    }
+
+    .navbar-center a{
+        border: 1px solid var(--border-grey);
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+        padding: 2em;
+        box-sizing: border-box;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .tab-only-link{
+        display: block;
+    }
+
+    .desktop-only-link{
+        display: none;
+    }
+
+    .navbar-center .active-link-btn{
+        background-color: var(--border-grey);
+        box-shadow: unset;
+    }
+
+    .navbar > button{
         position: static;
         display: block;
     }
-    .navbar-center section{
-        width: 100%;
+
+    .closeNav{
+        display: block;
     }
 
     .navbar .navbar-center .link{
@@ -44,6 +75,15 @@
         text-align: center;
         border-bottom: 1px solid #bfbfbf;
         flex-basis: 0;
+        border: 1px solid;
+    }
+
+    .navbar .tab-only-link{
+        display: flex;
+    }
+
+    .navbar .desktop-only-link{
+        display: none;
     }
 
     .profile-icon div{
@@ -72,6 +112,10 @@
     /* search bar */
     .search-bar{
         display: flex;
+    }
+
+    .search-results{
+        width: 25em;
     }
 
     /*site intro*/
@@ -158,10 +202,10 @@
     }
 
     .product-modal{
-        padding-bottom: 0em;
+        padding-bottom: 2em;
     }
     .loading-product-modal{
-        padding-bottom: 0em;
+        padding-bottom: 2em;
     }
 
     /* shop men shop women section */
@@ -232,5 +276,17 @@
 
     .foot-end{
         padding: 2em 2em;
+    }
+
+    .not-found{
+        height: 90vh;
+    }
+
+    .not-found h1{
+        font-size: 3em;
+    }
+
+    .not-found a{
+        font-size: 1em;
     }
 }

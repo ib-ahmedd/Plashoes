@@ -16,4 +16,16 @@
     .checkout-btn{
         font-size: 1em;
     }
+
+    .cart-page-update{
+        font-size: 0.9em;
+    }
+
+    .cart-totals h2{
+        font-size: 1.2em;
+    }
+
+    .cart-totals p{
+        font-size: 0.9em;
+    }
 }

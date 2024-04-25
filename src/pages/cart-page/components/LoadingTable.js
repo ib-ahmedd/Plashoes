@@ -16,7 +16,6 @@ const LoadingTable = () => {
         <LoadingTableRow />
         <LoadingTableRow />
         <LoadingTableRow />
-        <LoadingTableRow />
       </tbody>
     </table>
   );

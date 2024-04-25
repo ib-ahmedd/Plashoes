@@ -1,0 +1,14 @@
+.terms-conditions{
+    width: 75%;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.terms-conditions h1{
+    font-size: 3em;
+    color: var(--green);
+}
+
+.terms-conditions p{
+    color: var(--grey);
+}

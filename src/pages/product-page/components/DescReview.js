@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LongDesc from "./LongDesc";
 import ProductReviews from "./ProductReviews";
+import { ProductPageContext } from "../ProductPage";
 
 const DescReview = () => {
+  const { comments } = useContext(ProductPageContext);
   const selectedBtnStyles = {
     borderTop: "3px solid var(--green)",
     borderLeft: "1px solid var(--green)",
@@ -14,7 +16,7 @@ const DescReview = () => {
   });
   const [divDisplayed, setDivDisplayed] = useState("desc");
 
-  const handleDivSwitch = (e) => {
+  function handleDivSwitch(e) {
     if (e.target.value === "rev") {
       setBtnStyles({
         descBtnStyle: {},
@@ -28,7 +30,8 @@ const DescReview = () => {
       });
       setDivDisplayed("desc");
     }
-  };
+  }
+
   return (
     <section className="desc-review">
       <span className="button-cont">
@@ -46,7 +49,7 @@ const DescReview = () => {
           style={btnStyles.revBtnStyle}
           onClick={handleDivSwitch}
         >
-          Reviews
+          Reviews{`(${comments.length})`}
         </button>
       </span>
       <div className="switching-divs">

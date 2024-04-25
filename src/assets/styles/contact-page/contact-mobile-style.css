@@ -4,7 +4,7 @@
         padding: 2em 3%;
     }
     .contact-page h1{
-        font-size: 3em;
+        font-size: 2em;
     }
 
     .contact-FAQs{
@@ -22,7 +22,7 @@
     }
 
     .contact-info > *{
-        padding: 2em 0;
+        padding: 1em 0;
         width: 100%;
         flex-direction: column;
         align-items: center;
@@ -40,6 +40,14 @@
         margin: 0;
     }
 
+    .contact-info h3{
+        font-size: 1.1em;
+    }
+
+    .contact-info p{
+        font-size: 0.9em;
+    }
+
     .contact-form-inputs{
         width: 100%;
         padding-left: 0;
@@ -47,8 +55,33 @@
         margin-top: 3em;
     }
 
-    .FAQs button{
+    .contact-form-inputs label{
+        font-size: 0.9em;
+    }
+
+    .contact-form-inputs input{
         font-size: 1em;
+    }
+
+    .contact-form-inputs textarea{
+        font-size: 1em;
+        padding: 0.5em;
+    }
+
+    .contact-form-inputs button{
+        font-size: 0.8em;
+    }
+
+    .contact-FAQs h2{
+        font-size: 2em;
+    }
+
+    .FAQs-heading p{
+        font-size: 1.1em;
+    }
+
+    .FAQs button{
+        font-size: 0.9em;
     }
 
     .FAQs p{

@@ -1,0 +1,17 @@
+@media (min-width: 0px) and (max-width: 750px){
+    .terms-conditions{
+        width: 100%;
+    }
+
+    .terms-conditions h1{
+        font-size: 1.5em;
+    }
+
+    .terms-conditions h2{
+        font-size: 1.2em;
+    }
+
+    .terms-conditions p{
+        font-size: 1em;
+    }
+}

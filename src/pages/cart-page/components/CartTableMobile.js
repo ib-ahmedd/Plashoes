@@ -1,6 +1,8 @@
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SetQuantity from "../../../components/SetQuantity";
+import ApiImage from "../../../components/ApiImage";
+import { Link } from "react-router-dom";
 
 const CartTableMobile = ({
   id,
@@ -8,6 +10,7 @@ const CartTableMobile = ({
   image,
   price,
   quantity,
+  product_id,
   handleQuantity,
   handleDelete,
 }) => {
@@ -16,8 +19,8 @@ const CartTableMobile = ({
     <article className="cart-table-mobile">
       <div>
         <span>
-          <img src={image} alt={shoe_name} />
-          <h3>{shoe_name}</h3>
+          <ApiImage imgPath={image} desc={shoe_name} />
+          <Link to={`/product/${product_id}`}>{shoe_name}</Link>
         </span>
         <button
           onClick={() => {

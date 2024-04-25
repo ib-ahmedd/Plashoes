@@ -6,13 +6,10 @@ import { AppContext } from "../../../App";
 import CartContentDesktop from "./CartContentDesktop";
 
 const TableTotal = () => {
-  const { cartProducts, isLoading } = useContext(AppContext);
+  const { isLoading } = useContext(AppContext);
 
   return (
-    <div
-      className="table-total"
-      style={cartProducts && cartProducts.length < 1 ? { display: "none" } : {}}
-    >
+    <div className="table-total">
       {isLoading ? (
         <LoadingTable />
       ) : (

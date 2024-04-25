@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Quantity from "./Quantity";
 import { ProductPageContext } from "../ProductPage";
 import Price from "../../../components/Price";
+import ApiImage from "../../../components/ApiImage";
 
 const FixedQuantity = ({ fixedQuantityOpen }) => {
   const { product } = useContext(ProductPageContext);
@@ -12,7 +13,7 @@ const FixedQuantity = ({ fixedQuantityOpen }) => {
       style={{ transform: fixedQuantityOpen && "translateY(0)" }}
     >
       <span className="image-name">
-        <img src={image} alt={shoename} />
+        <ApiImage imgPath={image} desc={shoename} />
         <h4>{shoename}</h4>
       </span>
       <span className="price-quantity">

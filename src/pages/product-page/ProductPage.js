@@ -44,7 +44,8 @@ const ProductPage = () => {
       shoe_name: shoename,
       quantity,
       price,
-      id,
+      productId: id,
+      id: id,
     };
 
     const foundProduct = cartProducts.find((item) => item.id === cartItem.id);
@@ -60,10 +61,8 @@ const ProductPage = () => {
         return updatedItems;
       });
     } else {
-      setProducts((prevState) => {
-        setCookie("noLogCart", JSON.stringify([...prevState, cartItem], 7));
-        return [...prevState, cartItem];
-      });
+      setCookie("noLogCart", JSON.stringify([...cartProducts, cartItem], 7));
+      setCartRefresh(true);
     }
     addedQuantity.current = quantity;
     setAddedOpen(true);
@@ -74,10 +73,9 @@ const ProductPage = () => {
       const foundProduct = cartProducts.find(
         (item) => item.product_id === parseInt(id)
       );
-      console.log(foundProduct);
       if (foundProduct) {
         await axios.patch(
-          `http://localhost:5000/cart-update/${foundProduct.id}`,
+          `http://localhost:5000/api/cart-update/${foundProduct.id}`,
           {
             quantity: foundProduct.quantity + quantity,
           },
@@ -92,7 +90,7 @@ const ProductPage = () => {
         setCartRefresh(true);
       } else {
         await axios.post(
-          "http://localhost:5000/add-cart",
+          "http://localhost:5000/api/add-cart",
           {
             productId: id,
             userId: user ? user.id : 1,
@@ -109,7 +107,6 @@ const ProductPage = () => {
         setCartRefresh(true);
       }
     } else {
-      console.log(products);
     }
 
     setDisabledBtn(false);
@@ -155,12 +152,10 @@ const ProductPage = () => {
         ) : (
           <>
             {addedOpen && (
-              <span className="added-to-cart-cont">
-                <AddedToCart
-                  quantity={addedQuantity.current}
-                  productName={displayedProduct.shoename}
-                />
-              </span>
+              <AddedToCart
+                quantity={addedQuantity.current}
+                productName={displayedProduct.shoename}
+              />
             )}
             <ProductDetails />
             <DescReview />

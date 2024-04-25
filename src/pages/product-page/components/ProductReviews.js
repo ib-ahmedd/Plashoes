@@ -4,7 +4,6 @@ import { ProductPageContext } from "../ProductPage";
 
 const ProductReviews = ({ divStyles }) => {
   const { comments } = useContext(ProductPageContext);
-  console.log(comments);
   return (
     <div className="product-review" style={divStyles}>
       {comments.length > 0 ? (

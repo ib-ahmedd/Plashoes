@@ -17,7 +17,7 @@ const Orders = () => {
   const getOrders = useCallback(async () => {
     if (user.id) {
       const response = await axios.get(
-        `http://localhost:5000/orders/${user.id}`,
+        `http://localhost:5000/api/orders/${user.id}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -59,9 +59,15 @@ const Orders = () => {
           />
         </span>
         {activeButton === "open" ? (
-          <InitOrders orders={openOrders} loading={loading} />
-        ) : (
+          openOrders.length > 0 ? (
+            <InitOrders orders={openOrders} loading={loading} />
+          ) : (
+            <p className="empty-profile-tab">You have no open orders</p>
+          )
+        ) : closedOrders.length > 0 ? (
           <ClosedOrders orders={closedOrders} loading={loading} />
+        ) : (
+          <p className="empty-profile-tab">You have no closed orders</p>
         )}
       </div>
     </section>

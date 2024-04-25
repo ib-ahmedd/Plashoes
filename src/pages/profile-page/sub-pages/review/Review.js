@@ -1,33 +1,35 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import RatingSect from "./components/RatingSect";
 import ReviewSect from "./components/ReviewSect";
 import useGet from "../../../../hooks/useGet";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../../../../App";
 import axios from "axios";
 import ReviewSuccess from "./components/ReviewSuccess";
 
 const Review = () => {
   const { id } = useParams();
-  const { accessToken, host, user } = useContext(AppContext);
-  const { result } = useGet(`/review/${id}`, accessToken);
+  const { accessToken, user } = useContext(AppContext);
+  const { result, loading } = useGet(`/review/${id}`, accessToken);
   const [inputs, setInputs] = useState({
     reviewTitle: "",
     reviewDetail: "",
   });
 
   const { state } = useLocation();
+  const navigate = useNavigate();
   const [stars, setStars] = useState(0);
   const [clicked, setClicked] = useState(false);
   const [disabledBtn, setDisabledBtn] = useState(false);
   const [success, setSuccess] = useState(false);
   const currentStarsCount = useRef(0);
+
   async function handleSubmit(e) {
     e.preventDefault();
     setDisabledBtn(true);
     try {
       const response = await axios.post(
-        host + "submit-review",
+        "http://localhost:5000/api/submit-review",
         {
           product_id: id,
           user_id: user.id,
@@ -72,7 +74,11 @@ const Review = () => {
       setStars(currentStarsCount.current);
     }
   }
-
+  useEffect(() => {
+    if (!loading && result.length < 1) {
+      navigate("/profile/reviews", { replace: true });
+    }
+  }, [navigate, loading, result]);
   return (
     <section className="review-page">
       {!success ? (

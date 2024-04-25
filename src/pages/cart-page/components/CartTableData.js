@@ -1,6 +1,8 @@
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SetQuantity from "../../../components/SetQuantity";
+import ApiImage from "../../../components/ApiImage";
+import { Link } from "react-router-dom";
 
 const CartTableData = ({
   image,
@@ -8,15 +10,18 @@ const CartTableData = ({
   quantity,
   price,
   handleQuantity,
+  product_id,
   id,
   handleDelete,
 }) => {
   return (
     <tr>
       <td className="image-width table-image">
-        <img src={image} alt={shoe_name} />
+        <ApiImage imgPath={image} desc={shoe_name} />
       </td>
-      <td className="product-width product">{shoe_name}</td>
+      <td className="product-width product">
+        <Link to={`/product/${product_id}`}>{shoe_name}</Link>
+      </td>
       <td className="price-width">${price}</td>
       <td className="quantity-width">
         <SetQuantity

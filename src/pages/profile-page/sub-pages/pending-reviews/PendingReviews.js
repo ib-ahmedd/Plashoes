@@ -21,7 +21,7 @@ const PendingReviews = () => {
       ) : result.length > 0 ? (
         displayedProducts
       ) : (
-        <p className="no-reviews">No pending reviews</p>
+        <p className="empty-profile-tab">No pending reviews</p>
       )}
     </section>
   );

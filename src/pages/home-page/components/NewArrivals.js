@@ -10,6 +10,8 @@ const NewArrivals = () => {
         heading={"New Arrivals"}
         linkText={"VIEW ALL NEW ARRIVALS"}
         products={products}
+        link={"/collection"}
+        state={"latest"}
         isLoading={isLoading}
       />
     </section>

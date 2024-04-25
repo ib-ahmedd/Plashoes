@@ -8,8 +8,12 @@ const ReviewSuccess = () => {
       </div>
       <div className="feed-btns">
         <p>Thank you for your feedback!</p>
-        <Link to={"/collection"}>CONTINUE SHOPPING</Link>
-        <Link to={"/profile/reviews"}>BACK</Link>
+        <Link to={"/collection"} replace>
+          CONTINUE SHOPPING
+        </Link>
+        <Link to={"/profile/reviews"} replace>
+          BACK
+        </Link>
       </div>
     </>
   );

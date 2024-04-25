@@ -1,0 +1,37 @@
+@media (min-width: 0px) and (max-width: 750px){
+    .search-page{
+        padding: 3%;
+    }
+    .search-page h1{
+        font-size: 2em;
+    }
+
+    .search-page .result-count-p{
+        font-size: 0.9em;
+    }
+
+    .search-page .count-sort{
+        align-items: center;
+    }
+
+    .search-page .shop-sort{
+        width: 50%;
+        font-size: 0.9em;
+    }
+
+    .search-page .search-bar{
+        padding: 0.3em 0;
+    }
+
+    .search-page .search-bar form{
+        width: 100%;
+    }
+
+    .search-page .no-result p{
+        font-size: 1.1em;
+    }
+
+    .search-page .no-result a{
+        font-size: 0.9em;
+    }
+}

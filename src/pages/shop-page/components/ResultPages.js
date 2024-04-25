@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ResultPageBtn from "./ResultPageBtn";
+import ResultPageBtn from "../../../components/ResultPageBtn";
 import { ShopPageContext } from "../ShopPage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";

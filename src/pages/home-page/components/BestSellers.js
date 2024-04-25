@@ -9,6 +9,8 @@ const BestSellers = () => {
       <ProductsSection
         heading={"Our Best Seller"}
         linkText={"VIEW ALL BEST SELLERS"}
+        link={"/collection"}
+        state={"popularity"}
         products={products}
         isLoading={isLoading}
       />

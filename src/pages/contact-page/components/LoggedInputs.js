@@ -9,6 +9,7 @@ const LoggedInputs = () => {
       <input
         type="text"
         name="contactName"
+        id="contactName"
         value={user.user_name}
         disabled
         required
@@ -17,6 +18,7 @@ const LoggedInputs = () => {
       <input
         type="email"
         name="contactEmail"
+        id="contactEmail"
         value={user.email}
         disabled
         required

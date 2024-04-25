@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ApiImage from "../../../../../components/ApiImage";
 const OrderInfo = ({
   id,
   product_id,
@@ -12,7 +13,7 @@ const OrderInfo = ({
   return (
     <article className="order-info">
       <span className="orders-image-details">
-        <img src={"http://localhost:5000/" + image} alt={shoe_name} />
+        <ApiImage imgPath={image} desc={shoe_name} />
         <span className="orders-details">
           <h2>{shoe_name}</h2>
           <p className="order-price">Price: ${totalprice}</p>

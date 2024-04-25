@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ShopPageContext } from "../ShopPage";
 
 const SortOptions = () => {
-  const { handleChange, selectedOption } = useContext(ShopPageContext);
+  const { handleChange, sortOption } = useContext(ShopPageContext);
   const options = [
     "Default sorting",
     "popularity",
@@ -17,11 +17,7 @@ const SortOptions = () => {
     </option>
   ));
   return (
-    <select
-      className="shop-sort"
-      onChange={handleChange}
-      value={selectedOption}
-    >
+    <select className="shop-sort" onChange={handleChange} value={sortOption}>
       {sortOptionsDisplay}
     </select>
   );

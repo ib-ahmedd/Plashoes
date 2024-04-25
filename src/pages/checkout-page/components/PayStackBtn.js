@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { PaystackButton } from "react-paystack";
 import { AppContext } from "../../../App";
 import axios from "axios";
+
 const PayStackBtn = ({ setPaymentSuccess }) => {
   const { user, cartProducts, accessToken, setCartRefresh, setPayedOrders } =
     useContext(AppContext);
@@ -38,7 +39,7 @@ const PayStackBtn = ({ setPaymentSuccess }) => {
       };
     });
     const response = await axios.post(
-      "http://localhost:5000/order",
+      "http://localhost:5000/api/order",
       {
         userId: user.id,
         orderProducts: orderProducts,
@@ -51,7 +52,7 @@ const PayStackBtn = ({ setPaymentSuccess }) => {
     );
     if (response.status && response.status === 201) {
       const result = await axios.delete(
-        `http://localhost:5000/empty-cart/${user.id}`,
+        `http://localhost:5000/api/empty-cart/${user.id}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

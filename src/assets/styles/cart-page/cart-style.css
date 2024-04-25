@@ -165,8 +165,9 @@
 .cart-content-table img{
     width: 5em;
 }
-.cart-content-table .product{
-    font-size: 1.2em;
+.cart-content-table .product a{
+    text-decoration: none;
+    font-size: 0.9em;
     color: var(--green);
 }
 
@@ -239,7 +240,8 @@
     width: 5em;
 }
 
-.cart-table-mobile h4{
+.cart-table-mobile a{
+    text-decoration: none;
     font-size: 1em;
     color: #999;
     margin: 0;
