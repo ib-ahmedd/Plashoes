@@ -25,7 +25,7 @@ import CartPage from "./pages/cart-page/CartPage";
 //--------------------------------------------------------------------------------------------
 //---------------------packages---------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { createContext, useCallback, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -65,7 +65,22 @@ function App() {
   const [searchKey, setSearchKey] = useState("");
   const [payedOrders, setPayedOrders] = useState([]);
   const [noNav, setNoNav] = useState(false);
+  const [loginState, setLoginState] = useState("");
   const apiLink = "http://localhost:5000/";
+
+  const navigate = useNavigate();
+
+  function logUserIn(data, path) {
+    const { userInfo, accessToken } = data;
+    const stringifiedData = JSON.stringify(data);
+    setCookie("userData", stringifiedData, 1);
+    setUser(userInfo);
+    setAccessToken(accessToken);
+    setLoggedIn(true);
+    setCartRefresh(true);
+    navigate(path, { replace: true });
+    deleteCookie("noLogCart");
+  }
 
   const getCartProducts = useCallback(async () => {
     setCartLoading(true);
@@ -205,6 +220,7 @@ function App() {
   }, []);
 
   const AppContextValue = {
+    logUserIn,
     appLoaded,
     isLoggedIn,
     setLoggedIn,
@@ -239,7 +255,10 @@ function App() {
     apiLink,
     setRecentProducts,
     handleMouseDown,
+    loginState,
+    setLoginState,
   };
+
   return (
     <>
       <AppContext.Provider value={AppContextValue}>

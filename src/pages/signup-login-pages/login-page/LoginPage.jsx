@@ -1,35 +1,32 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import "../../../assets/styles/login-signup-pages/login-signup-style.css";
 import "../../../assets/styles/login-signup-pages/login-signup-tab-style.css";
 import "../../../assets/styles/login-signup-pages/login-signup-mobile-style.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AppContext } from "../../../App";
 import LinkButton from "../../../components/LinkButton";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
   const [details, setDetails] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [inputStyle, setInputStyle] = useState({});
   const [error, setError] = useState(false);
   const { state } = useLocation();
   const {
-    setLoggedIn,
-    setUser,
-    setAccessToken,
+    logUserIn,
     handleNetworkErr,
     cartProducts,
-    setCartRefresh,
-    setCookie,
-    deleteCookie,
-    getCookie,
+    setLoginState,
+    loginState,
   } = useContext(AppContext);
+
   const errorStyle = {
     backgroundColor: "rgb(255, 218, 218)",
     border: "1px solid red",
   };
+
   function handleInputs(e) {
     const { name, value } = e.target;
     setDetails((prevState) => {
@@ -50,12 +47,9 @@ const LoginPage = () => {
           ...details,
         }
       );
-      const path = state ? state : "/profile/account";
+      const path = loginState ? loginState : "/profile/account";
       const { data } = response;
       if (data) {
-        const { userInfo, accessToken } = data;
-        const stringifiedData = JSON.stringify(data);
-        setCookie("userData", stringifiedData, 1);
         if (cartProducts.length > 0) {
           cartProducts.forEach(async (item) => {
             await axios.post(
@@ -73,21 +67,11 @@ const LoginPage = () => {
             );
             itemsPosted = itemsPosted + 1;
             if (itemsPosted === cartProducts.length) {
-              setUser(userInfo);
-              setAccessToken(accessToken);
-              setLoggedIn(true);
-              setCartRefresh(true);
-              navigate(path, { replace: true });
-              deleteCookie("noLogCart");
-              console.log(getCookie("noLogCart"));
+              logUserIn(data, path);
             }
           });
         } else {
-          setUser(userInfo);
-          setAccessToken(accessToken);
-          setLoggedIn(true);
-          setCartRefresh(true);
-          navigate(path, { replace: true });
+          logUserIn(data, path);
         }
       } else {
         setInputStyle(errorStyle);
@@ -103,6 +87,10 @@ const LoginPage = () => {
     }
     setLoading(false);
   }
+
+  useEffect(() => {
+    setLoginState(state);
+  }, [state, setLoginState]);
 
   return (
     <main className="login-page">

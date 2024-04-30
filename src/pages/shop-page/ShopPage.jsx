@@ -20,6 +20,7 @@ const ShopPage = ({ page }) => {
   const [products, setProducts] = useState([]);
   const [productCategories, setProductCategories] = useState([]);
   const [itemsCount, setCount] = useState(0);
+  const [stateSorted, setStateSorted] = useState(false);
 
   const { state } = useLocation();
 
@@ -148,11 +149,12 @@ const ShopPage = ({ page }) => {
   useEffect(() => {
     if (getItems) {
       sortFilterProducts();
-    } else if (state) {
+    } else if (state && !stateSorted) {
       setSortOption(state);
+      setStateSorted(true);
       sortFilterProducts();
     }
-  }, [sortFilterProducts, getItems, state]);
+  }, [sortFilterProducts, getItems, state, stateSorted]);
 
   const shopContextValue = {
     maxAndMinPrice,

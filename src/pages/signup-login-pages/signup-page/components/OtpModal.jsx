@@ -2,18 +2,10 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../../App";
 import { SignupPageContext } from "../SignupPage";
-import { useNavigate } from "react-router-dom";
 
 const OtpModal = () => {
-  const {
-    handleNetworkErr,
-    setUser,
-    setLoggedIn,
-    setAccessToken,
-    setCartRefresh,
-    cartProducts,
-    setCookie,
-  } = useContext(AppContext);
+  const { handleNetworkErr, logUserIn, cartProducts, loginState } =
+    useContext(AppContext);
   const { inputs, authToken, email } = useContext(SignupPageContext);
   const [otp, setOtp] = useState("");
   const [style, setStyle] = useState({});
@@ -21,8 +13,7 @@ const OtpModal = () => {
   const [error, setError] = useState(false);
   const [count, setCount] = useState(30);
 
-  const navigate = useNavigate();
-  const path = "/profile/account";
+  const path = loginState ? loginState : "/profile/account";
 
   function handleOtpChange(e) {
     const { value } = e.target;
@@ -56,10 +47,8 @@ const OtpModal = () => {
             },
           }
         );
-        if (result.data) {
-          const { userInfo, accessToken } = result.data;
-          const stringifiedData = JSON.stringify(result.data);
-          setCookie("userData", stringifiedData, 1);
+        const { data } = result;
+        if (data) {
           let itemsPosted = 0;
           if (cartProducts.length > 0) {
             cartProducts.forEach(async (item) => {
@@ -67,30 +56,22 @@ const OtpModal = () => {
                 "http://localhost:5000/api/add-cart",
                 {
                   productId: item.id,
-                  userId: result.data.userInfo.id,
+                  userId: data.userInfo.id,
                   quantity: item.quantity,
                 },
                 {
                   headers: {
-                    Authorization: `Bearer ${result.data.accessToken}`,
+                    Authorization: `Bearer ${data.accessToken}`,
                   },
                 }
               );
               itemsPosted = itemsPosted + 1;
               if (itemsPosted === cartProducts.length) {
-                setUser(userInfo);
-                setAccessToken(accessToken);
-                setLoggedIn(true);
-                setCartRefresh(true);
-                navigate(path, { replace: true });
+                logUserIn(data, path);
               }
             });
           } else {
-            setUser(userInfo);
-            setAccessToken(accessToken);
-            setLoggedIn(true);
-            setCartRefresh(true);
-            navigate(path, { replace: true });
+            logUserIn(data, path);
           }
         }
       }
