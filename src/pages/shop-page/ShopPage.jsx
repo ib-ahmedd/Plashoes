@@ -93,6 +93,7 @@ const ShopPage = ({ page }) => {
   }
 
   function handleChange(e) {
+    setOffset(0)
     setSortOption(e.target.value);
     setGetItems(true);
     setCurrentPage(1);
@@ -105,11 +106,13 @@ const ShopPage = ({ page }) => {
 
   function handleFilterPrice(func) {
     if (func === "set") {
+      setOffset(0)
       setGetItems(true);
       setMenuOpen(false);
       setCurrentPage(1);
       setItemNumbers({ start: 1, end: 12 });
     } else {
+      setOffset(0)
       setPriceRange(150);
       setGetItems(true);
       setMenuOpen(false);
@@ -119,6 +122,7 @@ const ShopPage = ({ page }) => {
   }
 
   function resetFilters() {
+    setOffset(0)
     setPriceRange(150);
     setCategory("Default");
     setCurrentPage(1);
@@ -127,6 +131,7 @@ const ShopPage = ({ page }) => {
   }
 
   function handleFilterCat(cat) {
+    setOffset(0)
     setGetItems(true);
     setCategory(cat);
     setMenuOpen(false);

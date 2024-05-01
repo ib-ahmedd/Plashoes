@@ -11,7 +11,7 @@ const PayStackBtn = ({ setPaymentSuccess }) => {
     (item) =>
       (totalAmount = totalAmount + parseFloat(item.price) * item.quantity)
   );
-  const amountInNaira = totalAmount * 1150;
+  const amountInNaira = totalAmount * 500;
   const amountInKobo = (amountInNaira * 100).toFixed(2);
 
   const publicKey = "pk_test_598a86084da5e02b6fe8ba4d9921241db331c813";
