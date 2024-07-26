@@ -1,72 +1,72 @@
-.shop-page{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 3em; 
-    box-sizing: border-box;
-    background-color: white;
+.shop-page {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em 3em;
+  box-sizing: border-box;
+  background-color: white;
+  margin-top: 1em;
 }
 
-.shop-page h1{
-    font-size: 5em;
-    color: var(--green);
-    width: 100%;
-    margin: 0;
-    margin-top: 0.5em;
+.shop-page h1 {
+  font-size: 5em;
+  color: var(--green);
+  width: 100%;
+  margin: 0;
+  margin-top: 0.5em;
 }
 
-.filter-sort{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1em;
+.filter-sort {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
 }
 
-.filter-sort span{
-    width: 26em;
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
+.filter-sort span {
+  width: 26em;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
 }
 
-.shop-filter-btn{
-    background-color: var(--green);
-    color: white;
-    width: 10em;
-    font-size: 1.1em;
-    height: 3em;
-    flex-shrink: 0;
+.shop-filter-btn {
+  background-color: var(--green);
+  color: white;
+  width: 10em;
+  font-size: 1.1em;
+  height: 3em;
+  flex-shrink: 0;
 }
 
-.shop-filter-btn:hover{
-    background-color: var(--green-hover);
-    cursor: pointer;
+.shop-filter-btn:hover {
+  background-color: var(--green-hover);
+  cursor: pointer;
 }
 
-.filter-sort p{
-    font-size: var(--P-font-size);
-    color: var(--grey);
-    flex-shrink: 0;
-    margin-right: 0.5em;
+.filter-sort p {
+  font-size: var(--P-font-size);
+  color: var(--grey);
+  flex-shrink: 0;
+  margin-right: 0.5em;
 }
 
-.filter-sort select{
-    font-size: var(--P-font-size);
-    color: #555;
-    width: 15em;
-    border: none;
+.filter-sort select {
+  font-size: var(--P-font-size);
+  color: #555;
+  width: 15em;
+  border: none;
 }
 
-.filter-sort select:hover{
-    cursor: pointer;
-    border: 1px dotted black;
+.filter-sort select:hover {
+  cursor: pointer;
+  border: 1px dotted black;
 }
 
-.shop-sort:focus{
-    outline: 1px solid var(--green);
+.shop-sort:focus {
+  outline: 1px solid var(--green);
 }
-
 
 /* filter menu */
 /* filter menu */
@@ -79,105 +79,105 @@
 /* filter menu */
 /* filter menu */
 
-.filter-menu{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    gap: 10%;
-    width: 20em;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    z-index: 4;
-    background-color: white;
-    padding: 3em 1em;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    transform: translateX(-110%);
-    transition: 0.3s;
+.filter-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  width: 20em;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  background-color: white;
+  padding: 3em 1em;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  transform: translateX(-110%);
+  transition: 0.3s;
 }
 
-.filter-menu .search-bar{
-    width: 100%;
-    display: flex;
-    height: 4em;
+.filter-menu .search-bar {
+  width: 100%;
+  display: flex;
+  height: 4em;
 }
 
-.filter-menu .search-bar form{
-    width: 100%;
-    height: 100%;
-    display: flex;
+.filter-menu .search-bar form {
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
-.filter-price{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.filter-price {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.filter-price input[type="range"]{
-    width: 100%;
-    accent-color: var(--green);
+.filter-price input[type="range"] {
+  width: 100%;
+  accent-color: var(--green);
 }
 
-.filter-price label{
-    width: 100%;
-    font-size: 2em;
-    font-weight: bold;
+.filter-price label {
+  width: 100%;
+  font-size: 2em;
+  font-weight: bold;
 }
 
-.filter-price span{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.filter-price span {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.filter-price span p{
-    border: 1px solid var(--grey);
-    color: #666;
-    width: 3em;
-    text-align: center;
+.filter-price span p {
+  border: 1px solid var(--grey);
+  color: #666;
+  width: 3em;
+  text-align: center;
 }
 
-.filter-price button{
-    background-color: var(--green);
-    padding: 1em 2em;
-    color: white;
-    font-size: 1.2em;
-    text-decoration: underline;
+.filter-price button {
+  background-color: var(--green);
+  padding: 1em 2em;
+  color: white;
+  font-size: 1.2em;
+  text-decoration: underline;
 }
-.filter-price button:hover{
-    background-color: var(--green-hover);
-    cursor: pointer;
-}   
-.filter-category{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.filter-price button:hover {
+  background-color: var(--green-hover);
+  cursor: pointer;
 }
-
-.filter-category h4{
-    font-size: 2em;
+.filter-category {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.filter-category span{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.filter-category h4 {
+  font-size: 2em;
 }
 
-.filter-category button{
-    font-size: 1.3em;
-    color: var(--green);
-    padding: 0.5em 0;
+.filter-category span {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.filter-category button:hover{
-    color: var(--green-hover);
-    cursor: pointer;
+.filter-category button {
+  font-size: 1.3em;
+  color: var(--green);
+  padding: 0.5em 0;
+}
+
+.filter-category button:hover {
+  color: var(--green-hover);
+  cursor: pointer;
 }
 
 /* result page buttons */
@@ -186,53 +186,53 @@
 /* result page buttons */
 /* result page buttons */
 
-.pages-buttons-cont{
-    width: 100%;
-    display: flex;
-    gap: 1%;
-    margin-bottom: 2em;
+.pages-buttons-cont {
+  width: 100%;
+  display: flex;
+  gap: 1%;
+  margin-bottom: 2em;
 }
-.result-pages-button{
-    border: 1px solid var(--green);
-    color: var(--green);
-    font-size: 1.3em;
-    font-weight: lighter;
-    width: 2.5em;
-    height: 2.5em;
-    box-sizing: border-box;
-}
-
-.result-pages-button:hover{
-    cursor: pointer;
-    background-color: #c8caac;
+.result-pages-button {
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-size: 1.3em;
+  font-weight: lighter;
+  width: 2.5em;
+  height: 2.5em;
+  box-sizing: border-box;
 }
 
-.shop-page .no-result{
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10%;
-    box-sizing: border-box;
+.result-pages-button:hover {
+  cursor: pointer;
+  background-color: #c8caac;
 }
 
-.shop-page .no-result p{
-    font-size: 1.5em;
-    color: var(--grey);
-    margin: 0;
+.shop-page .no-result {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
+  box-sizing: border-box;
 }
 
-.shop-page .no-result .reset-filters{
-    color: white;
-    font-size: 1.1em;
-    font-weight: bold;
-    background-color: var(--orange);
-    padding: 0.9em 2em;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+.shop-page .no-result p {
+  font-size: 1.5em;
+  color: var(--grey);
+  margin: 0;
 }
 
-.shop-page .no-result .reset-filters:hover{
-    cursor: pointer;
-    background-color: var(--orange-hover);
+.shop-page .no-result .reset-filters {
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  background-color: var(--orange);
+  padding: 0.9em 2em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.shop-page .no-result .reset-filters:hover {
+  cursor: pointer;
+  background-color: var(--orange-hover);
 }
