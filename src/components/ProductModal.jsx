@@ -3,19 +3,27 @@ import RatingStars from "./RatingStars";
 import SaleModal from "./SaleModal";
 import Price from "./Price";
 import ApiImage from "./ApiImage";
-const ProductModal = ({ id, shoename, image, price, sale, rating }) => {
+const ProductModal = ({
+  ID,
+  Product_name,
+  Image,
+  Price: item_price,
+  Sale,
+  Rating,
+}) => {
+  console.log(Product_name);
   return (
     <div className="product-modal">
-      {sale && <SaleModal />}
-      <Link to={`/product/${id}`}>
-        <ApiImage imgPath={image} desc={shoename} />
+      {Sale && <SaleModal />}
+      <Link to={`/product/${ID}`}>
+        <ApiImage imgPath={Image} desc={Product_name} />
       </Link>
       <span>
-        <Link to={`/product/${id}`} className="name">
-          {shoename}
+        <Link to={`/product/${ID}`} className="name">
+          {Product_name}
         </Link>
-        <Price price={price} sale={sale} />
-        <RatingStars stars={rating} />
+        <Price price={item_price} sale={Sale} />
+        <RatingStars stars={Rating} />
       </span>
     </div>
   );

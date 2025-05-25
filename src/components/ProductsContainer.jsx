@@ -6,7 +6,7 @@ const ProductsContainer = ({ isLoading, products }) => {
   const emptyArray = [1, 2, 3, 4, 5, 6];
   if (products) {
     displayedProducts = products.map((item) => (
-      <ProductModal key={item.id} {...item} />
+      <ProductModal key={item.ID} {...item} />
     ));
   }
   const loadingDisplayedProducts = emptyArray.map((item) => (
