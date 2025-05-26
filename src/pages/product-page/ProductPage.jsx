@@ -154,7 +154,7 @@ const ProductPage = () => {
             {addedOpen && (
               <AddedToCart
                 quantity={addedQuantity.current}
-                productName={displayedProduct.shoename}
+                productName={displayedProduct.Product_name}
               />
             )}
             <ProductDetails />

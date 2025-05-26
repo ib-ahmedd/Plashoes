@@ -45,7 +45,7 @@ const ShopPage = ({ page }) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/product-page/${page}`
+        `http://localhost:8080/product-page/${page.toLowerCase()}`
       );
       const { data, categoriesData, count, range } = response.data;
       setMaxAndMinPrice(range);
@@ -93,7 +93,7 @@ const ShopPage = ({ page }) => {
   }
 
   function handleChange(e) {
-    setOffset(0)
+    setOffset(0);
     setSortOption(e.target.value);
     setGetItems(true);
     setCurrentPage(1);
@@ -106,13 +106,13 @@ const ShopPage = ({ page }) => {
 
   function handleFilterPrice(func) {
     if (func === "set") {
-      setOffset(0)
+      setOffset(0);
       setGetItems(true);
       setMenuOpen(false);
       setCurrentPage(1);
       setItemNumbers({ start: 1, end: 12 });
     } else {
-      setOffset(0)
+      setOffset(0);
       setPriceRange(150);
       setGetItems(true);
       setMenuOpen(false);
@@ -122,7 +122,7 @@ const ShopPage = ({ page }) => {
   }
 
   function resetFilters() {
-    setOffset(0)
+    setOffset(0);
     setPriceRange(150);
     setCategory("Default");
     setCurrentPage(1);
@@ -131,7 +131,7 @@ const ShopPage = ({ page }) => {
   }
 
   function handleFilterCat(cat) {
-    setOffset(0)
+    setOffset(0);
     setGetItems(true);
     setCategory(cat);
     setMenuOpen(false);

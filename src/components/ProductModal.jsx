@@ -11,7 +11,6 @@ const ProductModal = ({
   Sale,
   Rating,
 }) => {
-  console.log(Product_name);
   return (
     <div className="product-modal">
       {Sale && <SaleModal />}
