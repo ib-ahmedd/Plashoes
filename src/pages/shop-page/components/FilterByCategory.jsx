@@ -5,7 +5,7 @@ import { ShopPageContext } from "../ShopPage";
 const FilterByCategory = () => {
   const { productCategories } = useContext(ShopPageContext);
   const categoriesDisplay = productCategories.map((item) => (
-    <FilterButton text={item.categories} key={item.categories} />
+    <FilterButton text={item} key={item} />
   ));
   return (
     <div className="filter-category">

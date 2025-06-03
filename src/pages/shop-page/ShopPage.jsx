@@ -45,11 +45,11 @@ const ShopPage = ({ page }) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8080/product-page/${page.toLowerCase()}`
+        `http://localhost:8080/product-page/${page}`
       );
       const { data, categoriesData, count, range } = response.data;
       setMaxAndMinPrice(range);
-      setPriceRange(range.maxPrice);
+      setPriceRange(Math.ceil(range.maxPrice));
       setProducts(data);
       setProductCategories(categoriesData);
       setCount(count);
@@ -61,15 +61,20 @@ const ShopPage = ({ page }) => {
 
   const sortFilterProducts = useCallback(async () => {
     setLoading(true);
+
     try {
-      const result = await axios.post("http://localhost:5000/api/filter-sort", {
+      const result = await axios.post("http://localhost:8080/filter-sort", {
         page: page,
-        priceRange: priceRange,
+        priceRange: Math.ceil(priceRange),
         sort: sortOption,
         category: filterCategory,
         offset: offset,
       });
+
       const { data } = result;
+      if (!data.data) {
+        data.data = [];
+      }
       const { data: productsArray, count } = data;
       setProducts(productsArray);
       setCount(count);
