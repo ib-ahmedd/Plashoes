@@ -24,56 +24,52 @@ const OtpModal = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/verify-otp",
+        "http://localhost:8080/verify-otp",
         {
           code: otp,
           email: inputs.email,
         },
         {
           headers: {
-            Authorization: `Bearer ${authToken}`,
+            Authorization: `${authToken}`,
           },
         }
       );
-      if (response.data) {
-        const result = await axios.post(
-          "http://localhost:5000/api/auth/register",
-          {
-            ...inputs,
+      const result = await axios.post(
+        "http://localhost:8080/register",
+        {
+          ...inputs,
+        },
+        {
+          headers: {
+            Authorization: `${authToken}`,
           },
-          {
-            headers: {
-              Authorization: `Bearer ${response.data}`,
+        }
+      );
+      const { data } = result;
+      let itemsPosted = 0;
+      if (cartProducts.length > 0) {
+        cartProducts.forEach(async (item) => {
+          await axios.post(
+            "http://localhost:8080/add-cart",
+            {
+              productId: item.id,
+              userId: data.userInfo.id,
+              quantity: item.quantity,
             },
-          }
-        );
-        const { data } = result;
-        if (data) {
-          let itemsPosted = 0;
-          if (cartProducts.length > 0) {
-            cartProducts.forEach(async (item) => {
-              await axios.post(
-                "http://localhost:5000/api/add-cart",
-                {
-                  productId: item.id,
-                  userId: data.userInfo.id,
-                  quantity: item.quantity,
-                },
-                {
-                  headers: {
-                    Authorization: `Bearer ${data.accessToken}`,
-                  },
-                }
-              );
-              itemsPosted = itemsPosted + 1;
-              if (itemsPosted === cartProducts.length) {
-                logUserIn(data, path);
-              }
-            });
-          } else {
+            {
+              headers: {
+                Authorization: `Bearer ${data.accessToken}`,
+              },
+            }
+          );
+          itemsPosted = itemsPosted + 1;
+          if (itemsPosted === cartProducts.length) {
             logUserIn(data, path);
           }
-        }
+        });
+      } else {
+        logUserIn(data, path);
       }
     } catch (err) {
       console.log(err);

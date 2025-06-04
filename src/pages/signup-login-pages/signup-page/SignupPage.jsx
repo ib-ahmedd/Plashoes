@@ -116,7 +116,6 @@ const SignupPage = () => {
     e.preventDefault();
     setSubmitted(true);
     const formComplete = checkFormComplete();
-    console.log(formComplete);
     const checksArray = Object.values(checks);
     const checkArrayQuery = checksArray.filter((item) => {
       return item !== true;
@@ -133,12 +132,12 @@ const SignupPage = () => {
           setInputError(false);
           setLoading(true);
           try {
-            const response = await axios.post(
-              "http://localhost:5000/api/auth/verify-email",
-              { email: inputs.email }
-            );
+            const response = await axios.post("http://localhost:8080/otp", {
+              email: inputs.email,
+            });
             if (response.data) {
-              setAuthToken(response.data);
+              let jwtToken = response.data.authToken;
+              setAuthToken(jwtToken);
               setOtpOnScreen(true);
             }
           } catch (err) {
