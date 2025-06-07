@@ -4,7 +4,9 @@ import { AppContext } from "../../../../App";
 
 const AccountOverview = () => {
   const { user } = useContext(AppContext);
-  const { user_name, email, address, mobile_no, country_code } = user;
+  const { user_name, email, address, phone, code } = user;
+
+  console.log(user);
   return (
     <section className="acc-overview">
       <div className="acc-info-cont">
@@ -23,7 +25,7 @@ const AccountOverview = () => {
               <h3>Your default shipping address:</h3>
               <p>{user_name}</p>
               <p>{address}</p>
-              <p>{mobile_no && country_code + mobile_no.toString()}</p>
+              <p>{phone && code + phone.toString()}</p>
             </>
           }
         />

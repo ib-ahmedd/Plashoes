@@ -22,6 +22,8 @@ const ProfileSideBar = ({ menuOpen, setMenuOpen }) => {
     setCartRefresh(true);
     navigate("/");
   };
+
+  // handleLogOut();
   return (
     <section
       className="profile-sidebar"

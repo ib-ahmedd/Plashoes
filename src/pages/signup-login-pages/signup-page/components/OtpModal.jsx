@@ -15,6 +15,11 @@ const OtpModal = () => {
 
   const path = loginState ? loginState : "/profile/account";
 
+  console.log({
+    ...inputs,
+    phone: Number(inputs.phone),
+    postalcode: Number(inputs.postalcode),
+  });
   function handleOtpChange(e) {
     const { value } = e.target;
     setOtp(value);
@@ -35,10 +40,14 @@ const OtpModal = () => {
           },
         }
       );
+
       const result = await axios.post(
         "http://localhost:8080/register",
         {
           ...inputs,
+          phone: Number(inputs.phone),
+          postalcode: Number(inputs.postalcode),
+          user_name: `${inputs.fname} ${inputs.lname}`,
         },
         {
           headers: {
