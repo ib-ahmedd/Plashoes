@@ -41,12 +41,9 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       let itemsPosted = 0;
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        {
-          ...details,
-        }
-      );
+      const response = await axios.post("http://localhost:8080/login", {
+        ...details,
+      });
       const path = loginState ? loginState : "/profile/account";
       const { data } = response;
       if (data) {
