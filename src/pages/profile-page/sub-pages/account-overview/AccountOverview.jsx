@@ -6,7 +6,6 @@ const AccountOverview = () => {
   const { user } = useContext(AppContext);
   const { user_name, email, address, phone, code } = user;
 
-  console.log(user);
   return (
     <section className="acc-overview">
       <div className="acc-info-cont">

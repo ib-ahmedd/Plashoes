@@ -66,7 +66,7 @@ function App() {
   const [payedOrders, setPayedOrders] = useState([]);
   const [noNav, setNoNav] = useState(false);
   const [loginState, setLoginState] = useState("");
-  const apiLink = "http://localhost:5000/";
+  const apiLink = "http://localhost:8080/";
 
   const navigate = useNavigate();
 
@@ -86,13 +86,14 @@ function App() {
     setCartLoading(true);
     try {
       if (isLoggedIn) {
-        const response = await axios.get(`${apiLink}api/cart/${user.id}`, {
+        const response = await axios.get(`${apiLink}cart/${user.id}`, {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: accessToken,
           },
         });
-        const { data } = response.data && response.data;
-        setProducts(data);
+
+        const { data } = response.data ? response.data : [];
+        setProducts(data ? data : []);
         if (data && data.length > 0) {
           setCartEmpty(false);
         } else {

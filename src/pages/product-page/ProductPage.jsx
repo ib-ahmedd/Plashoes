@@ -75,13 +75,13 @@ const ProductPage = () => {
       );
       if (foundProduct) {
         await axios.patch(
-          `http://localhost:5000/api/cart-update/${foundProduct.id}`,
+          `http://localhost:8080/cart-update/${foundProduct.id}`,
           {
             quantity: foundProduct.quantity + quantity,
           },
           {
             headers: {
-              Authorization: `Bearer ${accessToken}`,
+              Authorization: accessToken,
             },
           }
         );
@@ -90,7 +90,7 @@ const ProductPage = () => {
         setCartRefresh(true);
       } else {
         await axios.post(
-          "http://localhost:5000/api/add-cart",
+          "http://localhost:8080/add-cart",
           {
             productId: id,
             userId: user ? user.id : 1,
@@ -98,7 +98,7 @@ const ProductPage = () => {
           },
           {
             headers: {
-              Authorization: `Bearer ${accessToken}`,
+              Authorization: accessToken,
             },
           }
         );
