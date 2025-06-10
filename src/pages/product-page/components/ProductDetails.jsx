@@ -10,13 +10,13 @@ import ApiImage from "../../../components/ApiImage";
 const ProductDetails = () => {
   const { product } = useContext(ProductPageContext);
   const {
-    Product_name,
-    Price: price,
-    Image,
-    Gender,
-    Free_shipping,
-    Categories,
-    Sale,
+    product_name,
+    price,
+    image,
+    gender,
+    free_shipping,
+    categories,
+    sale,
   } = product;
 
   const [fixedQuantityOpen, setFixedQuantityOpen] = useState(false);
@@ -40,17 +40,17 @@ const ProductDetails = () => {
   return (
     <section className="product-details">
       <span className="image-sale-cont">
-        {Sale && <SaleModal />}
-        <ApiImage imgPath={Image} desc={Product_name} />
+        {sale && <SaleModal />}
+        <ApiImage imgPath={image} desc={product_name} />
       </span>
       <div className="details">
         <p className="gender-categ">
-          {Gender}, {Categories}
+          {gender}, {categories}
         </p>
-        <h1 className="shoe-name">{Product_name}</h1>
+        <h1 className="shoe-name">{product_name}</h1>
         <span className="price-cont">
-          <Price price={price} sale={Sale} />
-          {Free_shipping && (
+          <Price price={price} sale={sale} />
+          {free_shipping && (
             <p className="free-shipping">{"& Free shipping"}</p>
           )}
         </span>
@@ -62,7 +62,7 @@ const ProductDetails = () => {
         </p>
         <Quantity getInView={getInView} />
         <p className="categ">
-          Categories: {Gender}, {Categories}
+          Categories: {gender}, {categories}
         </p>
         <ProductPaymentMethods />
         <FixedQuantity fixedQuantityOpen={fixedQuantityOpen} />

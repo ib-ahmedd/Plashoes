@@ -67,6 +67,7 @@ const ProductPage = () => {
     addedQuantity.current = quantity;
     setAddedOpen(true);
   }
+
   async function handleAddCart() {
     setDisabledBtn(true);
     if (isLoggedIn) {
@@ -92,8 +93,8 @@ const ProductPage = () => {
         await axios.post(
           "http://localhost:8080/add-cart",
           {
-            productId: id,
-            userId: user ? user.id : 1,
+            product_id: Number(id),
+            user_id: user ? user.id : 1,
             quantity: quantity,
           },
           {

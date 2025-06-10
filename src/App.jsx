@@ -92,7 +92,7 @@ function App() {
           },
         });
 
-        const { data } = response.data ? response.data : [];
+        const { data } = response.data ? response : [];
         setProducts(data ? data : []);
         if (data && data.length > 0) {
           setCartEmpty(false);

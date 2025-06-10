@@ -11,7 +11,7 @@ const useFetch = (url, headers) => {
         headers,
       });
       const { data } = result;
-      console.log(result);
+
       // const { data: productsArray, count } = data;
       setProducts(data);
       // setCount(count);
