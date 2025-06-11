@@ -32,9 +32,9 @@ const Cart = ({ toggleCart }) => {
     try {
       if (isLoggedIn) {
         try {
-          await axios.delete(`http://localhost:5000/api/cart-delete/${id}`, {
+          await axios.delete(`http://localhost:8080/cart-delete/${id}`, {
             headers: {
-              Authorization: `Bearer ${accessToken}`,
+              Authorization: accessToken,
             },
           });
         } catch (err) {
@@ -56,26 +56,26 @@ const Cart = ({ toggleCart }) => {
       if (isLoggedIn) {
         if (func === "add") {
           await axios.patch(
-            `http://localhost:5000/api/cart-update/${id}`,
+            `http://localhost:8080/cart-update/${id}`,
             {
               quantity: quantity + 1,
             },
             {
               headers: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: accessToken,
               },
             }
           );
         } else {
           if (quantity > 1) {
             await axios.patch(
-              `http://localhost:5000/api/cart-update/${id}`,
+              `http://localhost:8080cart-update/${id}`,
               {
                 quantity: quantity - 1,
               },
               {
                 headers: {
-                  Authorization: `Bearer ${accessToken}`,
+                  Authorization: accessToken,
                 },
               }
             );

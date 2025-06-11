@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CartTableData = ({
   image,
-  shoe_name,
+  product_name,
   quantity,
   price,
   handleQuantity,
@@ -17,10 +17,10 @@ const CartTableData = ({
   return (
     <tr>
       <td className="image-width table-image">
-        <ApiImage imgPath={image} desc={shoe_name} />
+        <ApiImage imgPath={image} desc={product_name} />
       </td>
       <td className="product-width product">
-        <Link to={`/product/${product_id}`}>{shoe_name}</Link>
+        <Link to={`/product/${product_id}`}>{product_name}</Link>
       </td>
       <td className="price-width">${price}</td>
       <td className="quantity-width">

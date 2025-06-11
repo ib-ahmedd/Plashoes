@@ -149,7 +149,7 @@ function App() {
       const newProducts = [
         {
           id: product.id,
-          shoename: product.shoename,
+          product_name: product.product_name,
           image: product.image,
           price: product.price,
           sale: product.sale,
@@ -209,12 +209,25 @@ function App() {
   }, [cartRefresh]);
 
   useEffect(() => {
+    async function checkSessionExpired(storedAccessToken) {
+      const response = await axios.get(`http://localhost:8080/check-session`, {
+        headers: {
+          Authorization: storedAccessToken,
+        },
+      });
+      return response.data.isExpired;
+    }
     const storedUser = getCookie("userData");
     if (storedUser) {
       const { userInfo, accessToken } = JSON.parse(storedUser);
-      setUser(userInfo);
-      setAccessToken(accessToken);
-      setLoggedIn(true);
+      const sessionExpired = checkSessionExpired(storedUser.accessToken);
+      if (sessionExpired) {
+        setUser({});
+      } else {
+        setUser(userInfo);
+        setAccessToken(accessToken);
+        setLoggedIn(true);
+      }
     } else {
       setUser({});
     }

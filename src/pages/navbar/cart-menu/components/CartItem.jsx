@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CartItem = ({
   image,
-  shoe_name,
+  product_name,
   quantity,
   price,
   id,
@@ -18,9 +18,9 @@ const CartItem = ({
   return (
     <article className="cart-item">
       <div className="cart-item-left">
-        <ApiImage imgPath={image} desc={shoe_name} />
+        <ApiImage imgPath={image} desc={product_name} />
         <span>
-          <Link to={`/product/${product_id}`}>{shoe_name}</Link>
+          <Link to={`/product/${product_id}`}>{product_name}</Link>
           <SetQuantity
             quantity={quantity}
             handleQuantity={handleQuantity}

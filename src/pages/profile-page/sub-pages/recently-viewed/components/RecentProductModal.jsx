@@ -4,16 +4,23 @@ import SaleModal from "../../../../../components/SaleModal";
 import Price from "../../../../../components/Price";
 import ApiImage from "../../../../../components/ApiImage";
 
-const RecentProductModal = ({ id, shoename, image, price, sale, rating }) => {
+const RecentProductModal = ({
+  id,
+  product_name,
+  image,
+  price,
+  sale,
+  rating,
+}) => {
   return (
     <div className="recent-product-modal">
       {sale && <SaleModal />}
       <Link to={`/product/${id}`}>
-        <ApiImage imgPath={image} desc={shoename} />
+        <ApiImage imgPath={image} desc={product_name} />
       </Link>
       <span>
         <Link to={`/product/${id}`} className="name">
-          {shoename}
+          {product_name}
         </Link>
         <Price price={price} sale={sale} />
         <RatingStars stars={rating} />
