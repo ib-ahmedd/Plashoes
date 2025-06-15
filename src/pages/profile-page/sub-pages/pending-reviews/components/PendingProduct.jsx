@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import ApiImage from "../../../../../components/ApiImage";
 const PendingProduct = ({
-  shoe_name,
   id,
   product_id,
+  product_name,
   date_delivered,
   image,
 }) => {
   return (
     <article className="pending-product">
       <div>
-        <ApiImage imgPath={image} desc={shoe_name} />
+        <ApiImage imgPath={image} desc={product_name} />
         <span>
-          <h2>{shoe_name}</h2>
+          <h2>{product_name}</h2>
           <p className="order">Order #: {id}</p>
           <p className="delivered">Delivered on {date_delivered}</p>
         </span>

@@ -1,5 +1,11 @@
-const DeliveryInfo = ({ orderDetails }) => {
-  const { address, postal_code, mobile_no, country_code } = orderDetails;
+import { useContext } from "react";
+import { AppContext } from "../../../../../App";
+
+const DeliveryInfo = () => {
+  const { user } = useContext(AppContext);
+  const { address, phone, postalcode, code } = user;
+
+  const country_code = code.split(" ")[1];
   return (
     <article className="delivery-info infos">
       <h3>DELIVERY INFORMATION</h3>
@@ -11,10 +17,10 @@ const DeliveryInfo = ({ orderDetails }) => {
         <span>
           <h4>Shipping Details</h4>
           <p>Address: {address}</p>
-          <p>Postal code: {postal_code}</p>
+          <p>Postal code: {postalcode}</p>
           <p>
             Mobile no: {country_code}
-            {mobile_no}
+            {phone}
           </p>
         </span>
       </div>

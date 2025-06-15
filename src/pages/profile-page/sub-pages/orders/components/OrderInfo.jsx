@@ -4,7 +4,7 @@ const OrderInfo = ({
   id,
   product_id,
   image,
-  shoe_name,
+  product_name,
   totalprice,
   quantity,
   date_ordered,
@@ -13,9 +13,9 @@ const OrderInfo = ({
   return (
     <article className="order-info">
       <span className="orders-image-details">
-        <ApiImage imgPath={image} desc={shoe_name} />
+        <ApiImage imgPath={image} desc={product_name} />
         <span className="orders-details">
-          <h2>{shoe_name}</h2>
+          <h2>{product_name}</h2>
           <p className="order-price">Price: ${totalprice}</p>
           <p>Quantity: {quantity}</p>
           <p>Status: {order_status}</p>

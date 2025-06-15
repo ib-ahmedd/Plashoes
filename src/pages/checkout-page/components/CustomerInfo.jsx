@@ -12,14 +12,14 @@ const CustomerInfo = ({ setPaymentSuccess }) => {
     lname: "",
     address: "",
     country_code: "",
-    mobile_no: "",
-    postal_code: "",
+    phone: "",
+    postalcode: "",
   });
 
   useEffect(() => {
     if (user.email) {
       const nameArray = user.user_name.split(" ");
-      const countryCodeArray = user.country_code.split(" ");
+      const countryCodeArray = user.code.split(" ");
       const [fname, lname] = nameArray;
       const [code, number] = countryCodeArray;
       setInputs({ ...user, fname, lname, country_code: number, code });
@@ -70,14 +70,14 @@ const CustomerInfo = ({ setPaymentSuccess }) => {
           label={"Mobile no"}
           type={"tel"}
           name={"mobile_no"}
-          value={inputs.country_code + inputs.mobile_no}
+          value={inputs.country_code + inputs.phone}
           handleChange={handleChange}
         />
         <LabeledInput
           label={"Postal code"}
           type={"tel"}
           name={"postal_code"}
-          value={inputs.postal_code}
+          value={inputs.postalcode}
           handleChange={handleChange}
         />
       </span>

@@ -6,7 +6,7 @@ const ItemsInOrder = ({ orderDetails, buyLoading, buyAgain }) => {
     order_status,
     date_ordered,
     quantity,
-    shoe_name,
+    product_name,
     price,
     image,
     product_id,
@@ -24,10 +24,10 @@ const ItemsInOrder = ({ orderDetails, buyLoading, buyAgain }) => {
         <p className="date">On {date_ordered}</p>
         <span className="outer-span">
           <div className="image">
-            <ApiImage imgPath={image} desc={shoe_name} />
+            <ApiImage imgPath={image} desc={product_name} />
           </div>
           <span className="inner-span">
-            <h3>{shoe_name}</h3>
+            <h3>{product_name}</h3>
             <p className="qty">QTY: {quantity}</p>
             <p className="price">Price: ${price}</p>
           </span>
@@ -38,7 +38,7 @@ const ItemsInOrder = ({ orderDetails, buyLoading, buyAgain }) => {
           <button
             className="buy"
             onClick={() => {
-              buyAgain(product_id, shoe_name);
+              buyAgain(product_id, product_name);
             }}
           >
             BUY AGAIN

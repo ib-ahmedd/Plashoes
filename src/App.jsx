@@ -70,8 +70,28 @@ function App() {
 
   const navigate = useNavigate();
 
+  const checkSessionActive = useCallback(async (storedUser) => {
+    try {
+      const { userInfo, accessToken } = JSON.parse(storedUser);
+
+      await axios.get("http://localhost:8080/check-session", {
+        headers: {
+          Authorization: accessToken,
+        },
+      });
+      setUser(userInfo);
+      setAccessToken(accessToken);
+      setLoggedIn(true);
+    } catch (err) {
+      console.log(err);
+      setUser({});
+      deleteCookie("userData");
+    }
+  }, []);
+
   function logUserIn(data, path) {
     const { userInfo, accessToken } = data;
+    console.log("User logged in:", userInfo);
     const stringifiedData = JSON.stringify(data);
     setCookie("userData", stringifiedData, 1);
     setUser(userInfo);
@@ -209,29 +229,13 @@ function App() {
   }, [cartRefresh]);
 
   useEffect(() => {
-    async function checkSessionExpired(storedAccessToken) {
-      const response = await axios.get(`http://localhost:8080/check-session`, {
-        headers: {
-          Authorization: storedAccessToken,
-        },
-      });
-      return response.data.isExpired;
-    }
     const storedUser = getCookie("userData");
     if (storedUser) {
-      const { userInfo, accessToken } = JSON.parse(storedUser);
-      const sessionExpired = checkSessionExpired(storedUser.accessToken);
-      if (sessionExpired) {
-        setUser({});
-      } else {
-        setUser(userInfo);
-        setAccessToken(accessToken);
-        setLoggedIn(true);
-      }
+      checkSessionActive(storedUser);
     } else {
       setUser({});
     }
-  }, []);
+  }, [checkSessionActive]);
 
   const AppContextValue = {
     logUserIn,

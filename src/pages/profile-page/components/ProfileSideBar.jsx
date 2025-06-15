@@ -23,7 +23,6 @@ const ProfileSideBar = ({ menuOpen, setMenuOpen }) => {
     navigate("/");
   };
 
-  // handleLogOut();
   return (
     <section
       className="profile-sidebar"

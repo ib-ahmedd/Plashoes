@@ -30,39 +30,43 @@ const PayStackBtn = ({ setPaymentSuccess }) => {
   };
 
   async function handlePaySuccess() {
-    setPaymentSuccess(true);
-    const orderProducts = cartProducts.map((item) => {
-      return {
-        product_id: item.product_id,
-        quantity: item.quantity,
-        totalPrice: (parseFloat(item.price) * item.quantity).toFixed(2),
-      };
-    });
-    const response = await axios.post(
-      "http://localhost:5000/api/order",
-      {
-        userId: user.id,
-        orderProducts: orderProducts,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
+    try {
+      setPaymentSuccess(true);
+      const orderProducts = cartProducts.map((item) => {
+        return {
+          product_id: item.product_id,
+          quantity: item.quantity,
+          totalPrice: parseFloat(
+            (parseFloat(item.price) * item.quantity).toFixed(2)
+          ),
+        };
+      });
+      const response = await axios.post(
+        "http://localhost:8080/order",
+        {
+          user_id: user.id,
+          ordered_items: orderProducts,
         },
-      }
-    );
-    if (response.status && response.status === 201) {
-      const result = await axios.delete(
-        `http://localhost:5000/api/empty-cart/${user.id}`,
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: accessToken,
           },
         }
       );
-      if (result.status && result.status === 200) {
-        setPayedOrders(cartProducts);
-        setCartRefresh(true);
-      }
+
+      console.log(response.data);
+      // const result = await axios.delete(
+      //   `http://localhost:8080/empty-cart/${user.id}`,
+      //   {
+      //     headers: {
+      //       Authorization: accessToken,
+      //     },
+      //   }
+      // );
+      //   setPayedOrders(cartProducts);
+      //   setCartRefresh(true);
+    } catch (err) {
+      console.log(err);
     }
   }
   return <PaystackButton {...componentProps} />;

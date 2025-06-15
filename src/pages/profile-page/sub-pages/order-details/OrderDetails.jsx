@@ -9,7 +9,8 @@ import { AppContext } from "../../../../App";
 import LoadingItems from "./components/LoadingItems";
 
 const OrderDetails = () => {
-  const { accessToken, user, setCartRefresh } = useContext(AppContext);
+  const { accessToken, user, setCartRefresh, cartProducts } =
+    useContext(AppContext);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -21,15 +22,15 @@ const OrderDetails = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/order-details/${id}`,
+        `http://localhost:8080/order-details/${id}`,
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: accessToken,
           },
         }
       );
       const { data } = response;
-      setOrderDetails(data[0]);
+      setOrderDetails(data);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -39,20 +40,38 @@ const OrderDetails = () => {
   async function buyAgain(productId, productName) {
     try {
       setBuyLoading(true);
-      const response = await axios.post(
-        "http://localhost:5000/api/add-cart",
-        {
-          userId: user.id,
-          productId: productId,
-          quantity: 1,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
+      const foundProduct = cartProducts.find(
+        (item) => item.product_id === parseInt(productId)
       );
-      if (response.status && response.status === 201) {
+
+      if (foundProduct) {
+        await axios.patch(
+          `http://localhost:8080/cart-update/${foundProduct.id}`,
+          {
+            quantity: foundProduct.quantity + 1,
+          },
+          {
+            headers: {
+              Authorization: accessToken,
+            },
+          }
+        );
+        setCartRefresh(true);
+        navigate("/cart", { state: productName });
+      } else {
+        await axios.post(
+          "http://localhost:8080/add-cart",
+          {
+            user_id: user.id,
+            product_id: productId,
+            quantity: 1,
+          },
+          {
+            headers: {
+              Authorization: accessToken,
+            },
+          }
+        );
         setCartRefresh(true);
         navigate("/cart", { state: productName });
       }

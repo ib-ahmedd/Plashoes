@@ -8,9 +8,9 @@ const useGet = (url, accessToken) => {
   const getData = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api" + url, {
+      const response = await axios.get("http://localhost:8080" + url, {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: accessToken,
         },
       });
       const { data } = response;

@@ -17,15 +17,15 @@ const Orders = () => {
   const getOrders = useCallback(async () => {
     if (user.id) {
       const response = await axios.get(
-        `http://localhost:5000/api/orders/${user.id}`,
+        `http://localhost:8080/orders/${user.id}`,
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: accessToken,
           },
         }
       );
       const { data } = response;
-      setOrders(data);
+      setOrders(data ? data : []);
       setLoading(false);
     }
   }, [accessToken, user.id]);
