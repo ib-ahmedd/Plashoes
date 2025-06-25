@@ -8,11 +8,14 @@ const useGet = (url, accessToken) => {
   const getData = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:8080" + url, {
-        headers: {
-          Authorization: accessToken,
-        },
-      });
+      const response = await axios.get(
+        "https://plashoes-server.onrender.com" + url,
+        {
+          headers: {
+            Authorization: accessToken,
+          },
+        }
+      );
       const { data } = response;
       setResult(data);
     } catch (err) {

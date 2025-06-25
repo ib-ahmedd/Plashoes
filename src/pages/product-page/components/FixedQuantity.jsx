@@ -6,15 +6,17 @@ import ApiImage from "../../../components/ApiImage";
 
 const FixedQuantity = ({ fixedQuantityOpen }) => {
   const { product } = useContext(ProductPageContext);
-  const { image, shoename, price, sale } = product;
+
+  const { image, product_name, price, sale } = product;
+
   return (
     <div
       className="fixed-quantity"
       style={{ transform: fixedQuantityOpen && "translateY(0)" }}
     >
       <span className="image-name">
-        <ApiImage imgPath={image} desc={shoename} />
-        <h4>{shoename}</h4>
+        <ApiImage imgPath={image} desc={product_name} />
+        <h4>{product_name}</h4>
       </span>
       <span className="price-quantity">
         <div className="price-cont">

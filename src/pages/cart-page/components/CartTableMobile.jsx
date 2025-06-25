@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CartTableMobile = ({
   id,
-  shoe_name,
+  product_name,
   image,
   price,
   quantity,
@@ -19,8 +19,8 @@ const CartTableMobile = ({
     <article className="cart-table-mobile">
       <div>
         <span>
-          <ApiImage imgPath={image} desc={shoe_name} />
-          <Link to={`/product/${product_id}`}>{shoe_name}</Link>
+          <ApiImage imgPath={image} desc={product_name} />
+          <Link to={`/product/${product_id}`}>{product_name}</Link>
         </span>
         <button
           onClick={() => {
@@ -39,7 +39,7 @@ const CartTableMobile = ({
         <SetQuantity
           quantity={quantity}
           handleQuantity={handleQuantity}
-          id={id}
+          id={product_id}
         />
       </div>
       <div>

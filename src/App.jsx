@@ -66,7 +66,7 @@ function App() {
   const [payedOrders, setPayedOrders] = useState([]);
   const [noNav, setNoNav] = useState(false);
   const [loginState, setLoginState] = useState("");
-  const apiLink = "http://localhost:8080/";
+  const apiLink = "https://plashoes-server.onrender.com/";
 
   const navigate = useNavigate();
 
@@ -74,7 +74,7 @@ function App() {
     try {
       const { userInfo, accessToken } = JSON.parse(storedUser);
 
-      await axios.get("http://localhost:8080/check-session", {
+      await axios.get("https://plashoes-server.onrender.com/check-session", {
         headers: {
           Authorization: accessToken,
         },
@@ -86,12 +86,12 @@ function App() {
       console.log(err);
       setUser({});
       deleteCookie("userData");
+      setLoggedIn(false);
     }
   }, []);
 
   function logUserIn(data, path) {
     const { userInfo, accessToken } = data;
-    console.log("User logged in:", userInfo);
     const stringifiedData = JSON.stringify(data);
     setCookie("userData", stringifiedData, 1);
     setUser(userInfo);
@@ -221,7 +221,6 @@ function App() {
 
   useEffect(() => {
     getCartProducts();
-    setAppLoaded(true);
   }, [cartRefresh, getCartProducts, isLoggedIn, accessToken]);
 
   useEffect(() => {
@@ -232,10 +231,13 @@ function App() {
     const storedUser = getCookie("userData");
     if (storedUser) {
       checkSessionActive(storedUser);
+      setAppLoaded(true);
     } else {
       setUser({});
+      setAppLoaded(true);
+      setLoggedIn(false);
     }
-  }, [checkSessionActive]);
+  }, [checkSessionActive, pathname]);
 
   const AppContextValue = {
     logUserIn,

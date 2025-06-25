@@ -7,9 +7,12 @@ const useFetch = (url, headers) => {
 
   const getProducts = useCallback(async () => {
     try {
-      const result = await axios.get("http://localhost:8080" + url, {
-        headers,
-      });
+      const result = await axios.get(
+        "https://plashoes-server.onrender.com" + url,
+        {
+          headers,
+        }
+      );
       const { data } = result;
 
       // const { data: productsArray, count } = data;

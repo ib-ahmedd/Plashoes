@@ -5,7 +5,7 @@ import axios from "axios";
 import { ForgotContext } from "../ForgotPasswordPage";
 
 const ForgotOtpModal = () => {
-  const { otp, handleChange, email, setResetToken } = useContext(ForgotContext);
+  const { otp, handleChange, email, resetToken } = useContext(ForgotContext);
   const { handleNetworkErr } = useContext(AppContext);
   const [style, setStyle] = useState({});
   const [loading, setLoading] = useState(false);
@@ -18,20 +18,22 @@ const ForgotOtpModal = () => {
   async function submitOtp() {
     setLoading(true);
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/verify-otp",
+      await axios.post(
+        "https://plashoes-server.onrender.com/verify-otp",
         {
-          code: otp,
-          email,
+          email: email,
+          code: Number(otp),
+        },
+        {
+          headers: {
+            Authorization: resetToken,
+          },
         }
       );
-      if (response.status && response.status === 200) {
-        setResetToken(response.data);
-        navigate("/forgot-password/reset", {
-          state: true,
-          replace: true,
-        });
-      }
+      navigate("/forgot-password/reset", {
+        state: true,
+        replace: true,
+      });
     } catch (err) {
       console.log(err);
       setLoading(false);
@@ -45,15 +47,10 @@ const ForgotOtpModal = () => {
 
   async function resendOtp() {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
-        {
-          email: email,
-        }
-      );
-      if (response.status === 201) {
-        setCount(30);
-      }
+      setCount(30);
+      await axios.post("https://plashoes-server.onrender.com/forgot-password", {
+        email: email,
+      });
     } catch (err) {
       console.log(err);
       handleNetworkErr();

@@ -6,10 +6,12 @@ import LoadingModal from "./components/LoadingModal";
 
 const PendingReviews = () => {
   const { user, accessToken } = useContext(AppContext);
-  const { loading, result } = useGet(
+  const { loading, result: data } = useGet(
     `/pending-reviews/${user.id}`,
     accessToken
   );
+
+  const result = data ? data : [];
 
   const displayedProducts = result.map((item) => (
     <PendingProduct key={item.id} {...item} />

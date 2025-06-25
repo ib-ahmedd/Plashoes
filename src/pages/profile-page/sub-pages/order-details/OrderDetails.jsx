@@ -22,7 +22,7 @@ const OrderDetails = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8080/order-details/${id}`,
+        `https://plashoes-server.onrender.com/order-details/${id}`,
         {
           headers: {
             Authorization: accessToken,
@@ -45,9 +45,11 @@ const OrderDetails = () => {
       );
 
       if (foundProduct) {
-        await axios.patch(
-          `http://localhost:8080/cart-update/${foundProduct.id}`,
+        await axios.post(
+          "https://plashoes-server.onrender.com/add-cart",
           {
+            product_id: Number(id),
+            user_id: user ? user.id : 1,
             quantity: foundProduct.quantity + 1,
           },
           {
@@ -60,7 +62,7 @@ const OrderDetails = () => {
         navigate("/cart", { state: productName });
       } else {
         await axios.post(
-          "http://localhost:8080/add-cart",
+          "https://plashoes-server.onrender.com/add-cart",
           {
             user_id: user.id,
             product_id: productId,

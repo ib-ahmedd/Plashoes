@@ -32,11 +32,14 @@ const Cart = ({ toggleCart }) => {
     try {
       if (isLoggedIn) {
         try {
-          await axios.delete(`http://localhost:8080/cart-delete/${id}`, {
-            headers: {
-              Authorization: accessToken,
-            },
-          });
+          await axios.delete(
+            `https://plashoes-server.onrender.com/cart-delete/${id}`,
+            {
+              headers: {
+                Authorization: accessToken,
+              },
+            }
+          );
         } catch (err) {
           console.log(err);
         }
@@ -56,7 +59,7 @@ const Cart = ({ toggleCart }) => {
       if (isLoggedIn) {
         if (func === "add") {
           await axios.patch(
-            `http://localhost:8080/cart-update/${id}`,
+            `https://plashoes-server.onrender.com/cart-update/${id}`,
             {
               quantity: quantity + 1,
             },
@@ -69,7 +72,7 @@ const Cart = ({ toggleCart }) => {
         } else {
           if (quantity > 1) {
             await axios.patch(
-              `http://localhost:8080cart-update/${id}`,
+              `https://plashoes-server.onrender.com/cart-update/${id}`,
               {
                 quantity: quantity - 1,
               },

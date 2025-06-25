@@ -28,10 +28,10 @@ const Review = () => {
     e.preventDefault();
     setDisabledBtn(true);
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/submit-review",
+      await axios.post(
+        "http://localhost:8080/submit-review",
         {
-          product_id: id,
+          product_id: Number(id),
           user_id: user.id,
           reviewer_name: user.user_name,
           stars: stars,
@@ -41,13 +41,11 @@ const Review = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: accessToken,
           },
         }
       );
-      if (response.status && response.status === 201) {
-        setSuccess(true);
-      }
+      setSuccess(true);
     } catch (err) {
       console.log(err);
       setDisabledBtn(false);

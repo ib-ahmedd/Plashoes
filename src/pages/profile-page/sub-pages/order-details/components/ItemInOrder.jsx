@@ -21,7 +21,7 @@ const ItemsInOrder = ({ orderDetails, buyLoading, buyAgain }) => {
         >
           {order_status}
         </p>
-        <p className="date">On {date_ordered}</p>
+        <p className="date">On {date_ordered.slice(0, 10)}</p>
         <span className="outer-span">
           <div className="image">
             <ApiImage imgPath={image} desc={product_name} />

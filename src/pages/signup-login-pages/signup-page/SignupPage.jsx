@@ -132,9 +132,12 @@ const SignupPage = () => {
           setInputError(false);
           setLoading(true);
           try {
-            const response = await axios.post("http://localhost:8080/otp", {
-              email: inputs.email,
-            });
+            const response = await axios.post(
+              "https://plashoes-server.onrender.com/otp",
+              {
+                email: inputs.email,
+              }
+            );
             if (response.data) {
               let jwtToken = response.data.authToken;
               setAuthToken(jwtToken);

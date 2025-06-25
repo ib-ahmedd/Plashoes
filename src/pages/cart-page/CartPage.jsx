@@ -38,16 +38,18 @@ const CartPage = () => {
     }
   }, [state, cartEmpty]);
 
-  const handleQuantity = async (func, id, quantity) => {
+  const handleQuantity = async (func, productID, quantity) => {
     setCartAdded(false);
     try {
       if (isLoggedIn) {
         if (func === "add") {
           setLoading(true);
-          await axios.patch(
-            `http://localhost:8080/cart-update/${id}`,
+          await axios.post(
+            "https://plashoes-server.onrender.com/add-cart",
             {
-              quantity: quantity + 1,
+              product_id: Number(productID),
+              user_id: user ? user.id : 1,
+              quantity: quantity,
             },
             {
               headers: {
@@ -61,7 +63,7 @@ const CartPage = () => {
           if (quantity > 1) {
             setLoading(true);
             await axios.patch(
-              `http://localhost:8080/cart-update/${id}`,
+              `https://plashoes-server.onrender.com/cart-update/${id}`,
               {
                 quantity: quantity - 1,
               },
@@ -100,11 +102,14 @@ const CartPage = () => {
     setLoading(true);
     try {
       if (isLoggedIn) {
-        await axios.delete(`http://localhost:8080/cart-delete/${id}`, {
-          headers: {
-            Authorization: accessToken,
-          },
-        });
+        await axios.delete(
+          `https://plashoes-server.onrender.com/cart-delete/${id}`,
+          {
+            headers: {
+              Authorization: accessToken,
+            },
+          }
+        );
       } else {
         const updatedItems = cartProducts.filter((item) => item.id !== id);
         setCookie("noLogCart", JSON.stringify(updatedItems), 7);

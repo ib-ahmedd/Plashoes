@@ -41,24 +41,27 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       let itemsPosted = 0;
-      const response = await axios.post("http://localhost:8080/login", {
-        ...details,
-      });
+      const response = await axios.post(
+        "https://plashoes-server.onrender.com/login",
+        {
+          ...details,
+        }
+      );
       const path = loginState ? loginState : "/profile/account";
       const { data } = response;
       if (data) {
         if (cartProducts.length > 0) {
           cartProducts.forEach(async (item) => {
             await axios.post(
-              "http://localhost:5000/api/add-cart",
+              "https://plashoes-server.onrender.com/add-cart",
               {
-                productId: item.productId,
-                userId: data.userInfo.id,
+                product_id: item.productId,
+                user_id: data.userInfo.id,
                 quantity: item.quantity,
               },
               {
                 headers: {
-                  Authorization: `Bearer ${data.accessToken}`,
+                  Authorization: data.accessToken,
                 },
               }
             );

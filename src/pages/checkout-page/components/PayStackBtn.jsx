@@ -41,8 +41,8 @@ const PayStackBtn = ({ setPaymentSuccess }) => {
           ),
         };
       });
-      const response = await axios.post(
-        "http://localhost:8080/order",
+      await axios.post(
+        "https://plashoes-server.onrender.com/order",
         {
           user_id: user.id,
           ordered_items: orderProducts,
@@ -54,17 +54,16 @@ const PayStackBtn = ({ setPaymentSuccess }) => {
         }
       );
 
-      console.log(response.data);
-      // const result = await axios.delete(
-      //   `http://localhost:8080/empty-cart/${user.id}`,
-      //   {
-      //     headers: {
-      //       Authorization: accessToken,
-      //     },
-      //   }
-      // );
-      //   setPayedOrders(cartProducts);
-      //   setCartRefresh(true);
+      await axios.delete(
+        `https://plashoes-server.onrender.com/empty-cart/${user.id}`,
+        {
+          headers: {
+            Authorization: accessToken,
+          },
+        }
+      );
+      setPayedOrders(cartProducts);
+      setCartRefresh(true);
     } catch (err) {
       console.log(err);
     }

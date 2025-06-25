@@ -4,7 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const EmailModal = () => {
-  const { email, handleChange, setEmailEntered } = useContext(ForgotContext);
+  const { email, handleChange, setEmailEntered, setResetToken } =
+    useContext(ForgotContext);
 
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -16,15 +17,14 @@ const EmailModal = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
+        "https://plashoes-server.onrender.com/forgot-password",
         {
           email,
         }
       );
-      if (response.status === 201) {
-        setEmailEntered(true);
-        navigate("/forgot-password/otp", { state: true, replace: true });
-      }
+      setEmailEntered(true);
+      setResetToken(response.data.authToken);
+      navigate("/forgot-password/otp", { state: true, replace: true });
     } catch (err) {
       console.log(err);
       if (err.response && err.response.status === 404) {

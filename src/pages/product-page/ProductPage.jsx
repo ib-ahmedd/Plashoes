@@ -75,9 +75,11 @@ const ProductPage = () => {
         (item) => item.product_id === parseInt(id)
       );
       if (foundProduct) {
-        await axios.patch(
-          `http://localhost:8080/cart-update/${foundProduct.id}`,
+        await axios.post(
+          "https://plashoes-server.onrender.com/add-cart",
           {
+            product_id: Number(id),
+            user_id: user ? user.id : 1,
             quantity: foundProduct.quantity + quantity,
           },
           {
@@ -91,7 +93,7 @@ const ProductPage = () => {
         setCartRefresh(true);
       } else {
         await axios.post(
-          "http://localhost:8080/add-cart",
+          "https://plashoes-server.onrender.com/add-cart",
           {
             product_id: Number(id),
             user_id: user ? user.id : 1,

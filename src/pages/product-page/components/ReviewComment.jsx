@@ -4,7 +4,7 @@ import { AppContext } from "../../../App";
 
 const ReviewComment = ({
   user_id,
-  rating,
+  stars,
   review_title,
   review_detail,
   review_date,
@@ -13,11 +13,11 @@ const ReviewComment = ({
   const { user } = useContext(AppContext);
   return (
     <article className="comment">
-      <RatingStars stars={rating} />
+      <RatingStars stars={stars} />
       <h4>{review_title}</h4>
       <p>{review_detail}</p>
       <p>
-        {review_date} by{" "}
+        {review_date.slice(0, 10)} by{" "}
         <strong>
           {reviewer_name}
           {user_id === user.id && " (you)"}

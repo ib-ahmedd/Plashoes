@@ -14,7 +14,9 @@ const PendingProduct = ({
         <span>
           <h2>{product_name}</h2>
           <p className="order">Order #: {id}</p>
-          <p className="delivered">Delivered on {date_delivered}</p>
+          <p className="delivered">
+            Delivered on {date_delivered.slice(0, 10)}
+          </p>
         </span>
       </div>
       <Link

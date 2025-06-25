@@ -45,7 +45,7 @@ const ShopPage = ({ page }) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8080/product-page/${page}`
+        `https://plashoes-server.onrender.com/product-page/${page}`
       );
       const { data, categoriesData, count, range } = response.data;
       setMaxAndMinPrice(range);
@@ -63,13 +63,16 @@ const ShopPage = ({ page }) => {
     setLoading(true);
 
     try {
-      const result = await axios.post("http://localhost:8080/filter-sort", {
-        page: page,
-        priceRange: Math.ceil(priceRange),
-        sort: sortOption,
-        category: filterCategory,
-        offset: offset,
-      });
+      const result = await axios.post(
+        "https://plashoes-server.onrender.com/filter-sort",
+        {
+          page: page,
+          priceRange: Math.ceil(priceRange),
+          sort: sortOption,
+          category: filterCategory,
+          offset: offset,
+        }
+      );
 
       const { data } = result;
       if (!data.data) {

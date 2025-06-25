@@ -17,7 +17,7 @@ const Orders = () => {
   const getOrders = useCallback(async () => {
     if (user.id) {
       const response = await axios.get(
-        `http://localhost:8080/orders/${user.id}`,
+        `https://plashoes-server.onrender.com/orders/${user.id}`,
         {
           headers: {
             Authorization: accessToken,

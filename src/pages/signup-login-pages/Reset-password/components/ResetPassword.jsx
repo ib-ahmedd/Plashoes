@@ -37,21 +37,19 @@ const ResetPassword = () => {
             match: false,
             length: false,
           });
-          const response = await axios.patch(
-            "http://localhost:5000/api/auth/reset-password",
+          await axios.patch(
+            "https://plashoes-server.onrender.com/reset-password",
             {
               email: email,
               password: inputs.password,
             },
             {
               headers: {
-                Authorization: `Bearer ${resetToken}`,
+                Authorization: resetToken,
               },
             }
           );
-          if (response.status && response.status === 201) {
-            setSuccess(true);
-          }
+          setSuccess(true);
         } else {
           setErrors((prevState) => {
             return { ...prevState, match: true };

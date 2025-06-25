@@ -15,11 +15,6 @@ const OtpModal = () => {
 
   const path = loginState ? loginState : "/profile/account";
 
-  console.log({
-    ...inputs,
-    phone: Number(inputs.phone),
-    postalcode: Number(inputs.postalcode),
-  });
   function handleOtpChange(e) {
     const { value } = e.target;
     setOtp(value);
@@ -29,9 +24,9 @@ const OtpModal = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/verify-otp",
+        "https://plashoes-server.onrender.com/verify-otp",
         {
-          code: otp,
+          code: Number(otp),
           email: inputs.email,
         },
         {
@@ -42,7 +37,7 @@ const OtpModal = () => {
       );
 
       const result = await axios.post(
-        "http://localhost:8080/register",
+        "https://plashoes-server.onrender.com/register",
         {
           ...inputs,
           phone: Number(inputs.phone),
@@ -51,7 +46,7 @@ const OtpModal = () => {
         },
         {
           headers: {
-            Authorization: `${authToken}`,
+            Authorization: authToken,
           },
         }
       );
@@ -60,15 +55,15 @@ const OtpModal = () => {
       if (cartProducts.length > 0) {
         cartProducts.forEach(async (item) => {
           await axios.post(
-            "http://localhost:8080/add-cart",
+            "https://plashoes-server.onrender.com/add-cart",
             {
-              productId: item.id,
-              userId: data.userInfo.id,
+              product_id: item.id,
+              user_id: data.userInfo.id,
               quantity: item.quantity,
             },
             {
               headers: {
-                Authorization: `Bearer ${data.accessToken}`,
+                Authorization: data.accessToken,
               },
             }
           );
@@ -94,12 +89,10 @@ const OtpModal = () => {
 
   async function resendOtp() {
     try {
-      const response = await axios.post("http://localhost:4000/send-otp", {
+      setCount(10);
+      await axios.post("https://plashoes-server.onrender.com/otp", {
         email: inputs.email,
       });
-      if (response.status === 202) {
-        setCount(10);
-      }
     } catch (err) {
       console.log(err);
       handleNetworkErr();

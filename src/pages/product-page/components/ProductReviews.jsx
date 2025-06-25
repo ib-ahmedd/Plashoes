@@ -6,7 +6,7 @@ const ProductReviews = ({ divStyles }) => {
   const { comments } = useContext(ProductPageContext);
   return (
     <div className="product-review" style={divStyles}>
-      {comments.length > 0 ? (
+      {comments && comments.length > 0 ? (
         <Reviews />
       ) : (
         <p className="review-sf">There are no reviews yet.</p>

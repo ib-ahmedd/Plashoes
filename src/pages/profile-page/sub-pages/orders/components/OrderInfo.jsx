@@ -19,7 +19,7 @@ const OrderInfo = ({
           <p className="order-price">Price: ${totalprice}</p>
           <p>Quantity: {quantity}</p>
           <p>Status: {order_status}</p>
-          <p className="order-date">On {date_ordered}</p>
+          <p className="order-date">On {date_ordered.slice(0, 10)}</p>
         </span>
       </span>
       <span className="buttons-span">

@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../../../App";
 
-const AddedToCart = ({ quantity, productName }) => {
+const AddedToCart = ({ quantity, product_name }) => {
   const { handleMouseDown } = useContext(AppContext);
   const [clicked, setClicked] = useState(false);
   return (
@@ -12,7 +12,7 @@ const AddedToCart = ({ quantity, productName }) => {
       <span>
         <FontAwesomeIcon icon={faCircleCheck} className="cart-check-icon" />
         <p>
-          {quantity} x "{productName}" {quantity > 1 ? "have" : "has"} been
+          {quantity} x "{product_name}" {quantity > 1 ? "have" : "has"} been
           added to your cart.
         </p>
       </span>
